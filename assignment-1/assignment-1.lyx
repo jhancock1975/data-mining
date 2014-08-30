@@ -126,7 +126,7 @@ Determine the misclassification error rates for both types of misclassifications
 \end_layout
 
 \begin_layout Subsubsection*
-Misclassification Rates:
+Misclassification Rates
 \end_layout
 
 \begin_layout Standard
@@ -236,7 +236,30 @@ actual class nonACL
 \end_layout
 
 \begin_layout Paragraph*
-False Negative Rate 0.391:
+Type I / False Positive Rate = 0.096
+\end_layout
+
+\begin_layout Standard
+Assignment 1 tells us a false positive classification is classifying a nonACL
+ module as an ACL module.
+ 7 nonACL modules are classified as ACL module.
+ 
+\end_layout
+
+\begin_layout Standard
+There are a total of 
+\begin_inset Formula $7+66=73$
+\end_inset
+
+ true nonACL module in the data, therefore the type I error rate is 
+\begin_inset Formula $\frac{7}{73}\approx0.096$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Type II / False Negative Rate = 0.391
 \end_layout
 
 \begin_layout Standard
@@ -259,27 +282,8 @@ We have a total of
 .
 \end_layout
 
-\begin_layout Paragraph*
-False Positive Rate 0.096:
-\end_layout
-
-\begin_layout Standard
-Assignment 1 tells us a false positive classification is classifying a nonACL
- module as an ACL module.
- 7 nonACL modules are classified as ACL module.
- There are a total of 
-\begin_inset Formula $7+66=73$
-\end_inset
-
- true nonACL module in the data, therefore the type I error rate is 
-\begin_inset Formula $\frac{7}{73}\approx0.096$
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Subsubsection*
-Area Under ROC Curve 0.781:
+Area Under ROC Curve = 0.781
 \end_layout
 
 \begin_layout Standard
@@ -287,9 +291,52 @@ The assignment defines a type I / false positive error as classifying nonACL
  as ACL.
  This means that ACL is the positive class.
  The ROC curve is a plot of false positive rates to true positive rates.
- Therefore we are interested in the ROC  curve associated with the positive
+ Therefore we are interested in the ROC curve associated with the positive
  class, ACL.
  In the Weka classifier output, the number is 0.781.
+\end_layout
+
+\begin_layout Subsubsection*
+Decision Tree Representation and Attributes
+\end_layout
+
+\begin_layout Standard
+Part 1 of the assignment requires us to record the number of leaves and
+ nodes in the selected tree, and to produce a representation of the tree
+ the same way as the text book.
+ 
+\end_layout
+
+\begin_layout Standard
+We found an image of a decision tree generated from applying the J48 algorithm
+ in the text which one may locate using the bibliograhic information in
+ reference [1].
+\end_layout
+
+\begin_layout Standard
+Weka has a feature for drawing the decision trees it computes for data sets.
+ Weka produces the diagram in figure 1 below for when we use it to apply
+ the J48(C4.5) algorithm to the Lymphoma96x4026.arff dataset.
+ 
+\end_layout
+
+\begin_layout Standard
+We can count the number of nodes and leaves in figure 1 to record the number
+ of nodes and leaves.
+ There are 13 nodes and 7 of these are leaves.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+figure 1.
 \end_layout
 
 \begin_layout Section*
@@ -346,6 +393,15 @@ Conclusions
 
 \begin_layout Section*
 References
+\end_layout
+
+\begin_layout Standard
+[1] I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 10 p.379 fig.
+ 10 6(a).
 \end_layout
 
 \end_body
