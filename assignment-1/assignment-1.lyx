@@ -275,7 +275,21 @@ Assignment 1 tells us a false positive classification is classifying a nonACL
 \begin_inset Formula $\frac{7}{73}\approx0.96$
 \end_inset
 
- .
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Area Under ROC Curve 0.781:
+\end_layout
+
+\begin_layout Standard
+The assignment defines a type I / false positive error as classifying nonACL
+ as ACL.
+ This means that ACL is the positive class.
+ The ROC curve is a plot of false positive rates to true positive rates.
+ Therefore we are interested in the ROC area number associated with the
+ positive class, ACL.
+ In the Weka classifier output, the number is 0.781.
 \end_layout
 
 \begin_layout Section*
