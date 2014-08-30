@@ -77,7 +77,12 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use Weka tool for data mining.
+In this assignment we use Weka tool for data mining for classifying a dataset
+ where the instances in the set are comprised of individuals' biometric
+ information and whether or not the individuals are positive for a form
+ of cancer.
+ We use weka to classifiy the individuals as testing positive or negative
+ for cancer based on the biometric information.
  We investigate the effect of changing algorithm parameters on classification
  results.
 \end_layout
@@ -86,11 +91,226 @@ In this assignment we use Weka tool for data mining.
 Introduction
 \end_layout
 
-\begin_layout Section*
-Methodology
+\begin_layout Standard
+The Weka data mining tool has many built in machine learning classification
+ algorithms.
+ We use the J48 (C4.5) algorithm for this assignment.
+ Over the four parts of this assignment we will add, and change parameters
+ to this algorithm and report on the effects of the changes.
 \end_layout
 
 \begin_layout Section*
+Part 1: Initial Tree
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using the J48 (C4.5) classifier algorithm.
+ We import the data into Weka, and run J48 on the data using default settings
+ to generate the raw data for the results below.
+ We do some calcuations on the raw data.
+ Please see the next section for results.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Standard
+Determine the misclassification error rates for both types of misclassifications
+ from the confusion matrix.:
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates:
+\end_layout
+
+\begin_layout Standard
+For the Lymphoma96x4026.arff dataset, using J48(C4.5) classifier, Weka produces
+ the following confusion matrix:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+classified as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+False Negative Rate 0.391:
+\end_layout
+
+\begin_layout Standard
+Assignment 1 tells us a false negative error is classifying an ACL module
+ as nonACL.
+ 
+\end_layout
+
+\begin_layout Standard
+We have a total of 
+\begin_inset Formula $14+9=23$
+\end_inset
+
+ truly ACL modules in our data.
+ 9 of the truly ACL modules are classified as nonACL.
+ So the type II error rate is 
+\begin_inset Formula $\frac{9}{23}\approx0.391$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+False Positive Rate 0.96:
+\end_layout
+
+\begin_layout Standard
+Assignment 1 tells us a false positive classification is classifying a nonACL
+ module as an ACL module.
+ 7 nonACL modules are classified as ACL module.
+ There are a total of 
+\begin_inset Formula $7+66=73$
+\end_inset
+
+ true nonACL module in the data, therefore the type I error rate is 
+\begin_inset Formula $\frac{7}{73}\approx0.96$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Section*
+Part 2: Unpruned Tree
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Section*
+Part 3: Confidence Factor
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Section*
+Part 4: Cost Sensitivity
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Subsection*
 Results
 \end_layout
 
