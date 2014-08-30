@@ -111,8 +111,7 @@ Methodology
 For this part of the assignment we use Weka to build a classification model
  using the J48 (C4.5) classifier algorithm.
  We import the data into Weka, and run J48 on the data using default settings
- to generate the raw data for the results below.
- We do some calcuations on the raw data.
+ to generate the data in the results below.
  Please see the next section for results.
 \end_layout
 
@@ -290,14 +289,15 @@ Area Under ROC Curve = 0.781
 The assignment defines a type I / false positive error as classifying nonACL
  as ACL.
  This means that ACL is the positive class.
- The ROC curve is a plot of false positive rates to true positive rates.
+ The ROC curve is a plot of false positive rates to true positive rates
+ [1].
  Therefore we are interested in the ROC curve associated with the positive
  class, ACL.
  In the Weka classifier output, the number is 0.781.
 \end_layout
 
 \begin_layout Subsubsection*
-Decision Tree Representation and Attributes
+Decision Tree Nodes/Leaves and Representation 
 \end_layout
 
 \begin_layout Standard
@@ -320,10 +320,18 @@ Weka has a feature for drawing the decision trees it computes for data sets.
  
 \end_layout
 
+\begin_layout Paragraph*
+13 Nodes and 7 Leaves:
+\end_layout
+
 \begin_layout Standard
 We can count the number of nodes and leaves in figure 1 to record the number
  of nodes and leaves.
  There are 13 nodes and 7 of these are leaves.
+\end_layout
+
+\begin_layout Subsubsection*
+Representation of Tree
 \end_layout
 
 \begin_layout Standard
@@ -347,8 +355,272 @@ Part 2: Unpruned Tree
 Methodology
 \end_layout
 
+\begin_layout Standard
+For part 2, in the Weka tool, we set the unpruned option to true for the
+ J48 algorithm and apply it to the Lymphoma96x4026.arff again.
+ 
+\end_layout
+
 \begin_layout Subsection*
 Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+Although we set the unpruned option to true, there is no change to the confusion
+ matrix that Weka produces.
+ It is identical to the one we have in Part 1:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+classified as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Type I / False Positive Rate = 0.096
+\end_layout
+
+\begin_layout Standard
+Because the confusion matrix is unchanged, the false positive error rate
+ is also unchanged.
+\end_layout
+
+\begin_layout Paragraph*
+Type II / False Negative Rate = 0.391
+\end_layout
+
+\begin_layout Standard
+The false negative rate is also unchanged from what we have in Part 1.
+\end_layout
+
+\begin_layout Subsubsection*
+Area Under ROC Curve = 0.773 
+\end_layout
+
+\begin_layout Standard
+For the same reason that we give in Part 1, we choose the ROC area figure
+ associated with the ACL class in the classification output Weka produces.
+ 
+\end_layout
+
+\begin_layout Standard
+It is interesting to note that this number is different from the area under
+ ROC curve number Weka produces for J48 with unpruned equal to false in
+ Part 1.
+ 
+\end_layout
+
+\begin_layout Standard
+The ROC curve is a plot of false positive error rates versus true positive
+ error rates [1].
+ 
+\end_layout
+
+\begin_layout Standard
+On one hand, Weka produces a confusion matrix identical to the one we have
+ in Part 1 for Part 2.
+ From this we cacluate false positive, false negative, true positive and
+ true negative error rates identical to those we calculate from the confusion
+ matrix in Part 1.
+ 
+\end_layout
+
+\begin_layout Standard
+On the other hand, the fact that the area under the ROC curve Weka reports
+ for J48 algorithm when we change the unpruned option from true to false
+ means that there must be some differences in false positive and true positive
+ rates used to generate ROC cuve points when Weka is using J48 to process
+ the Lymphoma96x4026.arff dataset.
+ We know there must be a difference because if two curves have different
+ areas under them, they cannot consist of the same sets of points.
+\end_layout
+
+\begin_layout Subsubsection*
+Decision Tree Nodes/Leaves and Representation 
+\end_layout
+
+\begin_layout Standard
+The resulting tree is identical to the one Weka generates in Part 1
+\end_layout
+
+\begin_layout Paragraph*
+13 Nodes and 7 Leaves: 
+\end_layout
+
+\begin_layout Standard
+We can count the nodes and leaves in figure 2 below.
+\end_layout
+
+\begin_layout Subsubsection*
+Representation of Tree
+\end_layout
+
+\begin_layout Standard
+The tree Weka produces is identical to the tree in figure 1.
+ We present a larger image of the tree in figure 2, and then smaller images
+ of both trees side by side to make it obvious that the trees are identical.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 2: decision tree with unpruned set to true.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 3: comparision of generated trees.
 \end_layout
 
 \begin_layout Section*
@@ -359,8 +631,171 @@ Part 3: Confidence Factor
 Methodology
 \end_layout
 
+\begin_layout Standard
+For part 3, we set the confidence factor to 0.01 and follow the same steps
+ in part 2 to generate the data in the results below.
+\end_layout
+
 \begin_layout Subsection*
 Results
+\end_layout
+
+\begin_layout Standard
+Overall, we do not see any difference in results when we change the confidence
+ factor
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+The confusion matrix after changing the confidence factor is unchanged from
+ parts one and 2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+classified as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Type I / False Positive Rate = 0.096
+\end_layout
+
+\begin_layout Standard
+The false positive rate is unchanged because the confusion matrix is unchanged.
+\end_layout
+
+\begin_layout Paragraph*
+Type II / False Negative Rate = 0.391
+\end_layout
+
+\begin_layout Standard
+The false negative error rate remains what we have in Part 1 and Part 2,
+ also because the confusion matrix here in Part 3 is identical to what we
+ have in Parts 1 and 2.
+\end_layout
+
+\begin_layout Subsubsection*
+Area Under ROC Curve =0.773
+\end_layout
+
+\begin_layout Standard
+The area under the ROC curve is the same here as it is in Part 2, so changing
+ the confidence factor has less of an effect that changing the unpruned
+ option.
+ As we see in Part 2, changing the unpruned option causes the area under
+ the ROC curve that Weka reports to change.
+ Here there is no change.
+\end_layout
+
+\begin_layout Subsubsection*
+Decision Tree Nodes/Leaves and Representation 
+\end_layout
+
+\begin_layout Paragraph*
+X Nodes and Y Leaves:
+\end_layout
+
+\begin_layout Subsubsection*
+Representation of Tree
 \end_layout
 
 \begin_layout Section*
@@ -375,16 +810,32 @@ Methodology
 Results
 \end_layout
 
-\begin_layout Subsection*
-Fit Data
+\begin_layout Subsubsection*
+Misclassification Rates
 \end_layout
 
-\begin_layout Subsection*
-Test Data
+\begin_layout Paragraph*
+Type I / False Positive Rate = 
 \end_layout
 
-\begin_layout Subsection*
-Comparison of Results for Fit and Test Data
+\begin_layout Paragraph*
+Type II / False Negative Rate = 
+\end_layout
+
+\begin_layout Subsubsection*
+Area Under ROC Curve =
+\end_layout
+
+\begin_layout Subsubsection*
+Decision Tree Nodes/Leaves and Representation 
+\end_layout
+
+\begin_layout Paragraph*
+X Nodes and Y Leaves:
+\end_layout
+
+\begin_layout Subsubsection*
+Representation of Tree
 \end_layout
 
 \begin_layout Section*
@@ -396,12 +847,36 @@ References
 \end_layout
 
 \begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
 [1] I.
  Witten and E.
  Frank, Data Mining (second edition).
  San Francisco: Elsevier, 2005, ch.
+ 5 p.169 fig.
+ 5.2.
+\end_layout
+
+\begin_layout Standard
+[2] I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
  10 p.379 fig.
- 10 6(a).
+ 10.6(a).
 \end_layout
 
 \end_body
