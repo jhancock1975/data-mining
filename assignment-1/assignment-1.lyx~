@@ -115,13 +115,14 @@ For this part of the assignment we use Weka to build a classification model
  Please see the next section for results.
 \end_layout
 
-\begin_layout Subsection*
-Results
+\begin_layout Standard
+Note: In light of parts 2 and 3 of this assignment, for the results in this
+ section, J48 options in Weka tool include unpruned set to false and confidence
+ factor set to 0.25.
 \end_layout
 
-\begin_layout Standard
-Determine the misclassification error rates for both types of misclassifications
- from the confusion matrix.:
+\begin_layout Subsection*
+Results
 \end_layout
 
 \begin_layout Subsubsection*
@@ -131,6 +132,10 @@ Misclassification Rates
 \begin_layout Standard
 For the Lymphoma96x4026.arff dataset, using J48(C4.5) classifier, Weka produces
  the following confusion matrix:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -232,6 +237,24 @@ actual class nonACL
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Assignment 1 requirements document states, 
+\begin_inset Quotes eld
+\end_inset
+
+Type I (False Positive): a nonACL module is classified as ACL.
+\begin_inset Quotes erd
+\end_inset
+
+ Hence, ACL must be the positive class, because this statement says that
+ something is classified as positive and it is classified in the ACL class.
+ Since ACL must be the positive class, nonACL must be the negative class.
 \end_layout
 
 \begin_layout Paragraph*
@@ -282,18 +305,141 @@ We have a total of
 \end_layout
 
 \begin_layout Subsubsection*
-Area Under ROC Curve = 0.781
+Area Under ROC Curve
+\end_layout
+
+\begin_layout Standard
+Weka produces 3 results for the area under the receiver operating characteristic
+ (ROC) curve.
+ Here are the ROC area numbers when we run the J48 classifier with unpruned
+ set to false and confidence factor set to 0.25 on the Lymphoma96x4026.arff
+ dataset:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ROC Area
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.781
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.777
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weighted Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.778
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 The assignment defines a type I / false positive error as classifying nonACL
  as ACL.
  This means that ACL is the positive class.
- The ROC curve is a plot of false positive rates to true positive rates
- [1].
- Therefore we are interested in the ROC curve associated with the positive
- class, ACL.
+ Hence nonACL is the negative class.
+ In the text we see an ROC curve presented as a plot of false positive rates
+ to true positive rates [1].
+ In that context we are interested in the ROC curve associated with the
+ positive class, ACL.
  In the Weka classifier output, the number is 0.781.
+\end_layout
+
+\begin_layout Standard
+See the section titled 
+\begin_inset Quotes eld
+\end_inset
+
+Area under ROC Curve Comparison,
+\begin_inset Quotes erd
+\end_inset
+
+ for a comparison of ROC curve areas for the three different parameter settings
+ we set for the J48 algorithm.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -308,16 +454,17 @@ Part 1 of the assignment requires us to record the number of leaves and
 \end_layout
 
 \begin_layout Standard
-We found an image of a decision tree generated from applying the J48 algorithm
- in the text which one may locate using the bibliograhic information in
- reference [1].
+There is an image of a decision tree in a discussion of using Weka to apply
+ the J48 algorithm to data in the text.
+ One may locate this image using the bibliograhic information in reference
+ [1].
 \end_layout
 
 \begin_layout Standard
 Weka has a feature for drawing the decision trees it computes for data sets.
  Weka produces the diagram in figure 1 below for when we use it to apply
  the J48(C4.5) algorithm to the Lymphoma96x4026.arff dataset.
- 
+ This digram is like the one in the text noted in reference [1].
 \end_layout
 
 \begin_layout Paragraph*
@@ -344,7 +491,7 @@ Representation of Tree
 \end_layout
 
 \begin_layout Standard
-figure 1.
+Figure 1: Decision tree for J48 Algorithm, unpruned=false, confidenceFactor=0.25
 \end_layout
 
 \begin_layout Section*
@@ -373,6 +520,10 @@ Misclassification Rates
 Although we set the unpruned option to true, there is no change to the confusion
  matrix that Weka produces.
  It is identical to the one we have in Part 1:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -474,6 +625,10 @@ actual class nonACL
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -494,31 +649,126 @@ The false negative rate is also unchanged from what we have in Part 1.
 \end_layout
 
 \begin_layout Subsubsection*
-Area Under ROC Curve = 0.773 
+Area Under ROC Curve
 \end_layout
 
 \begin_layout Standard
-For the same reason that we give in Part 1, we choose the ROC area figure
- associated with the ACL class in the classification output Weka produces.
- 
+Here are the ROC area numbers when we run the J48 classifier with unpruned
+ set to true.
+ on the Lymphoma96x4026.arff dataset:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-It is interesting to note that this number is different from the area under
- ROC curve number Weka produces for J48 with unpruned equal to false in
- Part 1.
- 
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ROC Area
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.773
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.769
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weighted Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The ROC curve is a plot of false positive error rates versus true positive
- error rates [1].
+It is interesting that these numbers are different from the area under ROC
+ curve numbers Weka produces for J48 with unpruned equal to false in part
+ 1.
  
 \end_layout
 
 \begin_layout Standard
 On one hand, Weka produces a confusion matrix identical to the one we have
- in Part 1 for Part 2.
+ in part 1 for part 2.
  From this we cacluate false positive, false negative, true positive and
  true negative error rates identical to those we calculate from the confusion
  matrix in Part 1.
@@ -526,13 +776,33 @@ On one hand, Weka produces a confusion matrix identical to the one we have
 \end_layout
 
 \begin_layout Standard
-On the other hand, the fact that the area under the ROC curve Weka reports
- for J48 algorithm when we change the unpruned option from true to false
- means that there must be some differences in false positive and true positive
- rates used to generate ROC cuve points when Weka is using J48 to process
- the Lymphoma96x4026.arff dataset.
- We know there must be a difference because if two curves have different
- areas under them, they cannot consist of the same sets of points.
+On the other hand, the fact that Weka reports different areas under the
+ ROC curves when we change the unpruned option from false to true means
+ that there must be some differences in false positive and true positive
+ rates.
+ We know from [1] that ROC curves are plots of metrics such as false positive
+ rates versus true positive rates.
+ Therefore we know the curves must be different because if two curves have
+ different areas under them, they cannot consist of the same sets of points.
+ Since the curves involve error rates, we hypothesize that there must be
+ some differences in error rates Weka is using to cacluate the areas under
+ the ROC curves for parts 1 and 2.
+ However, we also note that this hypothesis is strange in the light of the
+ identical confusion matrices, and hence error rates, we calculate in parts
+ 1 and 2.
+\end_layout
+
+\begin_layout Standard
+See the section titled 
+\begin_inset Quotes eld
+\end_inset
+
+Area under ROC Curve Comparison,
+\begin_inset Quotes erd
+\end_inset
+
+ for a comparison of ROC curve areas for the three different parameter settings
+ we set for the J48 algorithm.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -632,28 +902,358 @@ Methodology
 \end_layout
 
 \begin_layout Standard
-For part 3, we set the confidence factor to 0.01 and follow the same steps
- in part 2 to generate the data in the results below.
+For part 3, in the J48 options we set the confidence factor to 0.01, unpruned
+ to false, and follow the same steps in part 1 to generate the data in the
+ results below.
 \end_layout
 
 \begin_layout Subsection*
 Results
 \end_layout
 
+\begin_layout Standard
+Overall, we do not see any difference in results when we change the confidence
+ factor to 0.01.
+ There is no change to the decision tree Weka produces.
+\end_layout
+
+\begin_layout Standard
+The assignment 1 requirements document specifies that we must discuss some
+ facts about the decision tree Weka produces.
+ The list below addresses these requirements.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+How does the size of the new tree compare to one built in Part 1?
+\series bold
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The size of the tree is unchanged.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+After the question, there is a requirement to explain why the size of the
+ tree is different.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since the size of the tree is unchanged, we are unable to make an explanation.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What part was pruned?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since we do not see a change in the size or structure of the tree, the answer
+ to this question is that no part is pruned.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+See section 3a for further investigation of changing the confidence factor.
+\end_layout
+
+\begin_layout Standard
+When we reduced the confidence factor to 0.001, we see Weka make a change
+ to the decision tree it generates for the Lymphoma96x4026.arff dataset.
+ Please see the next section, titled, 
+\begin_inset Quotes eld
+\end_inset
+
+Part 3(a) - Further Reduction of Confidence Factor,
+\begin_inset Quotes erd
+\end_inset
+
+ for details on the effect of lowering the confidence factor to 0.001.
+\end_layout
+
 \begin_layout Subsubsection*
 Misclassification Rates
 \end_layout
 
-\begin_layout Paragraph*
-Type I / False Positive Rate = 
+\begin_layout Standard
+The confusion matrix after changing the confidence factor is unchanged from
+ parts one and 2:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+classified as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
-Type II / False Negative Rate = 
+Type I / False Positive Rate = 0.096
+\end_layout
+
+\begin_layout Standard
+The false positive rate is unchanged because the confusion matrix is unchanged.
+\end_layout
+
+\begin_layout Paragraph*
+Type II / False Negative Rate = 0.391
+\end_layout
+
+\begin_layout Standard
+The false negative error rate remains what we have in Part 1 and Part 2,
+ also because the confusion matrix here in Part 3 is identical to what we
+ have in Parts 1 and 2.
 \end_layout
 
 \begin_layout Subsubsection*
-Area Under ROC Curve =
+Area Under ROC Curve
+\end_layout
+
+\begin_layout Standard
+Here are the ROC area numbers when we use run Weka's J48 classifier with
+ unpruned set to false and confidenceFactor set to 0.01 on the Lymphoma96x4026.arf
+f dataset:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ROC Area
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.773
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.769
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weighted Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The areas under the ROC curves are the same here as it is in Part 2, so
+ changing the confidence factor, and switching unpruned back to false has
+ less of an effect that changing the unpruned option.
+ As we see in Part 2, changing the unpruned option causes the area under
+ the ROC curve that Weka reports to change.
+ Here there is no change.
+\end_layout
+
+\begin_layout Standard
+See the section titled 
+\begin_inset Quotes eld
+\end_inset
+
+Area under ROC Curve Comparison,
+\begin_inset Quotes erd
+\end_inset
+
+ for a comparison of ROC curve areas for the three different parameter settings
+ we set for the J48 algorithm.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -661,11 +1261,764 @@ Decision Tree Nodes/Leaves and Representation
 \end_layout
 
 \begin_layout Paragraph*
-X Nodes and Y Leaves:
+13 Nodes and 7 Leaves
+\end_layout
+
+\begin_layout Standard
+The decision tree has the same number of nodes and leaves as the previous
+ sections.
 \end_layout
 
 \begin_layout Subsubsection*
 Representation of Tree
+\end_layout
+
+\begin_layout Standard
+As required, here is a representation of the tree.
+ It is not different from the tree in Parts 1 and 2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 4: decision tree for J48 Algorithm, unpruned=false, confidenceFactor=0.01
+\end_layout
+
+\begin_layout Section*
+Part 3(a) - Further Reduction of Confidence Factor
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+We lower the confidence factor to 0.001.
+ Otherwise, we use the same methodology as in Part 3.
+ Please see the results below.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Standard
+Now that we have a change in the decision tree, we have different answers
+ to the questions in Part 3 of the Assignment 1 requirements document.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+How does the size of the new tree compare to one built in Part 1?
+\series bold
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The size of the tree changes from 13 nodes to 11 nodes.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+After the question, there is a requirement to explain why the size of the
+ tree is different.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When we click the button labled, 
+\begin_inset Quotes eld
+\end_inset
+
+more,
+\begin_inset Quotes erd
+\end_inset
+
+ in the J48 options in Weka, we see the following description of the confidenceF
+actor setting: 
+\begin_inset Quotes eld
+\end_inset
+
+The confidence factor used for pruning (smaller values incur more pruning).
+\begin_inset Quotes erd
+\end_inset
+
+ So the size of the tree is smaller because we lowered the confidenceFactor
+ value.
+ This caused Weka to perform more pruning.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What part was pruned?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If we compare Figure 5 below with Figures 1, 2, or 4, we see that the node
+ at the bottom level of the decsion tree, labled GENE3732x and its child
+ nodes are pruned.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+The confusion matrix after changing the confidence factor to 0.001 is:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+classified as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+actual class nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+63
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Type I / False Positive Rate = 0.137
+\end_layout
+
+\begin_layout Standard
+There are a total of 
+\begin_inset Formula $10+63=73$
+\end_inset
+
+ actual nonACL instances in the data, therefore the type I error rate is
+ 
+\begin_inset Formula $\frac{10}{73}\approx0.137$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Type II / False Negative Rate = 0.391
+\end_layout
+
+\begin_layout Standard
+We have a total of 
+\begin_inset Formula $14+9=23$
+\end_inset
+
+ truly ACL instances in our data.
+ 9 of the truly ACL modules are classified as nonACL.
+ So the type II error rate is 
+\begin_inset Formula $\frac{9}{23}\approx0.391$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Area Under ROC Curve
+\end_layout
+
+\begin_layout Standard
+Weka produces 3 results for the area under the receiver operating characteristic
+ (ROC) curve.
+ Here are the ROC area numbers when we run the J48 classifier with unpruned
+ set to false and confidence factor set to 0.001 on the Lymphoma96x4026.arff
+ dataset:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ROC Area
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.766
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.762
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weighted Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.763
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lowering the confidence factor to 0.001 has the effect of lowering the area
+ under the ROC curves.
+ In Part 1, the ROC area values for ACL, nonACL, and Weighted Average are
+ 0.781, 0.777, and 0.778, respectively.
+\end_layout
+
+\begin_layout Standard
+See the section titled 
+\begin_inset Quotes eld
+\end_inset
+
+Area under ROC Curve Comparison,
+\begin_inset Quotes erd
+\end_inset
+
+ for a comparison of ROC curve areas for the three different parameter settings
+ we set for the J48 algorithm.
+\end_layout
+
+\begin_layout Subsubsection*
+Decision Tree Nodes/Leaves and Representation 
+\end_layout
+
+\begin_layout Paragraph*
+11 Nodes and 6 Leaves
+\end_layout
+
+\begin_layout Standard
+We count the number of nodes and leaves in the digram below to ascertain
+ that the tree has 11 nodes and 6 leaves.
+ Weka also reports these numbers in the classifier output.
+\end_layout
+
+\begin_layout Subsubsection*
+Representation of Tree
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 5: decision tree for J48 algorithm, unpruned=false, confidenceFactor=0.001
+\end_layout
+
+\begin_layout Section*
+Area under ROC Curve Comparison
+\end_layout
+
+\begin_layout Standard
+In this section we present a summary comparision of the changes Weka reports
+ in areas under ROC curves
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+J48 Setting
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Part 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Part 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Part3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Part3(a)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+unpruned
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+false
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+true
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+false
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+false
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+confidenceFactor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+n/a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.001
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.781
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.773
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.773
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.766
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nonACL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.777
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.769
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.769
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.762
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+weighted Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.778
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.763
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An area under ROC curve value closer to one implies better performance [3].
+\end_layout
+
+\begin_layout Standard
+We see that Weka reports the highest area under ROC curve values when we
+ use it with J48 with options set in Part 1 (unpruned=false, confidenceFactor=0.2
+5).
+ 
 \end_layout
 
 \begin_layout Section*
@@ -747,6 +2100,15 @@ References
  San Francisco: Elsevier, 2005, ch.
  10 p.379 fig.
  10.6(a).
+\end_layout
+
+\begin_layout Standard
+[3] 
+\shape italic
+The Area Under an ROC Curve
+\shape default
+ [Online].
+ Available: http://gim.unmc.edu/dxtests/roc3.htm
 \end_layout
 
 \end_body
