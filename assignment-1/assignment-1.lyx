@@ -237,6 +237,10 @@ actual class nonACL
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Table 1: Part 1 Confusion Matrix
 \begin_inset Newline newline
 \end_inset
 
@@ -258,7 +262,7 @@ Type I (False Positive): a nonACL module is classified as ACL.
 \end_layout
 
 \begin_layout Paragraph*
-Type I / False Positive Rate = 0.096
+Type I / False Positive Rate = 9.60%
 \end_layout
 
 \begin_layout Standard
@@ -273,7 +277,7 @@ There are a total of
 \begin_inset Formula $7+66=73$
 \end_inset
 
- true nonACL module in the data, therefore the type I error rate is 
+ true nonACL module in the data, therefore the Type I error rate is 
 \begin_inset Formula $\frac{7}{73}\approx0.096$
 \end_inset
 
@@ -281,7 +285,7 @@ There are a total of
 \end_layout
 
 \begin_layout Paragraph*
-Type II / False Negative Rate = 0.391
+Type II / False Negative Rate = 39.1%
 \end_layout
 
 \begin_layout Standard
@@ -297,7 +301,7 @@ We have a total of
 
  truly ACL modules in our data.
  9 of the truly ACL modules are classified as nonACL.
- So the type II error rate is 
+ So the Type II error rate is 
 \begin_inset Formula $\frac{9}{23}\approx0.391$
 \end_inset
 
@@ -411,6 +415,10 @@ Weighted Average
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Table 2: Part 1 Areas under ROC Curves
 \begin_inset Newline newline
 \end_inset
 
@@ -418,7 +426,7 @@ Weighted Average
 \end_layout
 
 \begin_layout Standard
-The assignment defines a type I / false positive error as classifying nonACL
+The assignment defines a Type I / false positive error as classifying nonACL
  as ACL.
  This means that ACL is the positive class.
  Hence nonACL is the negative class.
@@ -503,7 +511,7 @@ Methodology
 \end_layout
 
 \begin_layout Standard
-For part 2, in the Weka tool, we set the unpruned option to true for the
+For Part 2, in the Weka tool, we set the unpruned option to true for the
  J48 algorithm and apply it to the Lymphoma96x4026.arff again.
  
 \end_layout
@@ -625,14 +633,14 @@ actual class nonACL
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+Table 3: Part 2 Confusion Matrix
 \end_layout
 
 \begin_layout Paragraph*
-Type I / False Positive Rate = 0.096
+Type I / False Positive Rate = 9.60%
 \end_layout
 
 \begin_layout Standard
@@ -641,7 +649,7 @@ Because the confusion matrix is unchanged, the false positive error rate
 \end_layout
 
 \begin_layout Paragraph*
-Type II / False Negative Rate = 0.391
+Type II / False Negative Rate = 39.1%
 \end_layout
 
 \begin_layout Standard
@@ -753,6 +761,10 @@ Weighted Average
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Table 4: Part 2 Areas under ROC Curves
 \begin_inset Newline newline
 \end_inset
 
@@ -761,14 +773,14 @@ Weighted Average
 
 \begin_layout Standard
 It is interesting that these numbers are different from the area under ROC
- curve numbers Weka produces for J48 with unpruned equal to false in part
+ curve numbers Weka produces for J48 with unpruned equal to false in Part
  1.
  
 \end_layout
 
 \begin_layout Standard
 On one hand, Weka produces a confusion matrix identical to the one we have
- in part 1 for part 2.
+ in Part 1 for Part 2.
  From this we cacluate false positive, false negative, true positive and
  true negative error rates identical to those we calculate from the confusion
  matrix in Part 1.
@@ -903,7 +915,7 @@ Methodology
 
 \begin_layout Standard
 For part 3, in the J48 options we set the confidence factor to 0.01, unpruned
- to false, and follow the same steps in part 1 to generate the data in the
+ to false, and follow the same steps in Part 1 to generate the data in the
  results below.
 \end_layout
 
@@ -1099,14 +1111,14 @@ actual class nonACL
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+Table 5: Part 3 Confusion Matrix
 \end_layout
 
 \begin_layout Paragraph*
-Type I / False Positive Rate = 0.096
+Type I / False Positive Rate = 9.60%
 \end_layout
 
 \begin_layout Standard
@@ -1114,7 +1126,7 @@ The false positive rate is unchanged because the confusion matrix is unchanged.
 \end_layout
 
 \begin_layout Paragraph*
-Type II / False Negative Rate = 0.391
+Type II / False Negative Rate = 39.10%
 \end_layout
 
 \begin_layout Standard
@@ -1228,10 +1240,10 @@ Weighted Average
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+Table 6: Part 3 Areas under ROC Curves
 \end_layout
 
 \begin_layout Standard
@@ -1490,14 +1502,14 @@ actual class nonACL
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+Table 7: Part 3(a) Confusion Matrix
 \end_layout
 
 \begin_layout Paragraph*
-Type I / False Positive Rate = 0.137
+Type I / False Positive Rate = 13.70%
 \end_layout
 
 \begin_layout Standard
@@ -1505,7 +1517,7 @@ There are a total of
 \begin_inset Formula $10+63=73$
 \end_inset
 
- actual nonACL instances in the data, therefore the type I error rate is
+ actual nonACL instances in the data, therefore the Type I error rate is
  
 \begin_inset Formula $\frac{10}{73}\approx0.137$
 \end_inset
@@ -1514,7 +1526,7 @@ There are a total of
 \end_layout
 
 \begin_layout Paragraph*
-Type II / False Negative Rate = 0.391
+Type II / False Negative Rate = 39.10%
 \end_layout
 
 \begin_layout Standard
@@ -1524,7 +1536,7 @@ We have a total of
 
  truly ACL instances in our data.
  9 of the truly ACL modules are classified as nonACL.
- So the type II error rate is 
+ So the Type II error rate is 
 \begin_inset Formula $\frac{9}{23}\approx0.391$
 \end_inset
 
@@ -1638,10 +1650,10 @@ Weighted Average
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+Table 8: Part 3(a) Areas under ROC Curves
 \end_layout
 
 \begin_layout Standard
@@ -2004,6 +2016,10 @@ weighted Average
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Table 9: Comparison of Areas Under ROC curves
 \begin_inset Newline newline
 \end_inset
 
@@ -2029,36 +2045,419 @@ Part 4: Cost Sensitivity
 Methodology
 \end_layout
 
+\begin_layout Standard
+In this section we configure Weka to use a a cost sensitive classifier to
+ determine the optimal cost ratio.
+ We configure the cost sensitive classifier to use a J48 classifier with
+ unpruned set to false and confidenceFactor set to 0.25.
+ These are the same settings we use in Part 1.
+\end_layout
+
+\begin_layout Standard
+We leave the cost of a Type I error fixed at 1, and change the cost of a
+ Type II error to the values 0.5, 1, 2, 4, 8, and 16.
+ We run the cost sensitive classifier on the Lymphoma96x4026.arff dataset
+ for each cost of a Type II error.
+\end_layout
+
 \begin_layout Subsection*
 Results
+\end_layout
+
+\begin_layout Standard
+In the results below we present the trend in misclassification rates.
+ 
+\end_layout
+
+\begin_layout Standard
+We then answer the question, 
+\begin_inset Quotes eld
+\end_inset
+
+What happens when the cost of a Type II error decreases/increases?
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
 Misclassification Rates
 \end_layout
 
-\begin_layout Paragraph*
-Type I / False Positive Rate = 
+\begin_layout Standard
+The table below summarizes how error rates change as the cost of a Type
+ II error increases.
 \end_layout
 
-\begin_layout Paragraph*
-Type II / False Negative Rate = 
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="7">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II Error Cost
 \end_layout
 
-\begin_layout Subsubsection*
-Area Under ROC Curve =
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
 \end_layout
 
-\begin_layout Subsubsection*
-Decision Tree Nodes/Leaves and Representation 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
 \end_layout
 
-\begin_layout Paragraph*
-X Nodes and Y Leaves:
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
 \end_layout
 
-\begin_layout Subsubsection*
-Representation of Tree
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type I / False Positive Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.3%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.6%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.5%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.2%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.5%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.5%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II / False Negative Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.1%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II Error Cost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type I / False Positive Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37.0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+64.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100.0%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II / False Negative Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 10: Changes in Error Rates as Cost of Type II Error Increases
+\end_layout
+
+\begin_layout Standard
+With the table above, we can answer the question, 
+\begin_inset Quotes eld
+\end_inset
+
+What happens when the cost of a Type II error increases/decreases.
+ The table shows that as the cost of a Type II error increases, the false
+ positive rate increases to 100%, and the false negative rate goes to 0.
+\end_layout
+
+\begin_layout Standard
+The graph below is a plot of Type II error cost versus Type I and Type II
+ errors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename test-error-rates.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
