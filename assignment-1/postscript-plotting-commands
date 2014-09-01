@@ -2,7 +2,6 @@ set term postscript eps 22
 set key center top
 set xlabel 'Type II Error Cost'
 set ylabel 'Missclassifications' # for alberg
-set output 'fit-error-rates.ps' # have to do every time
 set linestyle 1 lt 2 lw 3
 set logscale x
 set key box linestyle 1 # dashed lines around box

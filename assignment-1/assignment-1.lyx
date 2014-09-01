@@ -2070,6 +2070,11 @@ In the results below we present the trend in misclassification rates.
 \end_layout
 
 \begin_layout Standard
+Please note: for every value of a Type II error below, the value used for
+ the cost of a Type I error is 1.
+\end_layout
+
+\begin_layout Standard
 We then answer the question, 
 \begin_inset Quotes eld
 \end_inset
@@ -2088,6 +2093,8 @@ Misclassification Rates
 \begin_layout Standard
 The table below summarizes how error rates change as the cost of a Type
  II error increases.
+ We used a binary search technique to home in on regions of interest to
+ choose Type II error costs in the table below.
 \end_layout
 
 \begin_layout Standard
@@ -2305,8 +2312,11 @@ Type II / False Negative Rate
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
+<lyxtabular version="3" rows="3" columns="7">
 <features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
@@ -2325,7 +2335,207 @@ Type II Error Cost
 \begin_inset Text
 
 \begin_layout Plain Layout
+24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type I / False Positive Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37.0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.2%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37.0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+43.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46.6%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49.3%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II / False Negative Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.7%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.7%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II Error Cost
 \end_layout
 
 \end_inset
@@ -2363,15 +2573,6 @@ Type I / False Positive Rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-37.0%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 64.4%
 \end_layout
 
@@ -2401,15 +2602,6 @@ Type II / False Negative Rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-26.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 17.4%
 \end_layout
 
@@ -2419,7 +2611,7 @@ Type II / False Negative Rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0%
+0%
 \end_layout
 
 \end_inset
@@ -2460,8 +2652,69 @@ The graph below is a plot of Type II error cost versus Type I and Type II
 
 \end_layout
 
+\begin_layout Standard
+Figure 6: False Negative and False Positive Rates for Increasing Type II
+ error cost.
+\end_layout
+
+\begin_layout Subsection*
+Optimal Cost of Type II Error=32
+\end_layout
+
+\begin_layout Standard
+Assignment 1 requires us to determine a balanced misclassification rate,
+ with Type II errors as low as possible.
+ With the cost of a Type II error set to 28, we see that the error rates
+ are very close to one and other.
+ At a Type II error cost of 28, the false negative rate is 34.2% and the
+ false positive rate is 34.8%.
+ However, if we raise the cost of a Type II error to 32, we get a Type II
+ error rate of 26.1%, and the Type I error rate of 37.0%.
+ Therefore, at a Type II error cost of 32, we have approximately equal error
+ rates, but the Type II error rates are lowest in this neighborhood of Type
+ II error costs.
+ We would like to emphasize that this optimal Type II error cost is associated
+ with a Type I error cost of 1.
+\end_layout
+
+\begin_layout Section*
+Future Research
+\end_layout
+
+\begin_layout Standard
+The results we present in this assignment are based on one data set, Lymphoma96x
+4026.arff.
+ It is possible that the optimal cost ratio we find is dependant on this
+ data set.
+ In order to determine whether or not this is the case, we would require
+ more datasets.
+ For future research we would use these datasets to determine multiple optimal
+ cost ratios.
+ Furthermore, we would do ANOVA on the cost ratios to determine the significance
+ of using a particular dataset.
+\end_layout
+
 \begin_layout Section*
 Conclusions
+\end_layout
+
+\begin_layout Standard
+The results we present allow us to draw two conclusions.
+ 
+\end_layout
+
+\begin_layout Standard
+The first conclusion we draw is that changing the unpruned option from true
+ to false, or changing the value of the confidenceFactor from 0.25 to 0.01
+ int the J48 classification algorithm options has no effect on the cofusion
+ matrix Weka produces for the Lymphoma96x4026.arff dataset.
+ 
+\end_layout
+
+\begin_layout Standard
+The second conclusion we come to is that the optimal cost of a Type II error
+ for the Lymphoma96x4026.arff dataset is 32, when the cost of a Type I error
+ is 1.
 \end_layout
 
 \begin_layout Section*
@@ -2508,6 +2761,28 @@ The Area Under an ROC Curve
 \shape default
  [Online].
  Available: http://gim.unmc.edu/dxtests/roc3.htm
+\end_layout
+
+\begin_layout Standard
+[4] T.
+ M.
+ Khoshgoftaar and E.
+ B.
+ Allen, 
+\begin_inset Quotes eld
+\end_inset
+
+Classiﬁcation of Fault-Prone Software Modules: Prior Probabilities, Costs,
+ and Model Evaluation,
+\begin_inset Quotes erd
+\end_inset
+
+ in Empirical Software Engineering vol.
+ 3, Boston: Kluwer Academic Publisher 1998.
+ pp.
+ 275-298.
+ Available: http://faculty.ksu.edu.sa/ghazy/Documents/Emp%20SWE%2098/Classification
+%20of%20Fault-Prone%20Software%20Modules-%20Prior%20Probab.pdf
 \end_layout
 
 \end_body
