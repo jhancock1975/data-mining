@@ -1866,6 +1866,219 @@ Type II Error Cost
 \begin_inset Text
 
 \begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type I / False Positive Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.9%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.1%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II / False Negative Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.4%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="7">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II Error Cost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 24
 \end_layout
 
@@ -2160,6 +2373,11 @@ Table 8: Changes in Error Rates as Cost of Type II Error Increases
 \end_layout
 
 \begin_layout Standard
+For Type I percentages, we have 23 instances of the positive class.
+ For Type II percentages, we have 74 instances of the negative class.
+\end_layout
+
+\begin_layout Standard
 With the table above, we can answer the question, 
 \begin_inset Quotes eld
 \end_inset
@@ -2188,8 +2406,22 @@ Figure 5: False Negative and False Positive Rates for Increasing Type II
  error cost.
 \end_layout
 
+\begin_layout Standard
+The graph below is a restriction of the above with Type II error costs restricte
+d to the range 8-32:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename test-detail-error-rates.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection*
-Optimal Cost of Type II Error=32
+Optimal Cost of Type II Error=21.5
 \end_layout
 
 \begin_layout Standard
@@ -2199,11 +2431,15 @@ Assignment 1 requires us to determine a balanced misclassification rate,
  are very close to one and other.
  At a Type II error cost of 28, the false negative rate is 34.2% and the
  false positive rate is 34.8%.
- However, if we raise the cost of a Type II error to 32, we get a Type II
- error rate of 26.1%, and the Type I error rate of 37.0%.
- Therefore, at a Type II error cost of 32, we have approximately equal error
- rates, but the Type II error rates are lowest in this neighborhood of Type
- II error costs.
+ However, if we lower the cost of a Type II error to 21 or 21.5, we get a
+ Type II error rate of 30.4%, and the Type I error rate of 28.8%.
+ Therefore, at a Type II error cost of 21 or 21.5, we have approximately
+ equal error rates, but the Type II error rates are lowest in this neighborhood
+ of Type II error costs.
+ We feel that the higher Type II error cost, 21.5, is best.
+ For data different from what we have in the test data, we feel there would
+ be a better chance of not making a Type II error with the higher error
+ cost.
  We would like to emphasize that this optimal Type II error cost is associated
  with a Type I error cost of 1.
 \end_layout
@@ -2223,6 +2459,16 @@ The results we present in this assignment are based on one data set, Lymphoma96x
  cost ratios.
  Furthermore, we would do ANOVA on the cost ratios to determine the significance
  of using a particular dataset.
+\end_layout
+
+\begin_layout Standard
+We also noticed that for certain error costs, 21, 21.5, 23 and 24 the Type
+ II error rate is 30.4%.
+ This is interspersed with Type II error rates of 34.8% for Type II error
+ costs of 22, 22.5, and 28.
+ More data would help determine whether or not this is a coincidence, or
+ there is some kind of periodic phenomenon happening as we increase the
+ cost of Type II errors in the range from 21to 28.
 \end_layout
 
 \begin_layout Section*
