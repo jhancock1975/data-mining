@@ -82,10 +82,8 @@ Summary
 
 \begin_layout Standard
 In this assignment we use Weka tool for data mining for classifying a dataset
- where the instances in the set are comprised of individuals' biometric
- information and whether or not the individuals are positive for a form
- of cancer.
- We use weka to classifiy the individuals as testing positive or negative
+ where the instances in the set are comprised of biometric information.
+ We use Weka to classifiy the individuals as testing positive or negative
  for cancer based on the biometric information.
  We investigate the effect of changing algorithm parameters on classification
  results.
@@ -99,8 +97,11 @@ Introduction
 The Weka data mining tool has many built in machine learning classification
  algorithms.
  We use the J48 (C4.5) algorithm for this assignment.
- Over the four parts of this assignment we will add, and change parameters
- to this algorithm and report on the effects of the changes.
+ Over the four parts of this assignment we add, and change parameters to
+ the J48 algorithm.
+ We apply the J48 algorithm to the Lymphoma96x4026.arff dataset.
+ We report on the results of applying the algorithm to the dataset for each
+ part of the assignment below.
 \end_layout
 
 \begin_layout Section*
@@ -474,8 +475,8 @@ There is an image of a decision tree in a discussion of using Weka to apply
 
 \begin_layout Standard
 Weka has a feature for drawing the decision trees it computes for data sets.
- Weka produces the diagram in figure 1 below for when we use it to apply
- the J48(C4.5) algorithm to the Lymphoma96x4026.arff dataset.
+ Weka produces the diagram in figure 1 below when we use it to apply the
+ J48(C4.5) algorithm to the Lymphoma96x4026.arff dataset.
  This digram is like the one in the text noted in reference [1].
 \end_layout
 
@@ -783,32 +784,6 @@ It is interesting that these numbers are different from the area under ROC
 \end_layout
 
 \begin_layout Standard
-On one hand, Weka produces a confusion matrix identical to the one we have
- in Part 1 for Part 2.
- From this we cacluate false positive, false negative, true positive and
- true negative error rates identical to those we calculate from the confusion
- matrix in Part 1.
- 
-\end_layout
-
-\begin_layout Standard
-On the other hand, the fact that Weka reports different areas under the
- ROC curves when we change the unpruned option from false to true means
- that there must be some differences in false positive and true positive
- rates.
- We know from [1] that ROC curves are plots of metrics such as false positive
- rates versus true positive rates.
- Therefore we know the curves must be different because if two curves have
- different areas under them, they cannot consist of the same sets of points.
- Since the curves involve error rates, we hypothesize that there must be
- some differences in error rates Weka is using to cacluate the areas under
- the ROC curves for parts 1 and 2.
- However, we also note that this hypothesis is strange in the light of the
- identical confusion matrices, and hence error rates, we calculate in parts
- 1 and 2.
-\end_layout
-
-\begin_layout Standard
 See the section titled 
 \begin_inset Quotes eld
 \end_inset
@@ -817,8 +792,8 @@ Area under ROC Curve Comparison,
 \begin_inset Quotes erd
 \end_inset
 
- for a comparison of ROC curve areas for the three different parameter settings
- we set for the J48 algorithm.
+ for a comparison of ROC curve areas for the different parameter settings
+ we use for the J48 algorithm.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1231,9 +1206,7 @@ Table 6: Part 3 Areas under ROC Curves
 \end_layout
 
 \begin_layout Standard
-The areas under the ROC curves are the same here as it is in Part 2, so
- changing the confidence factor, and switching unpruned back to false has
- less of an effect that changing the unpruned option.
+The areas under the ROC curves are the same here as they are in Part 2.
  As we see in Part 2, changing the unpruned option causes the area under
  the ROC curve that Weka reports to change.
  Here there is no change.
@@ -2369,12 +2342,13 @@ Type II / False Negative Rate
 \end_layout
 
 \begin_layout Standard
-Table 8: Changes in Error Rates as Cost of Type II Error Increases
+Table 8: Changes in Error Rates as Cost of Type II Error Increases; We base
+ Type I percentages on 23 instances of the positive class.
+ We base Type II percentages on 73 instances of the negative class.
 \end_layout
 
-\begin_layout Standard
-For Type I percentages, we have 23 instances of the positive class.
- For Type II percentages, we have 74 instances of the negative class.
+\begin_layout Subsubsection*
+Effect of Increasing/Decreasing Type II Error Cost
 \end_layout
 
 \begin_layout Standard
@@ -2385,6 +2359,9 @@ With the table above, we can answer the question,
 What happens when the cost of a Type II error increases/decreases.
  The table shows that as the cost of a Type II error increases, the false
  positive rate increases to 100%, and the false negative rate goes to 0.
+ We can also extrapolate from the trend in table 8 that as the cost of a
+ Type II error goes to 0, the false positive rate decreases and the false
+ negative rate increases.
 \end_layout
 
 \begin_layout Standard
@@ -2418,6 +2395,10 @@ d to the range 8-32:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Figure 6: Detail of figure 5, x-axis restricted to the range 8-32.
 \end_layout
 
 \begin_layout Subsection*
