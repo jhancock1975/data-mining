@@ -68,7 +68,7 @@ Advanced Data Mining and Machine Learning
 \end_layout
 
 \begin_layout Standard
-CAP-6678
+CAP-6778
 \end_layout
 
 \begin_layout Standard
@@ -77,7 +77,7 @@ September 18th, 2014
 
 \begin_layout Part*
 \align left
-Assignment Number 1
+Assignment 1: Modeling assignment: Classification using decision trees
 \end_layout
 
 \begin_layout Section*
@@ -85,10 +85,9 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use Weka tool for data mining for classifying a dataset
- where the instances in the set are comprised of biometric information.
- We use Weka to classify the individuals as testing positive or negative
- for cancer based on the biometric information.
+In this assignment we use Weka tool for data mining for classifying instances
+ of a dataset.
+ The instances of the dataset are comprised of biometric information.
  We investigate the effect of changing algorithm parameters on classification
  results.
 \end_layout

@@ -72,12 +72,17 @@ CAP-6778
 \end_layout
 
 \begin_layout Standard
-September 18th, 2014
+September 30
+\begin_inset Formula $^{th}$
+\end_inset
+
+, 2014
 \end_layout
 
 \begin_layout Part*
 \align left
-Assignment Number 1
+Assignment 2: Modeling assignment: Using meta learning schemes with a strong
+ and a weak learner for classification.
 \end_layout
 
 \begin_layout Section*
@@ -85,11 +90,9 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use Weka tool for data mining for classifying instances
- of a dataset.
- The instances of the dataset are comprised of biometric information.
- We investigate the effect of changing algorithm parameters on classification
- results.
+In this assignment we use various classifiers in Weka on the same dataset
+ to evaluate the performance of the classifiers.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -97,16 +100,55 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-We use the Weka implementation of the J48 (C4.5) algorithm for this assignment.
- Over the four parts of this assignment we add, and change parameters to
- the J48 algorithm.
- We apply the J48 algorithm to the Lymphoma96x4026.arff dataset.
- We report on the results of applying the algorithm to the dataset for each
- part of the assignment below.
+For this work we use the Lymphoma96x4026.arff dataset.
+ We apply several of Weka's classifiers to the instances of the dataset.
+ 
+\end_layout
+
+\begin_layout Standard
+The classifiers we use are: 
+\end_layout
+
+\begin_layout Itemize
+Cost sensitive classifier combined with bagging and J48
+\end_layout
+
+\begin_layout Itemize
+Cost sensitive classifier combined with bagging and Decision Stump
+\end_layout
+
+\begin_layout Itemize
+Cost sensitive classifier combined with boosting (AdaBoostM1) and J48
+\end_layout
+
+\begin_layout Itemize
+Cost sensitive classifier combined with boosting (AdaBoostM1) and Decision
+ Stump
+\end_layout
+
+\begin_layout Standard
+For each classifier we determine the optimal ratio of the cost of a Type
+ II error to the cost of a Type I error.
+ The Assignment 1 requirements document states, 
+\begin_inset Quotes eld
+\end_inset
+
+Type I (False Positive): a nonACL module is classified as ACL.
+\begin_inset Quotes erd
+\end_inset
+
+ Hence, ACL must be the positive class, because this statement says that
+ something is classified as positive and it is classified in the ACL class.
+ Since ACL must be the positive class, nonACL must be the negative class.
+\end_layout
+
+\begin_layout Standard
+We use the area under the ROC curve metric as a means of evaluating the
+ benfit of using the different classifiers.
 \end_layout
 
 \begin_layout Section*
-Part 1: Initial Tree
+Part 1: Cost sensitive classifier combined with bagging and J48
 \end_layout
 
 \begin_layout Subsection*
@@ -115,16 +157,11 @@ Methodology
 
 \begin_layout Standard
 For this part of the assignment we use Weka to build a classification model
- using the J48 (C4.5) classifier algorithm.
- We import the data into Weka, and run J48 on the data using default settings
- to generate the data in the results below.
- Please see the next section for results.
-\end_layout
-
-\begin_layout Standard
-Note: In light of parts 2 and 3 of this assignment, for the results in this
- section, J48 options in Weka tool include unpruned set to false and confidence
- factor set to 0.25.
+ using a cost sensitive classifier combined with bagging and J48.
+ We configure bagging to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout
 
 \begin_layout Subsection*

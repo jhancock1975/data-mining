@@ -18,23 +18,27 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
-\font_default_family default
+\font_default_family rmdefault
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
-\paperfontsize default
-\spacing single
+\paperfontsize 12
+\spacing double
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_amsmath 1
 \use_esint 1
 \cite_engine basic
 \use_bibtopic false
 \paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -64,7 +68,7 @@ Advanced Data Mining and Machine Learning
 \end_layout
 
 \begin_layout Standard
-CAP-6678
+CAP-6778
 \end_layout
 
 \begin_layout Standard
@@ -81,10 +85,9 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use Weka tool for data mining for classifying a dataset
- where the instances in the set are comprised of biometric information.
- We use Weka to classifiy the individuals as testing positive or negative
- for cancer based on the biometric information.
+In this assignment we use Weka tool for data mining for classifying instances
+ of a dataset.
+ The instances of the dataset are comprised of biometric information.
  We investigate the effect of changing algorithm parameters on classification
  results.
 \end_layout
@@ -94,9 +97,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-The Weka data mining tool has many built in machine learning classification
- algorithms.
- We use the J48 (C4.5) algorithm for this assignment.
+We use the Weka implementation of the J48 (C4.5) algorithm for this assignment.
  Over the four parts of this assignment we add, and change parameters to
  the J48 algorithm.
  We apply the J48 algorithm to the Lymphoma96x4026.arff dataset.
@@ -469,7 +470,7 @@ Part 1 of the assignment requires us to record the number of leaves and
 \begin_layout Standard
 There is an image of a decision tree in a discussion of using Weka to apply
  the J48 algorithm to data in the text.
- One may locate this image using the bibliograhic information in reference
+ One may locate this image using the bibliographic information in reference
  [1].
 \end_layout
 
@@ -478,6 +479,11 @@ Weka has a feature for drawing the decision trees it computes for data sets.
  Weka produces the diagram in figure 1 below when we use it to apply the
  J48(C4.5) algorithm to the Lymphoma96x4026.arff dataset.
  This digram is like the one in the text noted in reference [1].
+ Please see the next page for the diagram.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -820,6 +826,11 @@ Representation of Tree
 The tree Weka produces is identical to the tree in figure 1.
  We present a larger image of the tree in figure 2, and then smaller images
  of both trees side by side to make it obvious that the trees are identical.
+ Please see the next page for the representation of the tree.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -881,7 +892,7 @@ Figure 2: decision tree with unpruned set to true.
 \end_layout
 
 \begin_layout Standard
-Figure 3: comparision of generated trees.
+Figure 3: comparison of generated trees.
 \end_layout
 
 \begin_layout Section*
@@ -1236,6 +1247,11 @@ Decision Tree Nodes/Leaves and Representation
 \begin_layout Standard
 The decision tree has the same number of nodes and leaves as the previous
  sections.
+ Please see the next page for the representation of the tree.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1265,7 +1281,7 @@ Area under ROC Curve Comparison
 \end_layout
 
 \begin_layout Standard
-In this section we present a summary comparision of the changes Weka reports
+In this section we present a summary comparison of the changes Weka reports
  in areas under ROC curves
 \begin_inset Newline newline
 \end_inset
@@ -1597,8 +1613,87 @@ Misclassification Rates
 \begin_layout Standard
 The table below summarizes how error rates change as the cost of a Type
  II error increases.
+ We base Type I percentages on 23 instances of the positive class.
+ We base Type II percentages on 73 instances of the negative class.
  We used a binary search technique to home in on regions of interest to
- choose Type II error costs in the table below.
+ choose Type II error costs in the tables on the next page.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II Error Cost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type I / False Positive Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type II / False Negative Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2342,9 +2437,7 @@ Type II / False Negative Rate
 \end_layout
 
 \begin_layout Standard
-Table 8: Changes in Error Rates as Cost of Type II Error Increases; We base
- Type I percentages on 23 instances of the positive class.
- We base Type II percentages on 73 instances of the negative class.
+Table 8: Changes in Error Rates as Cost of Type II Error Increases 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2359,14 +2452,15 @@ With the table above, we can answer the question,
 What happens when the cost of a Type II error increases/decreases.
  The table shows that as the cost of a Type II error increases, the false
  positive rate increases to 100%, and the false negative rate goes to 0.
- We can also extrapolate from the trend in table 8 that as the cost of a
- Type II error goes to 0, the false positive rate decreases and the false
- negative rate increases.
+ When we set the cost of a Type II error to 0, we get a false positive error
+ rate of 0 and a false negative error rate of 100%.
 \end_layout
 
 \begin_layout Standard
 The graph below is a plot of Type II error cost versus Type I and Type II
  errors.
+ We exclude the point with Type II error cost of 0 because we use a logarithmic
+ scale for the x-axis.
 \end_layout
 
 \begin_layout Standard
@@ -2432,7 +2526,7 @@ Future Research
 \begin_layout Standard
 The results we present in this assignment are based on one data set, Lymphoma96x
 4026.arff.
- It is possible that the optimal cost ratio we find is dependant on this
+ It is possible that the optimal cost ratio we find is dependent on this
  data set.
  In order to determine whether or not this is the case, we would require
  more datasets.
@@ -2464,8 +2558,8 @@ The results we present allow us to draw four conclusions.
 \begin_layout Enumerate
 Changing the unpruned option from true to false, or changing the value of
  the confidenceFactor from 0.25 to 0.01 int the J48 classification algorithm
- options has no effect on the cofusion matrix Weka produces for the Lymphoma96x4
-026.arff dataset.
+ options has no effect on the confusion matrix Weka produces for the Lymphoma96x
+4026.arff dataset.
  The confusion matrices we show in Parts 1-3, Tables 1, 3, and 5, confirm
  this conclusion.
 \end_layout

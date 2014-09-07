@@ -1,0 +1,11 @@
+set term postscript eps 22
+set key right bottom
+set xlabel 'Type II Error Cost'
+set ylabel 'Missclassifications' # for alberg
+set linestyle 1 lt 2 lw 3
+set key box linestyle 1 # dashed lines around box
+set format y "%g%%" # put a percent sign after the numbers on the x-axis
+
+set output 'test-detail-error-rates.ps' # have to do every time
+
+plot 'test-fpr-detail.dat' title 'Type I Error Rate'  with linespoints lw 3 pt 4, 'test-fnr-detail.dat' title 'Type II Error Rate' with linespoints lw 3 pt 8

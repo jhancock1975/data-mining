@@ -1,0 +1,1 @@
+ java -cp weka.jar weka.classifiers.meta.CostSensitiveClassifier -x 10 -t /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/Lymphoma96x4026.arff  -i -cost-matrix "[0.0 22.5; 1.0 0.0]" -S 1 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
