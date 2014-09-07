@@ -90,14 +90,8 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use various classifiers in Weka 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-2"
-
-\end_inset
-
-on the same dataset to evaluate the performance of the classifiers.
+In this assignment we use various classifiers in Weka on a biometric dataset
+ to evaluate the performance of the classifiers.
  
 \end_layout
 
@@ -157,7 +151,7 @@ Type I (False Positive): a nonACL module is classified as ACL.
 \end_layout
 
 \begin_layout Section*
-Part 1: Cost sensitive classifier combined with bagging and J48
+Part 1: Cost sensitive classifier combined with bagging and J48 - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -183,6 +177,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 2: Cost sensitive classifier combined with bagging and Decision Stump
+ - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -208,7 +203,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 3: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48
+ J48 - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -235,7 +230,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 4: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump
+ Decision Stump - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -261,7 +256,7 @@ Misclassification Rates
 \end_layout
 
 \begin_layout Section*
-Part 5: Cost sensitive classifier combined with bagging and J48
+Part 5: Cost sensitive classifier combined with bagging and J48 - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -287,6 +282,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 6: Cost sensitive classifier combined with bagging and Decision Stump
+ - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -312,7 +308,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 7: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48
+ J48 - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -339,7 +335,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 8: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump
+ Decision Stump - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*

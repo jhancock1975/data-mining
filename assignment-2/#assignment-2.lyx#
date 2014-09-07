@@ -90,7 +90,7 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use various classifiers in Weka on the same dataset
+In this assignment we use various classifiers in Weka on a biometric dataset
  to evaluate the performance of the classifiers.
  
 \end_layout
@@ -151,7 +151,7 @@ Type I (False Positive): a nonACL module is classified as ACL.
 \end_layout
 
 \begin_layout Section*
-Part 1: Cost sensitive classifier combined with bagging and J48
+Part 1: Cost sensitive classifier combined with bagging and J48 - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -161,8 +161,8 @@ Methodology
 \begin_layout Standard
 For this part of the assignment we use Weka to build a classification model
  using a cost sensitive classifier combined with bagging and J48.
- We configure bagging to do 10 iterations.We then run the classifier on the
- input dataset using different cost ratios.
+ We configure bagging to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
  Our method for varying the cost ratios is: we set the Type I error cost
  of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout
@@ -177,6 +177,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 2: Cost sensitive classifier combined with bagging and Decision Stump
+ - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -202,7 +203,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 3: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48
+ J48 - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -229,7 +230,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 4: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump
+ Decision Stump - 10 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -255,7 +256,7 @@ Misclassification Rates
 \end_layout
 
 \begin_layout Section*
-Part 5: Cost sensitive classifier combined with bagging and J48
+Part 5: Cost sensitive classifier combined with bagging and J48 - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -281,6 +282,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 6: Cost sensitive classifier combined with bagging and Decision Stump
+ - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -306,7 +308,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 7: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48
+ J48 - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -333,7 +335,7 @@ Misclassification Rates
 
 \begin_layout Section*
 Part 8: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump
+ Decision Stump - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -359,6 +361,22 @@ Misclassification Rates
 \end_layout
 
 \begin_layout Section*
+Comparison of Classifiers
+\end_layout
+
+\begin_layout Subsection*
+Classifiers with 10 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Classifiers with 25 Iterations
+\end_layout
+
+\begin_layout Subsection*
+All Classifiers
+\end_layout
+
+\begin_layout Section*
 Future Research
 \end_layout
 
@@ -366,27 +384,14 @@ Future Research
 Conclusions
 \end_layout
 
-\begin_layout Section*
-References
-\end_layout
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
 
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-[1] I.
+I.
  Witten and E.
  Frank, Data Mining (second edition).
  San Francisco: Elsevier, 2005, ch.
@@ -394,8 +399,14 @@ References
  5.2.
 \end_layout
 
-\begin_layout Standard
-[2] I.
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+I.
  Witten and E.
  Frank, Data Mining (second edition).
  San Francisco: Elsevier, 2005, ch.
@@ -403,17 +414,19 @@ References
  10.6(a).
 \end_layout
 
-\begin_layout Standard
-[3] 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+
 \shape italic
 The Area Under an ROC Curve
 \shape default
  [Online].
  Available: http://gim.unmc.edu/dxtests/roc3.htm
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
