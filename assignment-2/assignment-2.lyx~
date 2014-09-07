@@ -90,8 +90,14 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use various classifiers in Weka on the same dataset
- to evaluate the performance of the classifiers.
+In this assignment we use various classifiers in Weka 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+on the same dataset to evaluate the performance of the classifiers.
  
 \end_layout
 
@@ -129,165 +135,11 @@ Cost sensitive classifier combined with boosting (AdaBoostM1) and Decision
 \begin_layout Standard
 For each classifier we determine the optimal ratio of the cost of a Type
  II error to the cost of a Type I error.
- The Assignment 1 requirements document states, 
-\begin_inset Quotes eld
-\end_inset
-
-Type I (False Positive): a nonACL module is classified as ACL.
-\begin_inset Quotes erd
-\end_inset
-
- Hence, ACL must be the positive class, because this statement says that
- something is classified as positive and it is classified in the ACL class.
- Since ACL must be the positive class, nonACL must be the negative class.
-\end_layout
-
-\begin_layout Standard
-We use the area under the ROC curve metric as a means of evaluating the
- benfit of using the different classifiers.
-\end_layout
-
-\begin_layout Section*
-Part 1: Cost sensitive classifier combined with bagging and J48
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with bagging and J48.
- We configure bagging to do 10 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-For the Lymphoma96x4026.arff dataset, using J48(C4.5) classifier, Weka produces
- the following confusion matrix:
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="3">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-classified as
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-actual class ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-actual class nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-66
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 1: Part 1 Confusion Matrix
-\begin_inset Newline newline
-\end_inset
-
-
+ We determine the optimal ratio for two configurations of each classifier.
+ In the first configuration, we configure the boosting or the bagging to
+ do 10 iterations.
+ In the second configuration we configure the boosting or the bagging to
+ do 25 iterations.
 \end_layout
 
 \begin_layout Standard
@@ -304,254 +156,8 @@ Type I (False Positive): a nonACL module is classified as ACL.
  Since ACL must be the positive class, nonACL must be the negative class.
 \end_layout
 
-\begin_layout Paragraph*
-Type I / False Positive Rate = 9.60%
-\end_layout
-
-\begin_layout Standard
-Assignment 1 tells us a false positive classification is classifying a nonACL
- module as an ACL module.
- 7 nonACL modules are classified as ACL module.
- 
-\end_layout
-
-\begin_layout Standard
-There are a total of 
-\begin_inset Formula $7+66=73$
-\end_inset
-
- true nonACL module in the data, therefore the Type I error rate is 
-\begin_inset Formula $\frac{7}{73}\approx0.096$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Paragraph*
-Type II / False Negative Rate = 39.1%
-\end_layout
-
-\begin_layout Standard
-Assignment 1 tells us a false negative error is classifying an ACL module
- as nonACL.
- 
-\end_layout
-
-\begin_layout Standard
-We have a total of 
-\begin_inset Formula $14+9=23$
-\end_inset
-
- truly ACL modules in our data.
- 9 of the truly ACL modules are classified as nonACL.
- So the Type II error rate is 
-\begin_inset Formula $\frac{9}{23}\approx0.391$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection*
-Area Under ROC Curve
-\end_layout
-
-\begin_layout Standard
-Weka produces 3 results for the area under the receiver operating characteristic
- (ROC) curve.
- Here are the ROC area numbers when we run the J48 classifier with unpruned
- set to false and confidence factor set to 0.25 on the Lymphoma96x4026.arff
- dataset:
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ROC Area
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.781
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.777
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Weighted Average
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.778
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 2: Part 1 Areas under ROC Curves
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The assignment defines a Type I / false positive error as classifying nonACL
- as ACL.
- This means that ACL is the positive class.
- Hence nonACL is the negative class.
- In the text we see an ROC curve presented as a plot of false positive rates
- to true positive rates [1].
- In that context we are interested in the ROC curve associated with the
- positive class, ACL.
- In the Weka classifier output, the number is 0.781.
-\end_layout
-
-\begin_layout Standard
-See the section titled 
-\begin_inset Quotes eld
-\end_inset
-
-Area under ROC Curve Comparison,
-\begin_inset Quotes erd
-\end_inset
-
- for a comparison of ROC curve areas for the three different parameter settings
- we set for the J48 algorithm.
-\end_layout
-
-\begin_layout Subsubsection*
-Decision Tree Nodes/Leaves and Representation 
-\end_layout
-
-\begin_layout Standard
-Part 1 of the assignment requires us to record the number of leaves and
- nodes in the selected tree, and to produce a representation of the tree
- the same way as the text book.
- 
-\end_layout
-
-\begin_layout Standard
-There is an image of a decision tree in a discussion of using Weka to apply
- the J48 algorithm to data in the text.
- One may locate this image using the bibliographic information in reference
- [1].
-\end_layout
-
-\begin_layout Standard
-Weka has a feature for drawing the decision trees it computes for data sets.
- Weka produces the diagram in figure 1 below when we use it to apply the
- J48(C4.5) algorithm to the Lymphoma96x4026.arff dataset.
- This digram is like the one in the text noted in reference [1].
- Please see the next page for the diagram.
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph*
-13 Nodes and 7 Leaves:
-\end_layout
-
-\begin_layout Standard
-We can count the number of nodes and leaves in figure 1 to record the number
- of nodes and leaves.
- There are 13 nodes and 7 of these are leaves.
-\end_layout
-
-\begin_layout Subsubsection*
-Representation of Tree
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted1.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 1: Decision tree for J48 Algorithm, unpruned=false, confidenceFactor=0.25
-\end_layout
-
 \begin_layout Section*
-Part 2: Unpruned Tree
+Part 1: Cost sensitive classifier combined with bagging and J48
 \end_layout
 
 \begin_layout Subsection*
@@ -559,9 +165,12 @@ Methodology
 \end_layout
 
 \begin_layout Standard
-For Part 2, in the Weka tool, we set the unpruned option to true for the
- J48 algorithm and apply it to the Lymphoma96x4026.arff again.
- 
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and J48.
+ We configure bagging to do 10 iterations.We then run the classifier on the
+ input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout
 
 \begin_layout Subsection*
@@ -572,368 +181,8 @@ Results
 Misclassification Rates
 \end_layout
 
-\begin_layout Standard
-Although we set the unpruned option to true, there is no change to the confusion
- matrix that Weka produces.
- It is identical to the one we have in Part 1:
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="3">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-classified as
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-actual class ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-actual class nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-66
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 3: Part 2 Confusion Matrix
-\end_layout
-
-\begin_layout Paragraph*
-Type I / False Positive Rate = 9.60%
-\end_layout
-
-\begin_layout Standard
-Because the confusion matrix is unchanged, the false positive error rate
- is also unchanged.
-\end_layout
-
-\begin_layout Paragraph*
-Type II / False Negative Rate = 39.1%
-\end_layout
-
-\begin_layout Standard
-The false negative rate is also unchanged from what we have in Part 1.
-\end_layout
-
-\begin_layout Subsubsection*
-Area Under ROC Curve
-\end_layout
-
-\begin_layout Standard
-Here are the ROC area numbers when we run the J48 classifier with unpruned
- set to true.
- on the Lymphoma96x4026.arff dataset:
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ROC Area
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.773
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.769
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Weighted Average
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.77
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 4: Part 2 Areas under ROC Curves
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-It is interesting that these numbers are different from the area under ROC
- curve numbers Weka produces for J48 with unpruned equal to false in Part
- 1.
- 
-\end_layout
-
-\begin_layout Standard
-See the section titled 
-\begin_inset Quotes eld
-\end_inset
-
-Area under ROC Curve Comparison,
-\begin_inset Quotes erd
-\end_inset
-
- for a comparison of ROC curve areas for the different parameter settings
- we use for the J48 algorithm.
-\end_layout
-
-\begin_layout Subsubsection*
-Decision Tree Nodes/Leaves and Representation 
-\end_layout
-
-\begin_layout Standard
-The resulting tree is identical to the one Weka generates in Part 1
-\end_layout
-
-\begin_layout Paragraph*
-13 Nodes and 7 Leaves: 
-\end_layout
-
-\begin_layout Standard
-We can count the nodes and leaves in figure 2 below.
-\end_layout
-
-\begin_layout Subsubsection*
-Representation of Tree
-\end_layout
-
-\begin_layout Standard
-The tree Weka produces is identical to the tree in figure 1.
- We present a larger image of the tree in figure 2, and then smaller images
- of both trees side by side to make it obvious that the trees are identical.
- Please see the next page for the representation of the tree.
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted2.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 2: decision tree with unpruned set to true.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted1.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted2.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 3: comparison of generated trees.
-\end_layout
-
 \begin_layout Section*
-Part 3: Confidence Factor
+Part 2: Cost sensitive classifier combined with bagging and Decision Stump
 \end_layout
 
 \begin_layout Subsection*
@@ -941,661 +190,25 @@ Methodology
 \end_layout
 
 \begin_layout Standard
-For part 3, in the J48 options we set the confidence factor to 0.01, unpruned
- to false, and follow the same steps in Part 1 to generate the data in the
- results below.
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and decision Stump.
+ We configure bagging to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout
 
 \begin_layout Subsection*
 Results
 \end_layout
 
-\begin_layout Standard
-Overall, we do not see any difference in results when we change the confidence
- factor to 0.01.
- There is no change to the decision tree Weka produces.
-\end_layout
-
-\begin_layout Standard
-The assignment 1 requirements document specifies that we must discuss some
- facts about the decision tree Weka produces.
- The list below addresses these requirements.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes eld
-\end_inset
-
-How does the size of the new tree compare to one built in Part 1?
-\series bold
-
-\begin_inset Quotes erd
-\end_inset
-
-
-\series default
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The size of the tree is unchanged.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-After the question, there is a requirement to explain why the size of the
- tree is different.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Since the size of the tree is unchanged, we are unable to make an explanation.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-What part was pruned?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Since we do not see a change in the size or structure of the tree, the answer
- to this question is that no part is pruned.
-\end_layout
-
-\end_deeper
 \begin_layout Subsubsection*
 Misclassification Rates
 \end_layout
 
-\begin_layout Standard
-The confusion matrix after changing the confidence factor is unchanged from
- parts one and 2:
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="3">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-classified as
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-actual class ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-actual class nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-66
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 5: Part 3 Confusion Matrix
-\end_layout
-
-\begin_layout Paragraph*
-Type I / False Positive Rate = 9.60%
-\end_layout
-
-\begin_layout Standard
-The false positive rate is unchanged because the confusion matrix is unchanged.
-\end_layout
-
-\begin_layout Paragraph*
-Type II / False Negative Rate = 39.10%
-\end_layout
-
-\begin_layout Standard
-The false negative error rate remains what we have in Part 1 and Part 2,
- also because the confusion matrix here in Part 3 is identical to what we
- have in Parts 1 and 2.
-\end_layout
-
-\begin_layout Subsubsection*
-Area Under ROC Curve
-\end_layout
-
-\begin_layout Standard
-Here are the ROC area numbers when we use run Weka's J48 classifier with
- unpruned set to false and confidenceFactor set to 0.01 on the Lymphoma96x4026.arf
-f dataset:
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ROC Area
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.773
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.769
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Weighted Average
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.77
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 6: Part 3 Areas under ROC Curves
-\end_layout
-
-\begin_layout Standard
-The areas under the ROC curves are the same here as they are in Part 2.
- As we see in Part 2, changing the unpruned option causes the area under
- the ROC curve that Weka reports to change.
- Here there is no change.
-\end_layout
-
-\begin_layout Standard
-See the section titled 
-\begin_inset Quotes eld
-\end_inset
-
-Area under ROC Curve Comparison,
-\begin_inset Quotes erd
-\end_inset
-
- for a comparison of ROC curve areas for the three different parameter settings
- we set for the J48 algorithm.
-\end_layout
-
-\begin_layout Subsubsection*
-Decision Tree Nodes/Leaves and Representation 
-\end_layout
-
-\begin_layout Paragraph*
-13 Nodes and 7 Leaves
-\end_layout
-
-\begin_layout Standard
-The decision tree has the same number of nodes and leaves as the previous
- sections.
- Please see the next page for the representation of the tree.
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Representation of Tree
-\end_layout
-
-\begin_layout Standard
-As required, here is a representation of the tree.
- It is not different from the tree in Parts 1 and 2:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-1/pasted3.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 4: decision tree for J48 Algorithm, unpruned=false, confidenceFactor=0.01
-\end_layout
-
 \begin_layout Section*
-Area under ROC Curve Comparison
-\end_layout
-
-\begin_layout Standard
-In this section we present a summary comparison of the changes Weka reports
- in areas under ROC curves
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-J48 Setting
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Part 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Part 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Part3
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-unpruned
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-false
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-true
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-false
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-confidenceFactor
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.25
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-n/a
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.01
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.781
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.773
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.773
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-nonACL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.777
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.769
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.769
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-weighted Average
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.778
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.77
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.77
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 7: Comparison of Areas Under ROC curves
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-An area under ROC curve value closer to one implies better performance [3].
-\end_layout
-
-\begin_layout Standard
-We see that Weka reports the highest area under ROC curve values when we
- use it with J48 with options set in Part 1 (unpruned=false, confidenceFactor=0.2
-5).
- 
-\end_layout
-
-\begin_layout Standard
-Furthermore, we would like to point out that Weka reports the same change
- in ROC curves' areas when we change the unpruned option to true, or when
- we lower the confidenceFactor setting to 0.01.
-\end_layout
-
-\begin_layout Section*
-Part 4: Cost Sensitivity
+Part 3: Cost sensitive classifier combined with boosting (AdaBoostM1) and
+ J48
 \end_layout
 
 \begin_layout Subsection*
@@ -1603,1043 +216,170 @@ Methodology
 \end_layout
 
 \begin_layout Standard
-In this section we configure Weka to use a a cost sensitive classifier to
- determine the optimal cost ratio.
- We configure the cost sensitive classifier to use a J48 classifier with
- unpruned set to false and confidenceFactor set to 0.25.
- These are the same settings we use in Part 1.
-\end_layout
-
-\begin_layout Standard
-We leave the cost of a Type I error fixed at 1, and change the cost of a
- Type II error to the values 0.5, 1, 2, 4, 8, and 16.
- We run the cost sensitive classifier on the Lymphoma96x4026.arff dataset
- for each cost of a Type II error.
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ J48.
+ We configure boosting to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout
 
 \begin_layout Subsection*
 Results
 \end_layout
 
-\begin_layout Standard
-In the results below we present the trend in misclassification rates.
- 
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 4: Cost sensitive classifier combined with boosting (AdaBoostM1) and
+ Decision Stump
+\end_layout
+
+\begin_layout Subsection*
+Methodology
 \end_layout
 
 \begin_layout Standard
-Please note: for every value of a Type II error below, the value used for
- the cost of a Type I error is 1.
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ Decision Stump.
+ We configure boosting to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout
 
-\begin_layout Standard
-We then answer the question, 
-\begin_inset Quotes eld
-\end_inset
-
-What happens when the cost of a Type II error decreases/increases?
-\begin_inset Quotes erd
-\end_inset
-
-
+\begin_layout Subsection*
+Results
 \end_layout
 
 \begin_layout Subsubsection*
 Misclassification Rates
 \end_layout
 
-\begin_layout Standard
-The table below summarizes how error rates change as the cost of a Type
- II error increases.
- We base Type I percentages on 23 instances of the positive class.
- We base Type II percentages on 73 instances of the negative class.
- We used a binary search technique to home in on regions of interest to
- choose Type II error costs in the tables on the next page.
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II Error Cost
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type I / False Positive Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II / False Negative Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="7">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II Error Cost
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type I / False Positive Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-12.3%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9.6%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20.5%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-19.2%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20.5%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-31.5%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II / False Negative Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-39.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-47.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-39.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-39.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-39.1%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="7">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II Error Cost
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-21
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-21.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-22
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-22.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-23
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type I / False Positive Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-27.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-28.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-28.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-32.9%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-28.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30.1%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II / False Negative Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-39.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30.4%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="7">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II Error Cost
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-24
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-28
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-32
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-36
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-40
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type I / False Positive Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-37.0%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.2%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-37.0%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-43.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-46.6%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-49.3%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II / False Negative Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-26.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-21.7%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-21.7%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="3">
-<features>
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II Error Cost
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-64
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-128
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type I / False Positive Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-64.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100.0%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Type II / False Negative Rate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-17.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Table 8: Changes in Error Rates as Cost of Type II Error Increases 
-\end_layout
-
-\begin_layout Subsubsection*
-Effect of Increasing/Decreasing Type II Error Cost
-\end_layout
-
-\begin_layout Standard
-With the table above, we can answer the question, 
-\begin_inset Quotes eld
-\end_inset
-
-What happens when the cost of a Type II error increases/decreases.
- The table shows that as the cost of a Type II error increases, the false
- positive rate increases to 100%, and the false negative rate goes to 0.
- When we set the cost of a Type II error to 0, we get a false positive error
- rate of 0 and a false negative error rate of 100%.
-\end_layout
-
-\begin_layout Standard
-The graph below is a plot of Type II error cost versus Type I and Type II
- errors.
- We exclude the point with Type II error cost of 0 because we use a logarithmic
- scale for the x-axis.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename test-error-rates.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 5: False Negative and False Positive Rates for Increasing Type II
- error cost.
-\end_layout
-
-\begin_layout Standard
-The graph below is a restriction of the above with Type II error costs restricte
-d to the range 8-32:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename test-detail-error-rates.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 6: Detail of figure 5, x-axis restricted to the range 8-32.
+\begin_layout Section*
+Part 5: Cost sensitive classifier combined with bagging and J48
 \end_layout
 
 \begin_layout Subsection*
-Optimal Cost of Type II Error=21.5
+Methodology
 \end_layout
 
 \begin_layout Standard
-Assignment 1 requires us to determine a balanced misclassification rate,
- with Type II errors as low as possible.
- With the cost of a Type II error set to 28, we see that the error rates
- are very close to one and other.
- At a Type II error cost of 28, the false negative rate is 34.2% and the
- false positive rate is 34.8%.
- However, if we lower the cost of a Type II error to 21 or 21.5, we get a
- Type II error rate of 30.4%, and the Type I error rate of 28.8%.
- Therefore, at a Type II error cost of 21 or 21.5, we have approximately
- equal error rates, but the Type II error rates are lowest in this neighborhood
- of Type II error costs.
- We feel that the higher Type II error cost, 21.5, is best.
- For data different from what we have in the test data, we feel there would
- be a better chance of not making a Type II error with the higher error
- cost.
- We would like to emphasize that this optimal Type II error cost is associated
- with a Type I error cost of 1.
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and J48.
+ We configure bagging to do 25 iterations.We then run the classifier on the
+ input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 6: Cost sensitive classifier combined with bagging and Decision Stump
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and decision Stump.
+ We configure bagging to do 25 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 7: Cost sensitive classifier combined with boosting (AdaBoostM1) and
+ J48
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ J48.
+ We configure boosting to do 25 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 8: Cost sensitive classifier combined with boosting (AdaBoostM1) and
+ Decision Stump
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ Decision Stump.
+ We configure boosting to do 25 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
 \end_layout
 
 \begin_layout Section*
 Future Research
 \end_layout
 
-\begin_layout Standard
-The results we present in this assignment are based on one data set, Lymphoma96x
-4026.arff.
- It is possible that the optimal cost ratio we find is dependent on this
- data set.
- In order to determine whether or not this is the case, we would require
- more datasets.
- For future research we would use these datasets to determine multiple optimal
- cost ratios.
- Furthermore, we would do ANOVA on the cost ratios to determine the significance
- of using a particular dataset.
-\end_layout
-
-\begin_layout Standard
-We also noticed that for certain error costs, 21, 21.5, 23 and 24 the Type
- II error rate is 30.4%.
- This is interspersed with Type II error rates of 34.8% for Type II error
- costs of 22, 22.5, and 28.
- More data would help determine whether or not this is a coincidence, or
- there is some kind of periodic phenomenon happening as we increase the
- cost of Type II errors in the range from 21to 28.
-\end_layout
-
 \begin_layout Section*
 Conclusions
 \end_layout
 
-\begin_layout Standard
-The results we present allow us to draw four conclusions.
- 
-\end_layout
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
 
-\begin_layout Enumerate
-Changing the unpruned option from true to false, or changing the value of
- the confidenceFactor from 0.25 to 0.01 int the J48 classification algorithm
- options has no effect on the confusion matrix Weka produces for the Lymphoma96x
-4026.arff dataset.
- The confusion matrices we show in Parts 1-3, Tables 1, 3, and 5, confirm
- this conclusion.
-\end_layout
-
-\begin_layout Enumerate
-Changing the unpruned option true has the effect of lowering the areas under
- the ROC curves Weka reports.
- See Table 7 above for evidence supporting this conclusion.
-\end_layout
-
-\begin_layout Enumerate
-Weka reports the same drop in ROC curves' areas when we change the unpruned
- option to true, or when we lower the confidenceFactor setting to 0.01.
- We base this conclusion on table 7 above.
-\end_layout
-
-\begin_layout Enumerate
-The optimal cost of a Type II error for the Lymphoma96x4026.arff dataset
- is 32, when the cost of a Type I error is 1.
- See Figure 5 for the basis of this conclusion.
-\end_layout
-
-\begin_layout Section*
-References
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-[1] I.
+I.
  Witten and E.
  Frank, Data Mining (second edition).
  San Francisco: Elsevier, 2005, ch.
@@ -2647,8 +387,14 @@ References
  5.2.
 \end_layout
 
-\begin_layout Standard
-[2] I.
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+I.
  Witten and E.
  Frank, Data Mining (second edition).
  San Francisco: Elsevier, 2005, ch.
@@ -2656,8 +402,14 @@ References
  10.6(a).
 \end_layout
 
-\begin_layout Standard
-[3] 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+
 \shape italic
 The Area Under an ROC Curve
 \shape default
