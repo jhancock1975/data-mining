@@ -30,11 +30,12 @@ let i=1;
 while [  $i -le $NUM_CLASSIFIERS ];	do
 	CLASSIFIER=$(sed $i'q;d' classifiers.txt);
 	let j=1;
-	echo classifier = $CLASSIFIER
 	while [  $j -le $NUM_COST_MATRICES ];	do
-		echo COST_MATRIX = $COST_MATRIX
 		COST_MATRIX=$(sed $j'q;d' cost-matrices.txt);
-		java -cp  $WEKA_JAR weka.classifiers.meta.CostSensitiveClassifier  -t $DATA_FILE  -i -cost-matrix "$COST_MATRIX" -S 1 -W $CLASSIFIER
+		OUTPUT_FILE=$(echo $CLASSIFIER | sed 's/ //g' | sed 's/[-]\+/_/g');
+		OUTPUT_FILE=$(echo $OUTPUT_FILE)$(echo $COST_MATRIX | sed 's/;//g' | sed 's/\[//g' | sed 's/\]//g' | sed 's/ /_/g' | sed 's/"//g')
+		echo $OUTPUT_FILE;
+		#java -cp  $WEKA_JAR weka.classifiers.meta.CostSensitiveClassifier  -t $DATA_FILE  -i -cost-matrix "$COST_MATRIX" -S 1 -W $CLASSIFIER
 		let j=j+1;
 	done
 	let i=i+1;
