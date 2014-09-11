@@ -38,7 +38,10 @@ let i=1;
 			OUTPUT_FILE=$(echo $CLASSIFIER | sed 's/ //g' | sed 's/[-]\+/_/g');
 			OUTPUT_FILE=$(echo $OUTPUT_FILE)$(echo $COST_MATRIX | sed 's/;//g' | sed 's/\[//g' | sed 's/\]//g' | sed 's/ /_/g' | sed 's/"//g')
 			echo $OUTPUT_FILE;
-			java -cp  $WEKA_JAR weka.classifiers.meta.CostSensitiveClassifier  -t $DATA_FILE  -i -cost-matrix "$COST_MATRIX" -S 1 -W $CLASSIFIER
+			java -cp  $WEKA_JAR \
+			weka.classifiers.meta.CostSensitiveClassifier \
+			-t $DATA_FILE  -i -cost-matrix "$COST_MATRIX" -S 1 -W $CLASSIFIER \
+			> $OUTPUT_FILE
 			let j=j+1;
 		done
 		let i=i+1;
