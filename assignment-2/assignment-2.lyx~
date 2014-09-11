@@ -361,6 +361,22 @@ Misclassification Rates
 \end_layout
 
 \begin_layout Section*
+Comparison of Classifiers
+\end_layout
+
+\begin_layout Subsection*
+Classifiers with 10 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Classifiers with 25 Iterations
+\end_layout
+
+\begin_layout Subsection*
+All Classifiers
+\end_layout
+
+\begin_layout Section*
 Future Research
 \end_layout
 
