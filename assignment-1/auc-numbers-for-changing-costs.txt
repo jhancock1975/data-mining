@@ -1,0 +1,101 @@
+0.5
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.123      0.64      0.696     0.667      0.811    ACL
+                 0.877     0.304      0.901     0.877     0.889      0.81     nonACL
+Weighted Avg.    0.833     0.261      0.839     0.833     0.836      0.81 
+1
+              TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.609     0.096      0.667     0.609     0.636      0.781    ACL
+                 0.904     0.391      0.88      0.904     0.892      0.777    nonACL
+Weighted Avg.    0.833     0.321      0.829     0.833     0.831      0.778
+2
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.522     0.205      0.444     0.522     0.48       0.652    ACL
+                 0.795     0.478      0.841     0.795     0.817      0.648    nonACL
+Weighted Avg.    0.729     0.413      0.746     0.729     0.736      0.649
+4
+              TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.609     0.192      0.5       0.609     0.549      0.704    ACL
+                 0.808     0.391      0.868     0.808     0.837      0.704    nonACL
+Weighted Avg.    0.76      0.344      0.78      0.76      0.768      0.704
+8
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.609     0.205      0.483     0.609     0.538      0.707    ACL
+                 0.795     0.391      0.866     0.795     0.829      0.707    nonACL
+Weighted Avg.    0.75      0.347      0.774     0.75      0.759      0.707
+16
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.609     0.315      0.378     0.609     0.467      0.649    ACL
+                 0.685     0.391      0.847     0.685     0.758      0.649    nonACL
+Weighted Avg.    0.667     0.373      0.735     0.667     0.688      0.649
+20
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.609     0.274      0.412     0.609     0.491      0.683    ACL
+                 0.726     0.391      0.855     0.726     0.785      0.682    nonACL
+Weighted Avg.    0.698     0.363      0.749     0.698     0.715      0.682
+21
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.288      0.432     0.696     0.533      0.714    ACL
+                 0.712     0.304      0.881     0.712     0.788      0.714    nonACL
+Weighted Avg.    0.708     0.3        0.774     0.708     0.727      0.714
+21.5
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.288      0.432     0.696     0.533      0.714    ACL
+                 0.712     0.304      0.881     0.712     0.788      0.714    nonACL
+Weighted Avg.    0.708     0.3        0.774     0.708     0.727      0.714
+22
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.652     0.329      0.385     0.652     0.484      0.71     ACL
+                 0.671     0.348      0.86      0.671     0.754      0.71     nonACL
+Weighted Avg.    0.667     0.343      0.746     0.667     0.689      0.71 
+22.5
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.652     0.288      0.417     0.652     0.508      0.719    ACL
+                 0.712     0.348      0.867     0.712     0.782      0.72     nonACL
+Weighted Avg.    0.698     0.333      0.759     0.698     0.716      0.72 
+23
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.301      0.421     0.696     0.525      0.738    ACL
+                 0.699     0.304      0.879     0.699     0.779      0.738    nonACL
+Weighted Avg.    0.698     0.304      0.77      0.698     0.718      0.738
+24
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.37       0.372     0.696     0.485      0.725    ACL
+                 0.63      0.304      0.868     0.63      0.73       0.725    nonACL
+Weighted Avg.    0.646     0.32       0.749     0.646     0.671      0.725
+28
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.652     0.342      0.375     0.652     0.476      0.693    ACL
+                 0.658     0.348      0.857     0.658     0.744      0.693    nonACL
+Weighted Avg.    0.656     0.347      0.742     0.656     0.68       0.693
+32
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.739     0.37       0.386     0.739     0.507      0.747    ACL
+                 0.63      0.261      0.885     0.63      0.736      0.747    nonACL
+Weighted Avg.    0.656     0.287      0.765     0.656     0.681      0.747
+34
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.652     0.438      0.319     0.652     0.429      0.621    ACL
+                 0.562     0.348      0.837     0.562     0.672      0.621    nonACL
+Weighted Avg.    0.583     0.37       0.713     0.583     0.614      0.621
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+36               
+                 0.783     0.466      0.346     0.783     0.48       0.601    ACL
+                 0.534     0.217      0.886     0.534     0.667      0.602    nonACL
+Weighted Avg.    0.594     0.277      0.757     0.594     0.622      0.602
+40
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.783     0.493      0.333     0.783     0.468      0.637    ACL
+                 0.507     0.217      0.881     0.507     0.643      0.635    nonACL
+Weighted Avg.    0.573     0.283      0.75      0.573     0.601      0.635
+64
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.826     0.644      0.288     0.826     0.427      0.642    ACL
+                 0.356     0.174      0.867     0.356     0.505      0.643    nonACL
+Weighted Avg.    0.469     0.286      0.728     0.469     0.486      0.643
+128
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.24      1         0.387      0.441    ACL
+                 0         0          0         0         0          0.441    nonACL
+Weighted Avg.    0.24      0.24       0.057     0.24      0.093      0.441
