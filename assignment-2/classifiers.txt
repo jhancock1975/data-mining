@@ -1,4 +1,2 @@
- -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
  -W weka.classifiers.trees.DecisionStump
  -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
- -W weka.classifiers.trees.DecisionStump

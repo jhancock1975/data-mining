@@ -1,0 +1,200 @@
+
+Options: -cost-matrix "[0.0 36.0; 1.0 0.0]" -S 1 -W weka.classifiers.meta.Bagging -- -P 100 -S 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.meta.Bagging -P 100 -S 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+
+Classifier Model
+All the base classifiers: 
+
+J48 pruned tree
+------------------
+
+GENE639X <= -0.04: nonACL (5.0/1.0)
+GENE639X > -0.04: ACL (91.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+GENE390X <= -0.21: nonACL (7.0)
+GENE390X > -0.21
+|   GENE3318X <= 0.74: ACL (84.0)
+|   GENE3318X > 0.74
+|   |   GENE1964X <= -0.01: nonACL (3.0)
+|   |   GENE1964X > -0.01: ACL (2.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE593X <= -0.35: nonACL (11.0)
+GENE593X > -0.35: ACL (85.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+GENE593X <= -0.37: nonACL (7.0)
+GENE593X > -0.37: ACL (89.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+GENE374X <= -0.09: nonACL (6.0)
+GENE374X > -0.09: ACL (90.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+GENE593X <= -0.37: nonACL (5.0)
+GENE593X > -0.37: ACL (91.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+GENE593X <= -0.34: nonACL (8.0)
+GENE593X > -0.34: ACL (88.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+GENE2190X <= 0.19
+|   GENE3967X <= -0.33
+|   |   GENE3771X <= -0.19: ACL (2.0)
+|   |   GENE3771X > -0.19: nonACL (3.0)
+|   GENE3967X > -0.33: ACL (82.0)
+GENE2190X > 0.19: nonACL (9.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE597X <= -0.08: nonACL (9.0)
+GENE597X > -0.08
+|   GENE1186X <= 0.44: ACL (82.0)
+|   GENE1186X > 0.44
+|   |   GENE1835X <= 0.46: nonACL (2.0)
+|   |   GENE1835X > 0.46: ACL (3.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE2106X <= 0.34
+|   GENE3641X <= -0.17
+|   |   GENE1933X <= -0.26: ACL (2.0)
+|   |   GENE1933X > -0.26: nonACL (3.0)
+|   GENE3641X > -0.17: ACL (80.0)
+GENE2106X > 0.34: nonACL (11.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+
+
+Cost Matrix
+  0 36
+  1  0
+
+
+Time taken to build model: 1.1 seconds
+Time taken to test model on training data: 0.15 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          63               65.625  %
+Incorrectly Classified Instances        33               34.375  %
+Kappa statistic                          0.3674
+Mean absolute error                      0.3264
+Root mean squared error                  0.4536
+Relative absolute error                 88.9128 %
+Root relative squared error            106.2615 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.452      0.411     1         0.582      0.999    ACL
+                 0.548     0          1         0.548     0.708      0.999    nonACL
+Weighted Avg.    0.656     0.108      0.859     0.656     0.678      0.999
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+ 33 40 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          50               52.0833 %
+Incorrectly Classified Instances        46               47.9167 %
+Kappa statistic                          0.2195
+Mean absolute error                      0.4969
+Root mean squared error                  0.5837
+Relative absolute error                135.1164 %
+Root relative squared error            136.5748 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.63       0.333     1         0.5        0.8      ACL
+                 0.37      0          1         0.37      0.54       0.801    nonACL
+Weighted Avg.    0.521     0.151      0.84      0.521     0.53       0.801
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+ 46 27 |  b = nonACL
+

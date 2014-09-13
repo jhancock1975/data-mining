@@ -1,0 +1,465 @@
+
+Options: -cost-matrix ""[0.0 2.0; 1.0 0.0]"" -S 1 -W weka.classifiers.meta.Bagging -- -P 100 -S 1 -I 25 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.meta.Bagging -P 100 -S 1 -I 25 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+
+Classifier Model
+All the base classifiers: 
+
+J48 pruned tree
+------------------
+
+GENE3941X <= 0.61
+|   GENE1567X <= 2.55: nonACL (54.79/1.0)
+|   GENE1567X > 2.55
+|   |   GENE2996X <= 0: nonACL (2.21)
+|   |   GENE2996X > 0: ACL (12.0)
+GENE3941X > 0.61: ACL (27.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE384X <= 1.3
+|   GENE67X <= 0.56
+|   |   GENE3898X <= -0.54: ACL (4.06/1.06)
+|   |   GENE3898X > -0.54: nonACL (58.94)
+|   GENE67X > 0.56: ACL (4.0)
+GENE384X > 1.3
+|   GENE2055X <= 0.43: ACL (27.0)
+|   GENE2055X > 0.43: nonACL (2.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+J48 pruned tree
+------------------
+
+GENE3945X <= 0.55: nonACL (54.0)
+GENE3945X > 0.55
+|   GENE2104X <= 0.12: ACL (33.0/1.0)
+|   GENE2104X > 0.12: nonACL (9.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+J48 pruned tree
+------------------
+
+GENE1622X <= -0.19: nonACL (41.0)
+GENE1622X > -0.19
+|   GENE81X <= -0.33: nonACL (9.0)
+|   GENE81X > -0.33
+|   |   GENE540X <= 0.73: ACL (43.0/1.0)
+|   |   GENE540X > 0.73: nonACL (3.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.45
+|   GENE1567X <= 4.4
+|   |   GENE3960X <= 0.75: nonACL (58.45)
+|   |   GENE3960X > 0.75
+|   |   |   GENE1836X <= 0.21: nonACL (2.0)
+|   |   |   GENE1836X > 0.21: ACL (2.0)
+|   GENE1567X > 4.4: ACL (7.0)
+GENE1537X > 0.45: ACL (26.55/1.55)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+J48 pruned tree
+------------------
+
+GENE3939X <= 0.38
+|   GENE3574X <= 0.64: nonACL (50.72)
+|   GENE3574X > 0.64: ACL (8.28/0.28)
+GENE3939X > 0.38
+|   GENE1158X <= -0.27: nonACL (2.0)
+|   GENE1158X > -0.27: ACL (35.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE3944X <= 2.1
+|   GENE1798X <= 0.61
+|   |   GENE938X <= 1.26
+|   |   |   GENE3066X <= 0.5: nonACL (67.89)
+|   |   |   GENE3066X > 0.5
+|   |   |   |   GENE1835X <= -0.58: nonACL (2.0)
+|   |   |   |   GENE1835X > -0.58: ACL (2.0)
+|   |   GENE938X > 1.26: ACL (4.11/0.11)
+|   GENE1798X > 0.61: ACL (6.0)
+GENE3944X > 2.1: ACL (14.0)
+
+Number of Leaves  : 	6
+
+Size of the tree : 	11
+
+
+J48 pruned tree
+------------------
+
+GENE1567X <= 2.79
+|   GENE3961X <= 0.76
+|   |   GENE1043X <= -0.69: ACL (4.0)
+|   |   GENE1043X > -0.69: nonACL (64.0/1.0)
+|   GENE3961X > 0.76: ACL (8.0)
+GENE1567X > 2.79: ACL (20.0/1.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE378X <= -0.04: nonACL (48.0)
+GENE378X > -0.04
+|   GENE1609X <= 0.03: nonACL (10.0)
+|   GENE1609X > 0.03
+|   |   GENE626X <= -0.31: nonACL (4.0)
+|   |   GENE626X > -0.31
+|   |   |   GENE3113X <= -0.64: nonACL (2.0)
+|   |   |   GENE3113X > -0.64: ACL (32.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.45
+|   GENE3944X <= 2.1
+|   |   GENE1406X <= 0.76: nonACL (62.69)
+|   |   GENE1406X > 0.76
+|   |   |   GENE3810X <= 0.19: nonACL (2.06)
+|   |   |   GENE3810X > 0.19: ACL (3.0)
+|   GENE3944X > 2.1: ACL (4.0)
+GENE1537X > 0.45
+|   GENE267X <= -0.49: nonACL (2.25)
+|   GENE267X > -0.49: ACL (22.0)
+
+Number of Leaves  : 	6
+
+Size of the tree : 	11
+
+
+J48 pruned tree
+------------------
+
+GENE3573X <= -0.06: nonACL (45.0)
+GENE3573X > -0.06
+|   GENE3644X <= -0.4: nonACL (12.0)
+|   GENE3644X > -0.4
+|   |   GENE2353X <= 0.54: ACL (34.0/1.0)
+|   |   GENE2353X > 0.54: nonACL (5.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE2113X <= -0.08
+|   GENE2361X <= -0.46: nonACL (8.0)
+|   GENE2361X > -0.46
+|   |   GENE3085X <= 0.29: ACL (32.0)
+|   |   GENE3085X > 0.29: nonACL (2.0)
+GENE2113X > -0.08: nonACL (54.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.41
+|   GENE3511X <= 0.85
+|   |   GENE1567X <= 4.4: nonACL (55.95)
+|   |   GENE1567X > 4.4: ACL (3.05/0.05)
+|   GENE3511X > 0.85: ACL (4.0)
+GENE1537X > 0.41
+|   GENE127X <= 0.33: ACL (28.0)
+|   GENE127X > 0.33: nonACL (5.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+J48 pruned tree
+------------------
+
+GENE528X <= 0.37
+|   GENE3218X <= -0.98: ACL (4.0)
+|   GENE3218X > -0.98: nonACL (56.63/1.0)
+GENE528X > 0.37
+|   GENE3939X <= 0.09: nonACL (4.37)
+|   GENE3939X > 0.09: ACL (31.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE384X <= 0.65
+|   GENE373X <= 0.56: nonACL (53.0/1.0)
+|   GENE373X > 0.56: ACL (4.0)
+GENE384X > 0.65
+|   GENE1542X <= -0.26: nonACL (5.0)
+|   GENE1542X > -0.26: ACL (34.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE3945X <= 0.55
+|   GENE3511X <= 0.85: nonACL (58.0)
+|   GENE3511X > 0.85: ACL (4.0)
+GENE3945X > 0.55
+|   GENE882X <= -0.42: nonACL (4.0)
+|   GENE882X > -0.42: ACL (30.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.41
+|   GENE981X <= 1.38
+|   |   GENE2345X <= -0.54: ACL (3.0/1.0)
+|   |   GENE2345X > -0.54: nonACL (56.67)
+|   GENE981X > 1.38: ACL (5.0)
+GENE1537X > 0.41: ACL (31.33/0.33)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE3946X <= 0.56
+|   GENE3941X <= 0.61
+|   |   GENE1585X <= 0.91: nonACL (54.0)
+|   |   GENE1585X > 0.91: ACL (3.0/1.0)
+|   GENE3941X > 0.61: ACL (6.0)
+GENE3946X > 0.56
+|   GENE982X <= -0.12: nonACL (2.0)
+|   GENE982X > -0.12: ACL (31.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.41
+|   GENE981X <= 1.29
+|   |   GENE3283X <= -0.85: ACL (3.0/1.0)
+|   |   GENE3283X > -0.85: nonACL (53.0)
+|   GENE981X > 1.29: ACL (8.0/1.0)
+GENE1537X > 0.41
+|   GENE1158X <= -0.14: nonACL (2.0)
+|   GENE1158X > -0.14: ACL (30.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+J48 pruned tree
+------------------
+
+GENE1613X <= 0.27: nonACL (45.47/1.0)
+GENE1613X > 0.27
+|   GENE2662X <= -0.48: nonACL (6.0)
+|   GENE2662X > -0.48
+|   |   GENE1048X <= 0.46: ACL (41.94)
+|   |   GENE1048X > 0.46: nonACL (2.58/0.06)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE493X <= 0.23
+|   GENE763X <= 0.46: nonACL (55.0)
+|   GENE763X > 0.46: ACL (3.0)
+GENE493X > 0.23
+|   GENE1233X <= -0.75: nonACL (5.0)
+|   GENE1233X > -0.75: ACL (33.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE374X <= -0.06: nonACL (31.66)
+GENE374X > -0.06
+|   GENE3943X <= -0.56: nonACL (9.34)
+|   GENE3943X > -0.56
+|   |   GENE2106X <= 0.34: ACL (52.0/1.0)
+|   |   GENE2106X > 0.34: nonACL (3.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE1610X <= 1.6
+|   GENE3753X <= 1: nonACL (56.0)
+|   GENE3753X > 1: ACL (4.0)
+GENE1610X > 1.6
+|   GENE3325X <= 0.6: ACL (29.0)
+|   GENE3325X > 0.6: nonACL (7.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.41
+|   GENE981X <= 1.24
+|   |   GENE67X <= 0.58: nonACL (56.71)
+|   |   GENE67X > 0.58: ACL (3.0)
+|   GENE981X > 1.24: ACL (8.0)
+GENE1537X > 0.41: ACL (28.29/1.29)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+GENE3941X <= 0.63
+|   GENE1567X <= 2.62: nonACL (58.0)
+|   GENE1567X > 2.62: ACL (10.0/1.0)
+GENE3941X > 0.63: ACL (28.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+
+
+Cost Matrix
+ 0 2
+ 1 0
+
+
+Time taken to build model: 4.73 seconds
+Time taken to test model on training data: 0.12 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          96              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0977
+Root mean squared error                  0.1284
+Relative absolute error                 26.5999 %
+Root relative squared error             30.0841 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        ACL
+                 1         0          1         1         1          1        nonACL
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+  0 73 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          85               88.5417 %
+Incorrectly Classified Instances        11               11.4583 %
+Kappa statistic                          0.6808
+Mean absolute error                      0.2556
+Root mean squared error                  0.3178
+Relative absolute error                 69.4905 %
+Root relative squared error             74.3749 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.739     0.068      0.773     0.739     0.756      0.932    ACL
+                 0.932     0.261      0.919     0.932     0.925      0.932    nonACL
+Weighted Avg.    0.885     0.215      0.884     0.885     0.885      0.932
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 17  6 |  a = ACL
+  5 68 |  b = nonACL
+

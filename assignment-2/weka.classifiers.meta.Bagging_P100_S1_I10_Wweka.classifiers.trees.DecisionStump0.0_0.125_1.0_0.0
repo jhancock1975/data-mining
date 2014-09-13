@@ -1,0 +1,284 @@
+
+Options: -cost-matrix "[0.0 0.125; 1.0 0.0]" -S 1 -W weka.classifiers.meta.Bagging -- -P 100 -S 1 -I 10 -W weka.classifiers.trees.DecisionStump 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.meta.Bagging -P 100 -S 1 -I 10 -W weka.classifiers.trees.DecisionStump
+
+Classifier Model
+All the base classifiers: 
+
+Decision Stump
+
+Classifications
+
+GENE3886X <= 1.6099999999999999 : nonACL
+GENE3886X > 1.6099999999999999 : ACL
+GENE3886X is missing : nonACL
+
+Class distributions
+
+GENE3886X <= 1.6099999999999999
+ACL	nonACL	
+0.0	1.0	
+GENE3886X > 1.6099999999999999
+ACL	nonACL	
+1.0	0.0	
+GENE3886X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE3147X <= 0.6950000000000001 : nonACL
+GENE3147X > 0.6950000000000001 : ACL
+GENE3147X is missing : nonACL
+
+Class distributions
+
+GENE3147X <= 0.6950000000000001
+ACL	nonACL	
+0.0	1.0	
+GENE3147X > 0.6950000000000001
+ACL	nonACL	
+0.5555555555555556	0.4444444444444444	
+GENE3147X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE3574X <= 0.7 : nonACL
+GENE3574X > 0.7 : ACL
+GENE3574X is missing : nonACL
+
+Class distributions
+
+GENE3574X <= 0.7
+ACL	nonACL	
+0.0	1.0	
+GENE3574X > 0.7
+ACL	nonACL	
+0.5	0.5	
+GENE3574X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE1843X <= -0.7 : nonACL
+GENE1843X > -0.7 : nonACL
+GENE1843X is missing : ACL
+
+Class distributions
+
+GENE1843X <= -0.7
+ACL	nonACL	
+0.0	1.0	
+GENE1843X > -0.7
+ACL	nonACL	
+0.0	1.0	
+GENE1843X is missing
+ACL	nonACL	
+1.0	0.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE3941X <= 0.945 : nonACL
+GENE3941X > 0.945 : ACL
+GENE3941X is missing : nonACL
+
+Class distributions
+
+GENE3941X <= 0.945
+ACL	nonACL	
+0.0	1.0	
+GENE3941X > 0.945
+ACL	nonACL	
+1.0	0.0	
+GENE3941X is missing
+ACL	nonACL	
+0.041666666666666664	0.9583333333333334	
+
+
+Decision Stump
+
+Classifications
+
+GENE2181X <= -0.845 : nonACL
+GENE2181X > -0.845 : nonACL
+GENE2181X is missing : ACL
+
+Class distributions
+
+GENE2181X <= -0.845
+ACL	nonACL	
+0.14285714285714285	0.8571428571428571	
+GENE2181X > -0.845
+ACL	nonACL	
+0.0	1.0	
+GENE2181X is missing
+ACL	nonACL	
+1.0	0.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE3070X <= -0.7450000000000001 : ACL
+GENE3070X > -0.7450000000000001 : nonACL
+GENE3070X is missing : nonACL
+
+Class distributions
+
+GENE3070X <= -0.7450000000000001
+ACL	nonACL	
+1.0	0.0	
+GENE3070X > -0.7450000000000001
+ACL	nonACL	
+0.0	1.0	
+GENE3070X is missing
+ACL	nonACL	
+0.03125	0.96875	
+
+
+Decision Stump
+
+Classifications
+
+GENE3384X <= -2.47 : ACL
+GENE3384X > -2.47 : nonACL
+GENE3384X is missing : ACL
+
+Class distributions
+
+GENE3384X <= -2.47
+ACL	nonACL	
+1.0	0.0	
+GENE3384X > -2.47
+ACL	nonACL	
+0.0	1.0	
+GENE3384X is missing
+ACL	nonACL	
+1.0	0.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE2184X <= -1.165 : ACL
+GENE2184X > -1.165 : nonACL
+GENE2184X is missing : nonACL
+
+Class distributions
+
+GENE2184X <= -1.165
+ACL	nonACL	
+1.0	0.0	
+GENE2184X > -1.165
+ACL	nonACL	
+0.0	1.0	
+GENE2184X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Decision Stump
+
+Classifications
+
+GENE2584X <= -2.6399999999999997 : ACL
+GENE2584X > -2.6399999999999997 : nonACL
+GENE2584X is missing : nonACL
+
+Class distributions
+
+GENE2584X <= -2.6399999999999997
+ACL	nonACL	
+1.0	0.0	
+GENE2584X > -2.6399999999999997
+ACL	nonACL	
+0.0	1.0	
+GENE2584X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+
+
+Cost Matrix
+ 0    0.13
+ 1    0   
+
+
+Time taken to build model: 0.8 seconds
+Time taken to test model on training data: 0.14 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          74               77.0833 %
+Incorrectly Classified Instances        22               22.9167 %
+Kappa statistic                          0.0647
+Mean absolute error                      0.2085
+Root mean squared error                  0.4157
+Relative absolute error                 56.7841 %
+Root relative squared error             97.3812 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.043     0          1         0.043     0.083      0.946    ACL
+                 1         0.957      0.768     1         0.869      0.946    nonACL
+Weighted Avg.    0.771     0.727      0.824     0.771     0.681      0.946
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+  1 22 |  a = ACL
+  0 73 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          73               76.0417 %
+Incorrectly Classified Instances        23               23.9583 %
+Kappa statistic                          0     
+Mean absolute error                      0.2569
+Root mean squared error                  0.4345
+Relative absolute error                 69.8576 %
+Root relative squared error            101.6664 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0         0          0         0         0          0.785    ACL
+                 1         1          0.76      1         0.864      0.785    nonACL
+Weighted Avg.    0.76      0.76       0.578     0.76      0.657      0.785
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+  0 23 |  a = ACL
+  0 73 |  b = nonACL
+

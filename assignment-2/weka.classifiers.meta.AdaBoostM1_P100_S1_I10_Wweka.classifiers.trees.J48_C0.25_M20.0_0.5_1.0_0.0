@@ -1,0 +1,91 @@
+
+Options: -cost-matrix "[0.0 0.5; 1.0 0.0]" -S 1 -W weka.classifiers.meta.AdaBoostM1 -- -P 100 -S 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.meta.AdaBoostM1 -P 100 -S 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+
+Classifier Model
+AdaBoostM1: No boosting possible, one classifier used!
+J48 pruned tree
+------------------
+
+GENE3941X <= 0.94
+|   GENE1567X <= 2.62
+|   |   GENE1812X <= 0.77: nonACL (76.74)
+|   |   GENE1812X > 0.77
+|   |   |   GENE1770X <= 0.14: nonACL (3.79)
+|   |   |   GENE1770X > 0.14: ACL (2.3/0.03)
+|   GENE1567X > 2.62
+|   |   GENE2139X <= 0.34: ACL (5.11)
+|   |   GENE2139X > 0.34: nonACL (2.37)
+GENE3941X > 0.94: ACL (5.68)
+
+Number of Leaves  : 	6
+
+Size of the tree : 	11
+
+
+
+Cost Matrix
+ 0    0.5 
+ 1    0   
+
+
+Time taken to build model: 0.39 seconds
+Time taken to test model on training data: 0.14 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          96              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0009
+Root mean squared error                  0.004 
+Relative absolute error                  0.2335 %
+Root relative squared error              0.9275 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        ACL
+                 1         0          1         1         1          1        nonACL
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+  0 73 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          84               87.5    %
+Incorrectly Classified Instances        12               12.5    %
+Kappa statistic                          0.6464
+Mean absolute error                      0.1288
+Root mean squared error                  0.3477
+Relative absolute error                 35.0121 %
+Root relative squared error             81.3553 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.068      0.762     0.696     0.727      0.898    ACL
+                 0.932     0.304      0.907     0.932     0.919      0.897    nonACL
+Weighted Avg.    0.875     0.248      0.872     0.875     0.873      0.897
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 16  7 |  a = ACL
+  5 68 |  b = nonACL
+

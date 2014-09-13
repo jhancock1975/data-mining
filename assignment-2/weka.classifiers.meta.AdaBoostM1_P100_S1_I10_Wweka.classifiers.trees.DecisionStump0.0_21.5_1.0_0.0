@@ -1,0 +1,305 @@
+
+Options: -cost-matrix "[0.0 21.5; 1.0 0.0]" -S 1 -W weka.classifiers.meta.AdaBoostM1 -- -P 100 -S 1 -I 10 -W weka.classifiers.trees.DecisionStump 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.meta.AdaBoostM1 -P 100 -S 1 -I 10 -W weka.classifiers.trees.DecisionStump
+
+Classifier Model
+AdaBoostM1: Base classifiers and their weights: 
+
+Decision Stump
+
+Classifications
+
+GENE379X <= -0.085 : nonACL
+GENE379X > -0.085 : ACL
+GENE379X is missing : nonACL
+
+Class distributions
+
+GENE379X <= -0.085
+ACL	nonACL	
+0.0	1.0	
+GENE379X > -0.085
+ACL	nonACL	
+0.9500480307396733	0.04995196926032663	
+GENE379X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Weight: 3.04
+
+Decision Stump
+
+Classifications
+
+GENE3939X <= 0.1 : nonACL
+GENE3939X > 0.1 : ACL
+GENE3939X is missing : ACL
+
+Class distributions
+
+GENE3939X <= 0.1
+ACL	nonACL	
+0.0847515445552059	0.915248455444794	
+GENE3939X > 0.1
+ACL	nonACL	
+0.7787955835742397	0.2212044164257603	
+GENE3939X is missing
+ACL	nonACL	
+0.9148936170212765	0.08510638297872339	
+
+
+Weight: 1.7
+
+Decision Stump
+
+Classifications
+
+GENE939X <= -0.21 : nonACL
+GENE939X > -0.21 : ACL
+GENE939X is missing : nonACL
+
+Class distributions
+
+GENE939X <= -0.21
+ACL	nonACL	
+0.08487921987142745	0.9151207801285726	
+GENE939X > -0.21
+ACL	nonACL	
+0.7415762822161177	0.25842371778388235	
+GENE939X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Weight: 1.71
+
+Decision Stump
+
+Classifications
+
+GENE3567X <= 0.135 : nonACL
+GENE3567X > 0.135 : ACL
+GENE3567X is missing : ACL
+
+Class distributions
+
+GENE3567X <= 0.135
+ACL	nonACL	
+0.07580002435954095	0.9241999756404591	
+GENE3567X > 0.135
+ACL	nonACL	
+0.7115435231484892	0.28845647685151077	
+GENE3567X is missing
+ACL	nonACL	
+1.0	0.0	
+
+
+Weight: 1.8
+
+Decision Stump
+
+Classifications
+
+GENE3968X <= 0.19 : nonACL
+GENE3968X > 0.19 : ACL
+GENE3968X is missing : nonACL
+
+Class distributions
+
+GENE3968X <= 0.19
+ACL	nonACL	
+0.021338606500129732	0.9786613934998704	
+GENE3968X > 0.19
+ACL	nonACL	
+0.7370676959754617	0.2629323040245384	
+GENE3968X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Weight: 1.95
+
+Decision Stump
+
+Classifications
+
+GENE1296X <= 0.365 : nonACL
+GENE1296X > 0.365 : ACL
+GENE1296X is missing : nonACL
+
+Class distributions
+
+GENE1296X <= 0.365
+ACL	nonACL	
+0.078876030734926	0.921123969265074	
+GENE1296X > 0.365
+ACL	nonACL	
+0.9319715927175924	0.06802840728240762	
+GENE1296X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Weight: 2.52
+
+Decision Stump
+
+Classifications
+
+GENE2034X <= -0.275 : ACL
+GENE2034X > -0.275 : nonACL
+GENE2034X is missing : nonACL
+
+Class distributions
+
+GENE2034X <= -0.275
+ACL	nonACL	
+0.8892478921794289	0.11075210782057107	
+GENE2034X > -0.275
+ACL	nonACL	
+0.11435586231605034	0.8856441376839497	
+GENE2034X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Weight: 2.13
+
+Decision Stump
+
+Classifications
+
+GENE2713X <= -0.33 : ACL
+GENE2713X > -0.33 : nonACL
+GENE2713X is missing : nonACL
+
+Class distributions
+
+GENE2713X <= -0.33
+ACL	nonACL	
+0.9016107293178912	0.09838927068210879	
+GENE2713X > -0.33
+ACL	nonACL	
+0.1433717881164753	0.8566282118835247	
+GENE2713X is missing
+ACL	nonACL	
+0.1057388320405081	0.894261167959492	
+
+
+Weight: 1.97
+
+Decision Stump
+
+Classifications
+
+GENE3355X <= 0.21000000000000002 : ACL
+GENE3355X > 0.21000000000000002 : nonACL
+GENE3355X is missing : nonACL
+
+Class distributions
+
+GENE3355X <= 0.21000000000000002
+ACL	nonACL	
+0.8275738510433102	0.1724261489566898	
+GENE3355X > 0.21000000000000002
+ACL	nonACL	
+0.015534831312146303	0.9844651686878537	
+GENE3355X is missing
+ACL	nonACL	
+0.0	1.0	
+
+
+Weight: 2.0
+
+Decision Stump
+
+Classifications
+
+GENE3461X <= 0.185 : nonACL
+GENE3461X > 0.185 : ACL
+GENE3461X is missing : nonACL
+
+Class distributions
+
+GENE3461X <= 0.185
+ACL	nonACL	
+0.10336281219768864	0.8966371878023114	
+GENE3461X > 0.185
+ACL	nonACL	
+0.8835925307147878	0.11640746928521219	
+GENE3461X is missing
+ACL	nonACL	
+0.18657733030771895	0.813422669692281	
+
+
+Weight: 2.07
+
+Number of performed Iterations: 10
+
+
+Cost Matrix
+  0    21.5 
+  1     0   
+
+
+Time taken to build model: 1.08 seconds
+Time taken to test model on training data: 0.14 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          96              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0029
+Root mean squared error                  0.0092
+Relative absolute error                  0.7961 %
+Root relative squared error              2.1641 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        ACL
+                 1         0          1         1         1          1        nonACL
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+  0 73 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          72               75      %
+Incorrectly Classified Instances        24               25      %
+Kappa statistic                          0.3869
+Mean absolute error                      0.2429
+Root mean squared error                  0.4494
+Relative absolute error                 66.0421 %
+Root relative squared error            105.17   %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.652     0.219      0.484     0.652     0.556      0.792    ACL
+                 0.781     0.348      0.877     0.781     0.826      0.792    nonACL
+Weighted Avg.    0.75      0.317      0.783     0.75      0.761      0.792
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 15  8 |  a = ACL
+ 16 57 |  b = nonACL
+
