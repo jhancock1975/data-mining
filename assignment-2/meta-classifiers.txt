@@ -1,2 +1,2 @@
-weka.classifiers.meta.Bagging -i -P 100 -S 1 -I
 weka.classifiers.meta.AdaBoostM1 -i -P 100 -S 1 -I
+weka.classifiers.meta.Bagging -i -P 100 -S 1 -I

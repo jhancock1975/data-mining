@@ -5,6 +5,12 @@ DATA_FILE=/home/john/Documents/school/fau/2014-fall/data-mining/assignments/data
 
 PREFIX=/home/john/Documents/school/fau/2014-fall/data-mining/assignments/data-mining/assignment-2
 
+OUTPUT_DIR=$PREFIX/weka-output
+
+rm -rf $OUTPUT_DIR
+
+mkdir $OUTPUT_DIR
+
 CLASSIFIERS_FILE=$PREFIX/classifiers.txt
 COST_MATRIX_FILE=$PREFIX/cost-matrices.txt
 META_CLASSIFIERS_FILE=$PREFIX/meta-classifiers.txt
@@ -38,8 +44,10 @@ while [ $k -le $NUM_META_CLASSIFIERS ]; do
 			while [  $j -le $NUM_COST_MATRICES ];	do
 				COST_MATRIX=$(sed $j'q;d' cost-matrices.txt);
 				OUTPUT_FILE=$(echo $META_CLASSIFIER | sed 's/;//g' | sed 's/\[//g' | sed 's/\]//g' | sed 's/ /_/g' | sed 's/"//g')
+				OUTPUT_FILE=$(echo $OUTPUT_FILE)_$(echo $NUM_ITERATIONS)_
 				OUTPUT_FILE=$(echo $OUTPUT_FILE)$(echo $COST_MATRIX | sed 's/;//g' | sed 's/\[//g' | sed 's/\]//g' | sed 's/ /_/g' | sed 's/"//g')
 				OUTPUT_FILE=$(echo $OUTPUT_FILE)$(echo $CLASSIFIER | sed 's/ //g' | sed 's/[-]\+/_/g');
+				OUTPUT_FILE=$OUTPUT_DIR/$OUTPUT_FILE
 				echo $OUTPUT_FILE;
 				java -cp  $WEKA_JAR $META_CLASSIFIER $NUM_ITERATIONS -t $DATA_FILE -W weka.classifiers.meta.CostSensitiveClassifier -- -cost-matrix "$COST_MATRIX" -S 1 $CLASSIFIER > $OUTPUT_FILE
 				let j=j+1;
@@ -49,3 +57,5 @@ while [ $k -le $NUM_META_CLASSIFIERS ]; do
 		let k=k+1;
 	done
 done
+
+mv $OUTPUT_DIR ./saved-output

@@ -1,0 +1,677 @@
+
+Options: -P 100 -S 1 -I 25 -W weka.classifiers.meta.CostSensitiveClassifier -- -cost-matrix "[0.0 21.0; 1.0 0.0]" -S 1 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+All the base classifiers: 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1610X <= -0.18: nonACL (7.73)
+GENE1610X > -0.18
+|   GENE3941X <= 0.05
+|   |   GENE2595X <= 0.37: nonACL (3.06)
+|   |   GENE2595X > 0.37: ACL (3.38)
+|   GENE3941X > 0.05: ACL (81.83/0.64)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE533X <= 0.07: nonACL (13.68)
+GENE533X > 0.07
+|   GENE2105X <= -0.47: ACL (75.16)
+|   GENE2105X > -0.47
+|   |   GENE2041X <= -0.46: ACL (4.42)
+|   |   GENE2041X > -0.46: nonACL (2.74)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3945X <= 0.63: nonACL (10.17)
+GENE3945X > 0.63: ACL (85.83/1.83)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE377X <= -0.18: nonACL (5.79)
+GENE377X > -0.18
+|   GENE2760X <= -0.1: ACL (84.83/0.83)
+|   GENE2760X > -0.1
+|   |   GENE3430X <= 0.81: nonACL (2.48)
+|   |   GENE3430X > 0.81: ACL (2.9)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.13: nonACL (10.46)
+GENE1537X > 0.13
+|   GENE460X <= 0.15: ACL (78.66/0.52)
+|   GENE460X > 0.15
+|   |   GENE2423X <= 0.57: nonACL (2.98)
+|   |   GENE2423X > 0.57: ACL (3.91)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE472X <= 0.01: nonACL (7.17)
+GENE472X > 0.01
+|   GENE1252X <= -0.11
+|   |   GENE3438X <= 0.57: nonACL (2.49)
+|   |   GENE3438X > 0.57: ACL (3.07)
+|   GENE1252X > -0.11: ACL (83.27/0.29)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2760X <= -0.08
+|   GENE1251X <= -0.31
+|   |   GENE335X <= 0.15: nonACL (3.35)
+|   |   GENE335X > 0.15: ACL (3.91)
+|   GENE1251X > -0.31: ACL (78.7/0.56)
+GENE2760X > -0.08: nonACL (10.05)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE493X <= 0.02: nonACL (8.4)
+GENE493X > 0.02
+|   GENE2297X <= -0.44
+|   |   GENE1605X <= -0.55: ACL (3.38)
+|   |   GENE1605X > -0.55: nonACL (2.74)
+|   GENE2297X > -0.44: ACL (81.48/0.29)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE378X <= -0.04: nonACL (13.15)
+GENE378X > -0.04
+|   GENE382X <= 0.38: ACL (74.08/1.38)
+|   GENE382X > 0.38
+|   |   GENE3207X <= -0.32: ACL (4.85)
+|   |   GENE3207X > -0.32: nonACL (3.92)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE527X <= -0.12: nonACL (7.73)
+GENE527X > -0.12
+|   GENE355X <= 0.23: ACL (82.31/1.13)
+|   GENE355X > 0.23
+|   |   GENE1116X <= 0.45: nonACL (2.58)
+|   |   GENE1116X > 0.45: ACL (3.38)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3573X <= -0.06: nonACL (9.86)
+GENE3573X > -0.06
+|   GENE2106X <= 0.02: ACL (79.07/0.93)
+|   GENE2106X > 0.02
+|   |   GENE2259X <= 0.15: nonACL (3.16)
+|   |   GENE2259X > 0.15: ACL (3.91)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1622X <= -0.19: nonACL (7.34)
+GENE1622X > -0.19
+|   GENE3328X <= 0.14: ACL (82.9/1.08)
+|   GENE3328X > 0.14
+|   |   GENE3946X <= 0.98: nonACL (2.49)
+|   |   GENE3946X > 0.98: ACL (3.27)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE384X <= 0.08: nonACL (13.26)
+GENE384X > 0.08
+|   GENE3939X <= 0.06
+|   |   GENE3944X <= 2.23: nonACL (2.76)
+|   |   GENE3944X > 2.23: ACL (4.42)
+|   GENE3939X > 0.06: ACL (75.56/0.4)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE378X <= -0.04: nonACL (7.77)
+GENE378X > -0.04
+|   GENE2512X <= -0.19: ACL (81.5/1.73)
+|   GENE2512X > -0.19
+|   |   GENE3733X <= 0.58: nonACL (2.94)
+|   |   GENE3733X > 0.58: ACL (3.8/0.17)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1612X <= 0.06: nonACL (7.4)
+GENE1612X > 0.06
+|   GENE460X <= 0.3: ACL (83.02/0.6)
+|   GENE460X > 0.3
+|   |   GENE1932X <= -0.58: ACL (3.17)
+|   |   GENE1932X > -0.58: nonACL (2.42)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2760X <= -0.12
+|   GENE2106X <= -0.25: ACL (84.07/0.57)
+|   GENE2106X > -0.25
+|   |   GENE3070X <= -0.63: ACL (2.98)
+|   |   GENE3070X > -0.63: nonACL (2.26)
+GENE2760X > -0.12: nonACL (6.68)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE556X <= 0.1: nonACL (9.02)
+GENE556X > 0.1: ACL (86.98/2.42)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE962X <= 0.17: nonACL (12.19)
+GENE962X > 0.17
+|   GENE3877X <= 0.19
+|   |   GENE3675X <= 0.74: nonACL (2.52)
+|   |   GENE3675X > 0.74: ACL (4.06)
+|   GENE3877X > 0.19: ACL (77.23)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1610X <= -0.2: nonACL (5.79)
+GENE1610X > -0.2
+|   GENE3314X <= 0.43: ACL (84.69/0.69)
+|   GENE3314X > 0.43
+|   |   GENE998X <= 0.48: nonACL (2.48)
+|   |   GENE998X > 0.48: ACL (3.03/0.14)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1498X <= 0.07: nonACL (10.05)
+GENE1498X > 0.07
+|   GENE3573X <= 0.04
+|   |   GENE1098X <= 0.66: nonACL (2.98)
+|   |   GENE1098X > 0.66: ACL (3.92/0.01)
+|   GENE3573X > 0.04: ACL (79.05/0.92)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2760X <= -0.08
+|   GENE3924X <= -0.01: ACL (77.81/0.58)
+|   GENE3924X > -0.01
+|   |   GENE3678X <= -0.25: ACL (4.06)
+|   |   GENE3678X > -0.25: nonACL (3.29)
+GENE2760X > -0.08: nonACL (10.84)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2676X <= 0
+|   GENE3330X <= 0.35: ACL (81.26/0.78)
+|   GENE3330X > 0.35: nonACL (4.66)
+GENE2676X > 0: nonACL (10.08)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3140X <= -0.02: nonACL (10.69)
+GENE3140X > -0.02
+|   GENE2113X <= 0.11: ACL (80.87/0.4)
+|   GENE2113X > 0.11: nonACL (4.44)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1612X <= 0.06: nonACL (6.82)
+GENE1612X > 0.06
+|   GENE3355X <= 0.19: ACL (84.05/0.55)
+|   GENE3355X > 0.19
+|   |   GENE1930X <= -0.82: ACL (2.98)
+|   |   GENE1930X > -0.82: nonACL (2.15)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1537X <= 0.24: nonACL (17.2)
+GENE1537X > 0.24
+|   GENE377X <= 0.2
+|   |   GENE2551X <= -0.13: ACL (5.36)
+|   |   GENE2551X > -0.13: nonACL (3.74)
+|   GENE377X > 0.2: ACL (69.7)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 21
+  1  0
+
+
+
+
+Time taken to build model: 3.38 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          95               98.9583 %
+Incorrectly Classified Instances         1                1.0417 %
+Kappa statistic                          0.9718
+Mean absolute error                      0.1389
+Root mean squared error                  0.1791
+Relative absolute error                 37.8352 %
+Root relative squared error             41.9495 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.014      0.958     1         0.979      1        ACL
+                 0.986     0          1         0.986     0.993      1        nonACL
+Weighted Avg.    0.99      0.003      0.99      0.99      0.99       1    
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+  1 72 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          72               75      %
+Incorrectly Classified Instances        24               25      %
+Kappa statistic                          0.4028
+Mean absolute error                      0.3119
+Root mean squared error                  0.3891
+Relative absolute error                 84.7952 %
+Root relative squared error             91.0418 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.696     0.233      0.485     0.696     0.571      0.826    ACL
+                 0.767     0.304      0.889     0.767     0.824      0.826    nonACL
+Weighted Avg.    0.75      0.287      0.792     0.75      0.763      0.826
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 16  7 |  a = ACL
+ 17 56 |  b = nonACL
+

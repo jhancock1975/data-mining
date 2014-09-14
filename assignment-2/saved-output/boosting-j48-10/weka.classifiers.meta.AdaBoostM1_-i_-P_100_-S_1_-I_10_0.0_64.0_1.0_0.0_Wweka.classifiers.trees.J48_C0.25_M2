@@ -1,0 +1,234 @@
+
+Options: -P 100 -S 1 -I 10 -W weka.classifiers.meta.CostSensitiveClassifier -- -cost-matrix "[0.0 64.0; 1.0 0.0]" -S 1 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+AdaBoostM1: Base classifiers and their weights: 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2760X <= -0.1: ACL (89.04/0.8)
+GENE2760X > -0.1
+|   GENE3905X <= -0.02: ACL (4.6/0.92)
+|   GENE3905X > -0.02: nonACL (2.36)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 0.29
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE221X <= 0.23: nonACL (4.85)
+GENE221X > 0.23: ACL (91.15/1.65)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 1.12
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2462X <= -0.65: ACL (91.1/1.7)
+GENE2462X > -0.65: nonACL (4.9/0.51)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 1.07
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2550X <= -0.22: ACL (89.73/1.2)
+GENE2550X > -0.22: nonACL (6.27)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 1.42
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3258X <= -0.77: ACL (84.71/1.3)
+GENE3258X > -0.77: nonACL (11.29)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 1.79
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE981X <= 0.38
+|   GENE75X <= 0.23: nonACL (3.76)
+|   GENE75X > 0.23: ACL (4.21/0.06)
+GENE981X > 0.38: ACL (88.03/0.97)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 1.21
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3759X <= 0.39: nonACL (8.27)
+GENE3759X > 0.39
+|   GENE2674X <= 0.07
+|   |   GENE1835X <= 0.15: nonACL (2.07)
+|   |   GENE1835X > 0.15: ACL (7.79)
+|   GENE2674X > 0.07: ACL (77.87)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 64
+  1  0
+
+
+Weight: 2.63
+
+Number of performed Iterations: 7
+
+
+Time taken to build model: 0.99 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          94               97.9167 %
+Incorrectly Classified Instances         2                2.0833 %
+Kappa statistic                          0.9411
+Mean absolute error                      0.0526
+Root mean squared error                  0.1429
+Relative absolute error                 14.3164 %
+Root relative squared error             33.4875 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.913     0          1         0.913     0.955      0.997    ACL
+                 1         0.087      0.973     1         0.986      0.997    nonACL
+Weighted Avg.    0.979     0.066      0.98      0.979     0.979      0.997
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 21  2 |  a = ACL
+  0 73 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          68               70.8333 %
+Incorrectly Classified Instances        28               29.1667 %
+Kappa statistic                          0.3033
+Mean absolute error                      0.2932
+Root mean squared error                  0.4949
+Relative absolute error                 79.7247 %
+Root relative squared error            115.8046 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.609     0.26       0.424     0.609     0.5        0.749    ACL
+                 0.74      0.391      0.857     0.74      0.794      0.749    nonACL
+Weighted Avg.    0.708     0.36       0.753     0.708     0.724      0.749
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 14  9 |  a = ACL
+ 19 54 |  b = nonACL
+

@@ -1,0 +1,319 @@
+
+Options: -P 100 -S 1 -I 10 -W weka.classifiers.meta.CostSensitiveClassifier -- -cost-matrix "[0.0 20.0; 1.0 0.0]" -S 1 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 
+
+AdaBoostM1: Base classifiers and their weights: 
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE1610X <= -0.18: nonACL (8.07)
+GENE1610X > -0.18
+|   GENE3941X <= 0.05
+|   |   GENE2595X <= 0.37: nonACL (3.19)
+|   |   GENE2595X > 0.37: ACL (3.36)
+|   GENE3941X > 0.05: ACL (81.37/0.67)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 2.15
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE567X <= 0.08: nonACL (7.57)
+GENE567X > 0.08: ACL (88.43/2.37)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 1.31
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE514X <= 0.19: nonACL (13.98)
+GENE514X > 0.19
+|   GENE132X <= 0.08: ACL (77.9/0.23)
+|   GENE132X > 0.08: nonACL (4.13/0.23)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 2.81
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3939X <= 0.09: nonACL (5.53/0.26)
+GENE3939X > 0.09: ACL (90.47/1.01)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 1.82
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3405X <= -0.02: nonACL (9.37)
+GENE3405X > -0.02
+|   GENE1313X <= -0.22
+|   |   GENE3511X <= 0.54: nonACL (3.42)
+|   |   GENE3511X > 0.54: ACL (3.6)
+|   GENE1313X > -0.22: ACL (79.61/0.36)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 2.41
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE4008X <= 0.15: nonACL (7.29)
+GENE4008X > 0.15: ACL (88.71/1.82)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 1.57
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE3967X <= 0.25: nonACL (15.58)
+GENE3967X > 0.25
+|   GENE1252X <= 0.91
+|   |   GENE2536X <= -1.17: ACL (4.58)
+|   |   GENE2536X > -1.17: nonACL (2.52)
+|   GENE1252X > 0.91: ACL (73.32)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 1.98
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE453X <= 0.03
+|   GENE634X <= -0.13
+|   |   GENE3129X <= -0.81: ACL (2.52)
+|   |   GENE3129X > -0.81: nonACL (2.14)
+|   GENE634X > -0.13: ACL (85.91/0.13)
+GENE453X > 0.03: nonACL (5.42)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 2.07
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE2760X <= -0.08: ACL (88.54/1.37)
+GENE2760X > -0.08
+|   GENE997X <= 1.09: nonACL (5.17)
+|   GENE997X > 1.09: ACL (2.29)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 2.11
+
+CostSensitiveClassifier using reweighted training instances
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+GENE528X <= 0.35: nonACL (13.31)
+GENE528X > 0.35
+|   GENE3573X <= -0.03
+|   |   GENE1380X <= 0.45: nonACL (2.02)
+|   |   GENE1380X > 0.45: ACL (4.03)
+|   GENE3573X > -0.03: ACL (76.64)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+Cost Matrix
+  0 20
+  1  0
+
+
+Weight: 3.37
+
+Number of performed Iterations: 10
+
+
+Time taken to build model: 1.25 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          96              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0001
+Root mean squared error                  0.0004
+Relative absolute error                  0.0358 %
+Root relative squared error              0.094  %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        ACL
+                 1         0          1         1         1          1        nonACL
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 23  0 |  a = ACL
+  0 73 |  b = nonACL
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          76               79.1667 %
+Incorrectly Classified Instances        20               20.8333 %
+Kappa statistic                          0.3509
+Mean absolute error                      0.2089
+Root mean squared error                  0.4349
+Relative absolute error                 56.8047 %
+Root relative squared error            101.7638 %
+Total Number of Instances               96     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.391     0.082      0.6       0.391     0.474      0.836    ACL
+                 0.918     0.609      0.827     0.918     0.87       0.836    nonACL
+Weighted Avg.    0.792     0.483      0.773     0.792     0.775      0.836
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+  9 14 |  a = ACL
+  6 67 |  b = nonACL
+
