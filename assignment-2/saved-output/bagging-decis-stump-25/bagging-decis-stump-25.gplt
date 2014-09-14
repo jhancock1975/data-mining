@@ -1,13 +1,10 @@
 set term postscript eps 22
 set key center top
 set xlabel 'Type II Error Cost'
-set ylabel 'Missclassifications' # for alberg
+set ylabel 'Missclassifications'
 set linestyle 1 lt 2 lw 3
 set logscale x
 #set xrange [0.1:300]
-set key box linestyle 1 # dashed lines around box
-set format y "%g%%" # put a percent sign after the numbers on the x-axis
-
-set output 'test-error-rates.ps' # have to do every time
-
-plot 'bagging-decis-stump-25-fp-data-points.dat.sorted'  title 'Type I Error Rate'  with linespoints lw 3 pt 4, 'bagging-decis-stump-25-fn-data-points.dat.sorted' title 'Type II Error Rate' with linespoints lw 3 pt 8
+set key box linestyle 1 
+set output 'bagging-decis-stump-25.ps'
+plot  'bagging-decis-stump-25-fp-data-points.dat.sorted' title 'BAGGING-DECIS-STUMP-25 FPR ' with linespoints lw 3 pt 4, 'bagging-decis-stump-25-fn-data-points.dat.sorted' title 'BAGGING-DECIS-STUMP-25 FNR' with linespoints lw 3 pt 8

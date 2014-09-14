@@ -161,8 +161,8 @@ Methodology
 \begin_layout Standard
 For this part of the assignment we use Weka to build a classification model
  using a cost sensitive classifier combined with bagging and J48.
- We configure bagging to do 10 iterations.We then run the classifier on the
- input dataset using different cost ratios.
+ We configure bagging to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
  Our method for varying the cost ratios is: we set the Type I error cost
  of the cost sensitive classifier to 1 and vary the cost of a Type II error.
 \end_layout

@@ -175,6 +175,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-j48-10/bagging-j48-10.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 2: Cost sensitive classifier combined with bagging and Decision Stump
  - 10 Iterations
@@ -199,6 +208,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-decis-stump-10/bagging-decis-stump-10.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -228,6 +246,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-j48-10/boosting-j48-10.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 4: Cost sensitive classifier combined with boosting (AdaBoostM1) and
  Decision Stump - 10 Iterations
@@ -255,6 +282,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-decis-stump-10/boosting-decis-stump-10.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 5: Cost sensitive classifier combined with bagging and J48 - 25 Iterations
 \end_layout
@@ -278,6 +314,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-j48-25/bagging-j48-25.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
