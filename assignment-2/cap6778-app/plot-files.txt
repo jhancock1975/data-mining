@@ -1,0 +1,16 @@
+./java-output/Boosting-J48-25/Boosting-J48-25.gplt
+./java-output/Boosting-J48-25/Boosting-J48-25-AUC.gplt
+./java-output/Boosting-J48-10/Boosting-J48-10-AUC.gplt
+./java-output/Boosting-J48-10/Boosting-J48-10.gplt
+./java-output/Bagging-Decision-Stump-25/Bagging-Decision-Stump-25.gplt
+./java-output/Bagging-Decision-Stump-25/Bagging-Decision-Stump-25-AUC.gplt
+./java-output/Boosting-Decision-Stump-25/Boosting-Decision-Stump-25.gplt
+./java-output/Boosting-Decision-Stump-25/Boosting-Decision-Stump-25-AUC.gplt
+./java-output/Bagging-J48-10/Bagging-J48-10-AUC.gplt
+./java-output/Bagging-J48-10/Bagging-J48-10.gplt
+./java-output/Boosting-Decision-Stump-10/Boosting-Decision-Stump-10.gplt
+./java-output/Boosting-Decision-Stump-10/Boosting-Decision-Stump-10-AUC.gplt
+./java-output/Bagging-Decision-Stump-10/Bagging-Decision-Stump-10-AUC.gplt
+./java-output/Bagging-Decision-Stump-10/Bagging-Decision-Stump-10.gplt
+./java-output/Bagging-J48-25/Bagging-J48-25-AUC.gplt
+./java-output/Bagging-J48-25/Bagging-J48-25.gplt

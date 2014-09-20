@@ -90,9 +90,10 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use various classifiers in Weka on a biometric dataset
- to evaluate the performance of the classifiers.
- 
+In this assignment we use various classifiers in Weka on a biometric dataset.
+ We evaluate and analyze the false positive and false negative error rates
+ of the classifiers using the same methods we use in part 4 of assignment
+ 1.
 \end_layout
 
 \begin_layout Section*
@@ -129,9 +130,18 @@ Cost sensitive classifier combined with boosting (AdaBoostM1) and Decision
 \begin_layout Standard
 For each classifier we determine the optimal ratio of the cost of a Type
  II error to the cost of a Type I error.
- We determine the optimal ratio for two configurations of each classifier.
- In the first configuration, we configure the boosting or the bagging to
- do 10 iterations.
+ For each classifier we set the Type I error cost to 1.0, and allow the Type
+ II error cost to take on the following values: 0.125, 0.5, 1.0, 2.0, 4.0, 8.0,
+ 16.0, 20.0, 21.0, 21.5, 22.0, 22.5, 23.0, 24.0, 28.0, 32.0, 34.0, 36.0, 40.0, 64.0, 128.0.
+ These are the same Type I and Type II error costs we use in Assignment
+ 1.
+ 
+\end_layout
+
+\begin_layout Standard
+We determine the optimal ratio for two configurations of boosting and bagging.
+ In the first configuration, we configure boosting or bagging to do 10 iteration
+s.
  In the second configuration we configure the boosting or the bagging to
  do 25 iterations.
 \end_layout
@@ -175,6 +185,26 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Bagging-J48-10.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 1: Type I and Type II error rates for a cost sensitive classifier
+ combined with bagging meta-classifier and J48 base classifier.
+\end_layout
+
+\begin_layout Standard
+The optimal cost ratio is one where Type I and Type II errors are approximately
+ equal with Type II errors as low as possible.
+ Figure 1 shows this 
+\end_layout
+
 \begin_layout Section*
 Part 2: Cost sensitive classifier combined with bagging and Decision Stump
  - 10 Iterations
@@ -199,6 +229,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-decis-stump-10/bagging-decis-stump-10.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -228,6 +267,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-j48-10/boosting-j48-10.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 4: Cost sensitive classifier combined with boosting (AdaBoostM1) and
  Decision Stump - 10 Iterations
@@ -255,6 +303,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-decis-stump-10/boosting-decis-stump-10.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 5: Cost sensitive classifier combined with bagging and J48 - 25 Iterations
 \end_layout
@@ -278,6 +335,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-j48-25/bagging-j48-25.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -304,6 +370,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-decis-stump-25/bagging-decis-stump-25.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -333,6 +408,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-j48-25/boosting-j48-25.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 8: Cost sensitive classifier combined with boosting (AdaBoostM1) and
  Decision Stump - 25 Iterations
@@ -358,6 +442,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-decis-stump-25/boosting-decis-stump-25.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*

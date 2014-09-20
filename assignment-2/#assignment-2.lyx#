@@ -90,9 +90,10 @@ Summary
 \end_layout
 
 \begin_layout Standard
-In this assignment we use various classifiers in Weka on a biometric dataset
- to evaluate the performance of the classifiers.
- 
+In this assignment we use various classifiers in Weka on a biometric dataset.
+ We evaluate and analyze the false positive and false negative error rates
+ of the classifiers using the same methods we use in part 4 of assignment
+ 1.
 \end_layout
 
 \begin_layout Section*
@@ -129,9 +130,13 @@ Cost sensitive classifier combined with boosting (AdaBoostM1) and Decision
 \begin_layout Standard
 For each classifier we determine the optimal ratio of the cost of a Type
  II error to the cost of a Type I error.
- We determine the optimal ratio for two configurations of each classifier.
- In the first configuration, we configure the boosting or the bagging to
- do 10 iterations.
+ 
+\end_layout
+
+\begin_layout Standard
+We determine the optimal ratio for two configurations of boosting and bagging.
+ In the first configuration, we configure boosting or bagging to do 10 iteration
+s.
  In the second configuration we configure the boosting or the bagging to
  do 25 iterations.
 \end_layout
@@ -148,6 +153,37 @@ Type I (False Positive): a nonACL module is classified as ACL.
  Hence, ACL must be the positive class, because this statement says that
  something is classified as positive and it is classified in the ACL class.
  Since ACL must be the positive class, nonACL must be the negative class.
+\end_layout
+
+\begin_layout Standard
+We used the Weka Java API to automate the running of classifiers on the
+ dataset, gathering evaluation data on the results of classification, and
+ generate the graphics below.
+ The source code for Weka automation is available at https://github.com/jhancock1
+975/data-mining-assignment-2.
+\end_layout
+
+\begin_layout Section*
+Results
+\end_layout
+
+\begin_layout Standard
+For each classifier we set the Type I error cost to 1.0, and allow the Type
+ II error cost to take on the following values: 0.125, 0.5, 1.0, 2.0, 4.0, 8.0,
+ 16.0, 20.0, 21.0, 21.5, 22.0, 22.5, 23.0, 24.0, 28.0, 32.0, 34.0, 36.0, 40.0, 64.0, 128.0.
+ These are the same Type I and Type II error costs we use in Assignment
+ 1.
+ Because Type I error cost is held fixed at I, the previous list of Type
+ II error costs is also a list of Type II to Type I cost ratios.
+\end_layout
+
+\begin_layout Standard
+We used the Lymphoma96x4026.arff dataset as input for various Weka classifieries
+ below.
+ Lymphoma96x4026.arff has 73 nonACL instances and 23 ACL instances.
+ Error rates below are obtained from dividing the number of misclassified
+ instances by the number of instances of a particular class in the dataset.
+ So, for false positive error rates, the 
 \end_layout
 
 \begin_layout Section*
@@ -177,11 +213,23 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/bagging-j48-10/bagging-j48-10.ps
+	filename cap6778-app/Bagging-J48-10.ps
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Figure 1: Type I and Type II error rates for a cost sensitive classifier
+ combined with bagging meta-classifier and J48 base classifier.
+\end_layout
+
+\begin_layout Standard
+The optimal cost ratio is one where Type I and Type II errors are approximately
+ equal with Type II errors as low as possible.
+ Figure 1 shows this is when the ratio attains the value 8.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -351,6 +399,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/bagging-decis-stump-25/bagging-decis-stump-25.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 7: Cost sensitive classifier combined with boosting (AdaBoostM1) and
  J48 - 25 Iterations
@@ -378,6 +435,15 @@ Results
 Misclassification Rates
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-j48-25/boosting-j48-25.ps
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Part 8: Cost sensitive classifier combined with boosting (AdaBoostM1) and
  Decision Stump - 25 Iterations
@@ -403,6 +469,15 @@ Results
 
 \begin_layout Subsubsection*
 Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename saved-output/boosting-decis-stump-25/boosting-decis-stump-25.ps
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
