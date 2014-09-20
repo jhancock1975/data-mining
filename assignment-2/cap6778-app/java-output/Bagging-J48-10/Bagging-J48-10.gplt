@@ -1,0 +1,10 @@
+set term postscript eps 22
+set key outside
+set key center top
+set xlabel 'Type II Error Cost'
+set ylabel 'Missclassifications'
+set linestyle 1 lt 2 lw 3
+set logscale x
+set key box linestyle 1 
+set output 'Bagging-J48-10.ps'
+plot '/home/john/Documents/school/fau/2014-fall/data-mining/assignments/data-mining/assignment-2/cap6778-app/java-output/Bagging-J48-10/fpr.dat' title 'Bagging J48 10 FPR'  with linespoints lw 3 pt 4, '/home/john/Documents/school/fau/2014-fall/data-mining/assignments/data-mining/assignment-2/cap6778-app/java-output/Bagging-J48-10/fnr.dat' title 'Bagging J48 10 FNR' with linespoints lw 3 pt 8 
