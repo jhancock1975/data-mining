@@ -81,7 +81,7 @@ September 30
 
 \begin_layout Part*
 \align left
-Assignment 2: Modeling assignment: Using meta Learning Schemes with a Strong
+Assignment 2: Modeling assignment: Using Meta Learning Schemes with a Strong
  and a Weak Learner for Classification.
 \end_layout
 
@@ -94,6 +94,14 @@ In this assignment we use various classifiers in Weka on a biometric dataset.
  We evaluate and analyze the false positive and false negative error rates
  of the classifiers using the same methods we use in part 4 of assignment
  1.
+ We use a cost sensitive classifier as our top level classifier.
+ We configure the cost sensitive classifier to use meta-learners equipped
+ with either the boosting algorithm AdaBoostM1 or the Bagging algorithm
+ with two levels of iterations for either meta-learner.
+ We then use a strong learner (J48 Decision Tree) or a weak learner (Decision
+ Stump) as the base classifier.
+ We vary the cost matrix of the top level cost sensitive classifier and
+ record Type I and Type II error rates.
 \end_layout
 
 \begin_layout Section*
@@ -181,7 +189,7 @@ For each classifier we set the Type I error cost to 1.0, and allow the Type
 \begin_inset Quotes eld
 \end_inset
 
-Using the same methods as Assignment 1...
+...vary the cost ratio in the same way as in Part 4 of Assignment I.
 \begin_inset Quotes erd
 \end_inset
 
@@ -228,6 +236,11 @@ Results below are grouped according to classifiers modulo the value we used
  for the Type II error cost.
 \end_layout
 
+\begin_layout Standard
+The data for results is available at https://github.com/jhancock1975/data-mining/
+blob/master/assignment-2/cap6778-app/java-output/.
+\end_layout
+
 \begin_layout Section*
 Part 1: Cost sensitive classifier combined with bagging and J48 - 10 Iterations
 \end_layout
@@ -268,6 +281,8 @@ Misclassification Rates
 Figure 1: Type I and Type II error rates for a cost sensitive classifier
  combined with bagging meta-classifier and J48 base classifier.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -322,6 +337,8 @@ Figure 2: Type I and Type II error rates for a cost sensitive classifier
  with bagging using 10 iterations.
  Decision stump is the base classifier.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -371,6 +388,8 @@ Misclassification Rates
 Figure 3: Type I and Type II error rates for a cost-sensitive classifier
  combined with boosting and J48 decision tree.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -440,6 +459,8 @@ Misclassification Rates
 Figure 4: misclassification rates for a cost-sensitive classifier combined
  with boosting and decision stump.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -493,6 +514,8 @@ Misclassification Rates
 Figure 5: cost-sensitive classifier combined with bagging and J-48, where
  we set bagging to perform 25 iterations.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -546,6 +569,8 @@ Figure 6: Type I and Type II error rates for a cost sensitive classifier
  combined with bagging and decision stump, where bagging is configured to
  do 25 iterations.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -596,6 +621,8 @@ Misclassification Rates
 Figure 7 error rates for a cost sensitive classifier combined with boosting
  and J48, where boosting is configured with 25 iterations.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -650,6 +677,8 @@ Misclassification Rates
 Figure 8: cost sensitive classifier combined with boosting and decision
  stump, boosting configured for 25 iterations.
  FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
 \end_layout
 
 \begin_layout Standard
@@ -675,7 +704,7 @@ We tabulate the optimal cost ratios along with the false positive and false
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="5">
+<lyxtabular version="3" rows="10" columns="5">
 <features>
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
@@ -714,7 +743,7 @@ Optimal Cost Ratio
 \begin_inset Text
 
 \begin_layout Plain Layout
-False Positive Rate
+FPR
 \end_layout
 
 \end_inset
@@ -723,7 +752,7 @@ False Positive Rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-False Negative Rate
+FNR
 \end_layout
 
 \end_inset
@@ -1016,7 +1045,64 @@ Bagging Decision Stump
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Boosting J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+16.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.027
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+0.217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting Decision Stump
 \end_layout
 
 \end_inset
@@ -1034,7 +1120,7 @@ Boosting J48
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.0
+64.0
 \end_layout
 
 \end_inset
@@ -1043,7 +1129,7 @@ Boosting J48
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.027
+0.137
 \end_layout
 
 \end_inset
@@ -1063,7 +1149,7 @@ Boosting J48
 \begin_inset Text
 
 \begin_layout Plain Layout
-Boosting Decision Stump
+Cost Sensitive J48
 \end_layout
 
 \end_inset
@@ -1072,7 +1158,7 @@ Boosting Decision Stump
 \begin_inset Text
 
 \begin_layout Plain Layout
-25
+n/a
 \end_layout
 
 \end_inset
@@ -1081,7 +1167,7 @@ Boosting Decision Stump
 \begin_inset Text
 
 \begin_layout Plain Layout
-64.0
+21.5
 \end_layout
 
 \end_inset
@@ -1090,7 +1176,7 @@ Boosting Decision Stump
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.137
+0.288
 \end_layout
 
 \end_inset
@@ -1099,7 +1185,7 @@ Boosting Decision Stump
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.217
+0.304
 \end_layout
 
 \end_inset
@@ -1113,8 +1199,12 @@ Boosting Decision Stump
 \end_layout
 
 \begin_layout Standard
+
+\shape italic
 Table 1: comparison of error rates for optimal cost ratios between all classifie
 rs.
+ For comparison we add the results for Part 4 of Assignment I.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
 \end_layout
 
 \begin_layout Standard
@@ -1127,30 +1217,688 @@ The first thing that jumps out at us regarding table 1 is the number 0.217.
  We checked the raw data we have for each classifier and the false negative
  rate is indeed 0.21739130434782608 for each classifier where we report the
  number 0.217 above.
- In calculating the false negative rate, we are dividing a number that is
- between 1 and 23 by 23, which means we have 23 distinct false negative
+ This corresponds to 5.
+ We feel it is a topic for further research that we have 5 false positive
+ cases for so many different configurations of classifiers.
+ 
+\end_layout
+
+\begin_layout Section*
+Conclusions 
+\end_layout
+
+\begin_layout Subsection*
+How do the results of each classifier compare to the cost-sensitive tree
+ obtained in Part 4 of Assignment I?
+\end_layout
+
+\begin_layout Standard
+Note: it is informative to see Table 1 when considering this question.
+ In part 4 of Assignment I, we found an optimal cost ratio of 21.5, with
+ a Type II error rate of 0.304, and a Type I error rate of 0.288.
+ In Table I we see similar error rates for bagging with decision stump where
+ we configure bagging with either 10 or 25 iterations.
+ These error rates are higher than our best performer, cost-sensitive classifier
+ combined with boosting meta-classifier at 25 iterations and J48 decision
+ tree base classifier where we have a false positive error rate of 0.027
+ and a false negative error rate of 0.217.
+\end_layout
+
+\begin_layout Subsection*
+Analysis of Results: ANOVA for Cost Ratios and Number of Iterations Per
+ Classifier
+\end_layout
+
+\begin_layout Standard
+We used the documentation in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-37"
+
+\end_inset
+
+ to do a two factor ANOVA on false positive and false negative error rates
+ using R.
+ One of the outputs of our Java framework for using Weka are data files
+ of cost ratios and error rates.
+ For every one of the 8 combinations of classifiers we are required to construct
+ in this project, we generate two files of error rates.
+ We added the number of iterations given to the boosting or the bagging
+ classifier as a categorical variable to these error rates, and then used
+ ANOVA functions in R to determine the significance of the number of iterations
+ and the cost ratio as factors to predict the error rates of the classifiers.
+ This results in 16 ANOVA results.
+ The R functions we use to calcuate P-values are available in a script at
+ https://github.com/jhancock1975/data-mining/blob/master/assignment-2/cap6778-app
+/java-output/do-anova.sh.
+ The table below summarizes the results:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="5">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classifier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Error Rate Type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cost Ratio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P-Value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Iterations
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P-Value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Interaction
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P-Value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging Decision Stump
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Negative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.000963
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.881230
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.999974
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging Decision Stump
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Positive
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.09
+\begin_inset Formula $\times10^{-10}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.927
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.877
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Negative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0007
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8838
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9793
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Positive
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.35
+\begin_inset Formula $\times10^{-12}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.590
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.822
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting Decision Stump
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Negative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.309
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.409
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.629
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting Decision Stump
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Positive
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.36
+\begin_inset Formula $\times10^{-7}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.16
+\begin_inset Formula $\times10^{-10}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.00707
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Negative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.675
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.569
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.746
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Positive
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.31
+\begin_inset Formula $\times10^{-5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0197
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8798
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Table 3: P-values for cost ratios and the number of iterations set for boosting
+ or bagging meta-classifiers for cost-sensitive classifiers combined with
+ boosting or bagging as meta-classifiers, and J48 or Decision Stump as base
+ classifiers.
+\end_layout
+
+\begin_layout Standard
+From Table 3 we can draw the following conclusions from P-values that results
+ from ANOVA at a 0.05 significance level:
+\end_layout
+
+\begin_layout Itemize
+For the cost sensitive classifier combined with bagging and decision stump,
+ cost ratio is a significant factor for false positive and false negative
+ error rates.
+ The number of iterations we set for bagging and its interaction with the
+ cost ratio is not significant.
+ Note: The graphs of the error rates for these classifiers above forms an
+ 'X' shape for both 10 and 25 iterations.
+\end_layout
+
+\begin_layout Itemize
+For the cost sensitive classifier combined with bagging and J48 decision
+ tree, cost ratio is significant for false positive and false negative error
  rates.
- This 
+ The number of iterations we set for bagging and its interaction with the
+ cost ratio is not significant.
+ Note: The graphs of the error rates for these classifiers above forms an
+ 'X' shape for both 10 and 25 iterations.
 \end_layout
 
-\begin_layout Subsection*
-Classifiers with 10 Iterations
+\begin_layout Itemize
+For the cost sensitive classifier combined with boosting and decision stump,
+ the cost ratio, the number of iterations, and the interaction between the
+ cost ratio and number of iterations are all significant factors for the
+ false positive error rate.
+ None of the factors or interactions are significant for the false negative
+ error rate.
+ Note: The graphs of the error rates for these classifiers above does not
+ form an 'X' shape for both 10 and 25 iterations.
 \end_layout
 
-\begin_layout Subsection*
-Classifiers with 25 Iterations
+\begin_layout Itemize
+For the cost sensitive classifier combined with boosting and J48 decision
+ tree, the only significant relationship we can glean from the ANOVA results
+ is that cost ratio is a significan factor for explaining the false positive
+ error rate.
+ Other factors and interactions are not significant for the error rates.
+ Note: The graphs of the error rates for these classifiers above does not
+ form an 'X' shape for both 10 and 25 iterations.
 \end_layout
 
-\begin_layout Subsection*
-All Classifiers
+\begin_layout Itemize
+For the classifiers we have constructed for Assignment 2, if the graphs
+ of error rates form an 'X' shape, cost ratio is a statistically significant
+ factor in error rates.
+ 
 \end_layout
 
 \begin_layout Section*
 Future Research
 \end_layout
 
-\begin_layout Section*
-Conclusions
+\begin_layout Standard
+We have developed a Weka automation framework of Java programs and shell
+ scripts for running Weka classifiers on datasets and analyzing the significance
+ of classifier parameters.
+ We are aware of work using random forest classifiers on biometric data.
+ We would like to explore extending our Weka automation framework to incorporate
+ random forest classifiers.
+ We would also like to obtain more biometric data and apply the programs
+ in our automation framework to the new data.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -1196,6 +1944,21 @@ The Area Under an ROC Curve
 \shape default
  [Online].
  Available: http://gim.unmc.edu/dxtests/roc3.htm
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-37"
+
+\end_inset
+
+ 
+\shape italic
+Analysis of Variance in R
+\shape default
+ [Online] Available: http://www.instructables.com/id/Analysis-of-Variance-ANOVA-in
+-R/?ALLSTEPS
 \end_layout
 
 \end_body
