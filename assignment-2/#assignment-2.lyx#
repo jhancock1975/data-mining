@@ -81,8 +81,8 @@ September 30
 
 \begin_layout Part*
 \align left
-Assignment 2: Modeling assignment: Using meta learning schemes with a strong
- and a weak learner for classification.
+Assignment 2: Modeling assignment: Using meta Learning Schemes with a Strong
+ and a Weak Learner for Classification.
 \end_layout
 
 \begin_layout Section*
@@ -111,7 +111,7 @@ The classifiers we use are:
 \end_layout
 
 \begin_layout Itemize
-Cost sensitive classifier combined with bagging and J48
+Cost sensitive classifier combined with bagging and J48 
 \end_layout
 
 \begin_layout Itemize
@@ -125,6 +125,10 @@ Cost sensitive classifier combined with boosting (AdaBoostM1) and J48
 \begin_layout Itemize
 Cost sensitive classifier combined with boosting (AdaBoostM1) and Decision
  Stump
+\end_layout
+
+\begin_layout Standard
+Note: the J48 decision tree classifier is also known as C4.5.
 \end_layout
 
 \begin_layout Standard
@@ -173,17 +177,55 @@ For each classifier we set the Type I error cost to 1.0, and allow the Type
  16.0, 20.0, 21.0, 21.5, 22.0, 22.5, 23.0, 24.0, 28.0, 32.0, 34.0, 36.0, 40.0, 64.0, 128.0.
  These are the same Type I and Type II error costs we use in Assignment
  1.
- Because Type I error cost is held fixed at I, the previous list of Type
+ We choose these values because assignment 2 states, 
+\begin_inset Quotes eld
+\end_inset
+
+Using the same methods as Assignment 1...
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Because Type I error cost is held fixed at I, the previous list of Type
  II error costs is also a list of Type II to Type I cost ratios.
 \end_layout
 
 \begin_layout Standard
 We used the Lymphoma96x4026.arff dataset as input for various Weka classifieries
  below.
- Lymphoma96x4026.arff has 73 nonACL instances and 23 ACL instances.
+ Lymphoma96x4026.arff has 73 nonACL instances (the negative class) and 23
+ ACL instances (the positive class).
  Error rates below are obtained from dividing the number of misclassified
- instances by the number of instances of a particular class in the dataset.
- So, for false positive error rates, the 
+ instances by the number of instances of the positive or negative class
+ in a particular class in Lymphoma96x4026.arff, 73 or 23, respectively.
+\end_layout
+
+\begin_layout Standard
+We report results for 8 different classifiers.
+ We have four cominations of classifiers: boosting, bagging, J48 and decision
+ stump.
+ We then configure boosting and bagging with either 10 or 25 iterations,
+ hence 8 classifiers.
+ In Weka, we place each of the 8 classifiers in a cost-sensitive classifier,
+ where we vary the Type II error costs in the cost-sensitive classifiers
+ cost matrix according to the values in the list above.
+ There are 21 values in the list, therefore we construct 168 classifiers
+ for this work.
+ 
+\end_layout
+
+\begin_layout Standard
+In Weka, we did not change any other settings for classifiers.
+ 
+\end_layout
+
+\begin_layout Standard
+Results below are grouped according to classifiers modulo the value we used
+ for the Type II error cost.
 \end_layout
 
 \begin_layout Section*
@@ -221,19 +263,23 @@ Misclassification Rates
 \end_layout
 
 \begin_layout Standard
+
+\shape italic
 Figure 1: Type I and Type II error rates for a cost sensitive classifier
  combined with bagging meta-classifier and J48 base classifier.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
 \end_layout
 
 \begin_layout Standard
 The optimal cost ratio is one where Type I and Type II errors are approximately
  equal with Type II errors as low as possible.
- Figure 1 shows this is when the ratio attains the value 8.
- 
+ Figure 1shows that, for this clsasifier, this is when the ratio attains
+ the value 8, corresponding to a false positive rate of 0.260 and a false
+ negative rate of 0.217.
 \end_layout
 
 \begin_layout Section*
-Part 2: Cost sensitive classifier combined with bagging and Decision Stump
+Part 2: Cost Sensitive Classifier Combined with Bagging and Decision Stump
  - 10 Iterations
 \end_layout
 
@@ -245,9 +291,11 @@ Methodology
 For this part of the assignment we use Weka to build a classification model
  using a cost sensitive classifier combined with bagging and decision Stump.
  We configure bagging to do 10 iterations.
- We then run the classifier on the input dataset using different cost ratios.
+ We then run the classifier on the input dataset using different 2x2 cost
+ matrices.
  Our method for varying the cost ratios is: we set the Type I error cost
  of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+ Other classifier settings in Weka are left at default values.
 \end_layout
 
 \begin_layout Subsection*
@@ -260,11 +308,27 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/bagging-decis-stump-10/bagging-decis-stump-10.ps
+	filename cap6778-app/Bagging-Decision-Stump-10.ps
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 2: Type I and Type II error rates for a cost sensitive classifier
+ with bagging using 10 iterations.
+ Decision stump is the base classifier.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+Figure 2 indicates that the cost ratio where Type I and II errors are approximat
+ely equal with Type II errors as low as possible is 4.
+ For this cost ratio, we have a Type I error rate of 0.397 and a Type II
+ error rate of 0.348.
 \end_layout
 
 \begin_layout Section*
@@ -281,9 +345,7 @@ For this part of the assignment we use Weka to build a classification model
  using a cost sensitive classifier combined with boosting (AdaBoostM1) and
  J48.
  We configure boosting to do 10 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+ Otherwise, we use the same methodology as in parts 1 and 2.
 \end_layout
 
 \begin_layout Subsection*
@@ -296,15 +358,48 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/boosting-j48-10/boosting-j48-10.ps
+	filename cap6778-app/Boosting-Decision-Stump-10.ps
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+
+\shape italic
+Figure 3: Type I and Type II error rates for a cost-sensitive classifier
+ combined with boosting and J48 decision tree.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+We do not see the same pattern in Figure 3 that we see in figures 1 and
+ 2.
+ For the maximum Type II : Type 1 cost ratio in Figure 3 of 128:1 we see
+ the false positive rate is 0.16 and the false negative rate is 0.39.
+ We ran this classifier an additional time with a cost ratio of 1024:1.
+ The false positve rate for this cost ratio is 0.192 and the false negative
+ rate is 0.261.
+ The false positive rate is less than the false negative rate, so for the
+ 1024:1 cost ratio the false positive rate curve does not cross the false
+ negative rate curve.
+ Therefore the familiar 'X' shape pattern in figures 1 and 2 does not emerge
+ for a cost ratio many times larger than the cost ratios we see for the
+ classifiers we build in parts 1 and 2.
+ 
+\end_layout
+
+\begin_layout Standard
+The error rate curves in Figure 3 do not cross.
+ However if one is compelled to demand an optimal cost ratio, we offer the
+ ratio where Type II error rates are lowest, which is at a cost ratio of
+ 24.0 where the false positive rate is 0.082 and the false negative rate is
+ 0.217.
+\end_layout
+
 \begin_layout Section*
-Part 4: Cost sensitive classifier combined with boosting (AdaBoostM1) and
+Part 4: Cost Sensitive Classifier Combined with Boosting (AdaBoostM1) and
  Decision Stump - 10 Iterations
 \end_layout
 
@@ -332,15 +427,34 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/boosting-decis-stump-10/boosting-decis-stump-10.ps
+	filename cap6778-app/Boosting-Decision-Stump-10.ps
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+
+\shape italic
+Figure 4: misclassification rates for a cost-sensitive classifier combined
+ with boosting and decision stump.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+Figure 4 is similar to figure 3 in that its error rate curves do not cross.
+ We see three cost ratios between 10 and 100 where the the Type II error
+ rate reaches a minimum.
+ We fell the cost ratio for the second of these minimum Type II error rates,
+ where the Type I error rate is at a local minimum is the the optimal cost
+ ratio for this classifier.
+ At this point, the cost ratio is 20.0, the Type I error rate is 0.164 and
+ the Type II error rate is 0.304.
+\end_layout
+
 \begin_layout Section*
-Part 5: Cost sensitive classifier combined with bagging and J48 - 25 Iterations
+Part 5: Cost Sensitive Classifier Combined with Bagging and J48 - 25 Iterations
 \end_layout
 
 \begin_layout Subsection*
@@ -366,11 +480,28 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/bagging-j48-25/bagging-j48-25.ps
+	filename cap6778-app/Bagging-J48-25.ps
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 5: cost-sensitive classifier combined with bagging and J-48, where
+ we set bagging to perform 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+Figure 5 shows the 'X' shape we see in parts 1 and 2.
+ Here the optimal cost ratio is 8, which corresponds to a false negative
+ rate of 0.217 and a false positive rate of 0.301.
+ We remind the reader that for the purposes of this study, the optimal cost
+ ratio is the cost ratio where Type I and Type II errors are approximately
+ equal with Type II errors as low as possible.
 \end_layout
 
 \begin_layout Section*
@@ -401,11 +532,26 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/bagging-decis-stump-25/bagging-decis-stump-25.ps
+	filename cap6778-app/Bagging-Decision-Stump-25.ps
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 6: Type I and Type II error rates for a cost sensitive classifier
+ combined with bagging and decision stump, where bagging is configured to
+ do 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+Figure 6 implies that the optimal cost ratio for this classifier is 4.
+ At this cost ratio, the false negative error rate is 0.260 and the false
+ positive error rate is 0.356.
 \end_layout
 
 \begin_layout Section*
@@ -437,11 +583,31 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/boosting-j48-25/boosting-j48-25.ps
+	filename cap6778-app/Boosting-J48-25.ps
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 7 error rates for a cost sensitive classifier combined with boosting
+ and J48, where boosting is configured with 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+With figure 7, as in parts 3 and 4, it is difficult to identify an error
+ cost ratio where Type I errors and Type II errors are approximately equal
+ with Type II errors as low as possible, because we have a consistently
+ large gap between Type I and Type II erorrs.
+ If forced to choose we would select the point where the Type II error rate
+ is at a minimum where the Type I error rate is lowest.
+ In figure 6 this is the point where the cost ratio is 16.0, the Type I error
+ rate is 0.027 and the Type II error rate is 0.217.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -458,9 +624,7 @@ For this part of the assignment we use Weka to build a classification model
  using a cost sensitive classifier combined with boosting (AdaBoostM1) and
  Decision Stump.
  We configure boosting to do 25 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+ Otherwise our methodology is the same as previous classifier configurations.
 \end_layout
 
 \begin_layout Subsection*
@@ -473,15 +637,500 @@ Misclassification Rates
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename saved-output/boosting-decis-stump-25/boosting-decis-stump-25.ps
+	filename cap6778-app/Boosting-Decision-Stump-25.ps
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+
+\shape italic
+Figure 8: cost sensitive classifier combined with boosting and decision
+ stump, boosting configured for 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+\end_layout
+
+\begin_layout Standard
+For determining the optimal cost ratio, we are again in the same situation
+ as parts 3, 4, and 7.
+ We see two cost ratios between 10 and 100 where the false negative rate
+ clearly has the lowest values.
+ The error rates we calculate from the classifications that Weka performs
+ are actually the same for these two cost ratios.
+ The cost ratios for these points are 36.0 and 64.0.
+ The false negative rate at these cost ratios is 0.137 and the false positive
+ rate is 0.217.
+\end_layout
+
 \begin_layout Section*
 Comparison of Classifiers
+\end_layout
+
+\begin_layout Standard
+We tabulate the optimal cost ratios along with the false positive and false
+ negative rates that we find in parts 1-8.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="5">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classifier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Iterations
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Optimal Cost Ratio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Positive Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+False Negative Rate
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.260
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging Decision Stump 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.397
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.348
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting J48 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.082
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting Decision Stump 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.164
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.304
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.301
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bagging Decision Stump
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.356
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.260
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting J48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boosting Decision Stump
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+64.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.137
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 1: comparison of error rates for optimal cost ratios between all classifie
+rs.
+\end_layout
+
+\begin_layout Standard
+The first thing that jumps out at us regarding table 1 is the number 0.217.
+ This is the lowest Type II error rate but it occurs 5 times in the table
+ for different kinds of classifiers.
+ We are skeptical that we get the same number so many times.
+ However we remind the reader that in the Lymphoma96x4026.arff dataset we
+ have 23 instances that are truly members of the positive class.
+ We checked the raw data we have for each classifier and the false negative
+ rate is indeed 0.21739130434782608 for each classifier where we report the
+ number 0.217 above.
+ In calculating the false negative rate, we are dividing a number that is
+ between 1 and 23 by 23, which means we have 23 distinct false negative
+ rates.
+ This 
 \end_layout
 
 \begin_layout Subsection*
