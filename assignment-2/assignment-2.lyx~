@@ -81,7 +81,7 @@ September 30
 
 \begin_layout Part*
 \align left
-Assignment 2: Modeling assignment: Using Meta Learning Schemes with a Strong
+Assignment 2: Modeling Assignment: Using Meta Learning Schemes with a Strong
  and a Weak Learner for Classification.
 \end_layout
 
@@ -182,7 +182,8 @@ Results
 \begin_layout Standard
 For each classifier we set the Type I error cost to 1.0, and allow the Type
  II error cost to take on the following values: 0.125, 0.5, 1.0, 2.0, 4.0, 8.0,
- 16.0, 20.0, 21.0, 21.5, 22.0, 22.5, 23.0, 24.0, 28.0, 32.0, 34.0, 36.0, 40.0, 64.0, 128.0.
+ 16.0, 20.0, 21.0, 21.5, 22.0, 22.5, 23.0, 24.0, 28.0, 31.0 32.0, 34.0, 36.0, 40.0, 64.0,
+ 128.0.
  These are the same Type I and Type II error costs we use in Assignment
  1.
  We choose these values because assignment 2 states, 
@@ -194,7 +195,9 @@ For each classifier we set the Type I error cost to 1.0, and allow the Type
 \end_inset
 
 .
- 
+ However, we received feedback from Assignment 1 stating that the optimal
+ cost ratio for a cost-sensitive classifier combined with J48 is 31, so
+ we decided to add this cost ratio as well.
 \end_layout
 
 \begin_layout Standard
@@ -203,7 +206,7 @@ Because Type I error cost is held fixed at I, the previous list of Type
 \end_layout
 
 \begin_layout Standard
-We used the Lymphoma96x4026.arff dataset as input for various Weka classifieries
+We used the Lymphoma96x4026.arff dataset as input for various Weka classifiers
  below.
  Lymphoma96x4026.arff has 73 nonACL instances (the negative class) and 23
  ACL instances (the positive class).
@@ -214,7 +217,7 @@ We used the Lymphoma96x4026.arff dataset as input for various Weka classifieries
 
 \begin_layout Standard
 We report results for 8 different classifiers.
- We have four cominations of classifiers: boosting, bagging, J48 and decision
+ We have four combinations of classifiers: boosting, bagging, J48 and decision
  stump.
  We then configure boosting and bagging with either 10 or 25 iterations,
  hence 8 classifiers.
@@ -288,7 +291,7 @@ Figure 1: Type I and Type II error rates for a cost sensitive classifier
 \begin_layout Standard
 The optimal cost ratio is one where Type I and Type II errors are approximately
  equal with Type II errors as low as possible.
- Figure 1shows that, for this clsasifier, this is when the ratio attains
+ Figure 1shows that, for this classifier, this is when the ratio attains
  the value 8, corresponding to a false positive rate of 0.260 and a false
  negative rate of 0.217.
 \end_layout
@@ -398,7 +401,7 @@ We do not see the same pattern in Figure 3 that we see in figures 1 and
  For the maximum Type II : Type 1 cost ratio in Figure 3 of 128:1 we see
  the false positive rate is 0.16 and the false negative rate is 0.39.
  We ran this classifier an additional time with a cost ratio of 1024:1.
- The false positve rate for this cost ratio is 0.192 and the false negative
+ The false positive rate for this cost ratio is 0.192 and the false negative
  rate is 0.261.
  The false positive rate is less than the false negative rate, so for the
  1024:1 cost ratio the false positive rate curve does not cross the false
@@ -629,7 +632,7 @@ Figure 7 error rates for a cost sensitive classifier combined with boosting
 With figure 7, as in parts 3 and 4, it is difficult to identify an error
  cost ratio where Type I errors and Type II errors are approximately equal
  with Type II errors as low as possible, because we have a consistently
- large gap between Type I and Type II erorrs.
+ large gap between Type I and Type II errors.
  If forced to choose we would select the point where the Type II error rate
  is at a minimum where the Type I error rate is lowest.
  In figure 6 this is the point where the cost ratio is 16.0, the Type I error
@@ -1267,10 +1270,10 @@ key "key-37"
  classifier as a categorical variable to these error rates, and then used
  ANOVA functions in R to determine the significance of the number of iterations
  and the cost ratio as factors to predict the error rates of the classifiers.
- This results in 16 ANOVA results.
- The R functions we use to calcuate P-values are available in a script at
- https://github.com/jhancock1975/data-mining/blob/master/assignment-2/cap6778-app
-/java-output/do-anova.sh.
+ This results in 8 ANOVA results.
+ The R functions we use to calculate P-values are available in a script
+ at https://github.com/jhancock1975/data-mining/blob/master/assignment-2/cap6778-
+app/java-output/do-anova.sh.
  The table below summarizes the results:
 \end_layout
 
@@ -1826,14 +1829,14 @@ False Positive
 \begin_layout Standard
 
 \shape italic
-Table 3: P-values for cost ratios and the number of iterations set for boosting
- or bagging meta-classifiers for cost-sensitive classifiers combined with
- boosting or bagging as meta-classifiers, and J48 or Decision Stump as base
- classifiers.
+Table 3: P-values for cost ratios, the number of iterations set for boosting
+ or bagging meta-classifiers, and their interaction, for cost-sensitive
+ classifiers combined with boosting or bagging as meta-classifiers, and
+ J48 or Decision Stump as base classifiers
 \end_layout
 
 \begin_layout Standard
-From Table 3 we can draw the following conclusions from P-values that results
+From Table 3 we can draw the following conclusions from P-values that result
  from ANOVA at a 0.05 significance level:
 \end_layout
 
@@ -1843,6 +1846,8 @@ For the cost sensitive classifier combined with bagging and decision stump,
  error rates.
  The number of iterations we set for bagging and its interaction with the
  cost ratio is not significant.
+ Note: The graphs of the error rates for these classifiers above forms an
+ 'X' shape for both 10 and 25 iterations.
 \end_layout
 
 \begin_layout Itemize
@@ -1851,6 +1856,8 @@ For the cost sensitive classifier combined with bagging and J48 decision
  rates.
  The number of iterations we set for bagging and its interaction with the
  cost ratio is not significant.
+ Note: The graphs of the error rates for these classifiers above forms an
+ 'X' shape for both 10 and 25 iterations.
 \end_layout
 
 \begin_layout Itemize
@@ -1860,14 +1867,25 @@ For the cost sensitive classifier combined with boosting and decision stump,
  false positive error rate.
  None of the factors or interactions are significant for the false negative
  error rate.
+ Note: The graphs of the error rates for these classifiers above does not
+ form an 'X' shape for both 10 and 25 iterations.
 \end_layout
 
 \begin_layout Itemize
 For the cost sensitive classifier combined with boosting and J48 decision
  tree, the only significant relationship we can glean from the ANOVA results
- is that cost ratio is a significan factor for explaining the false positive
+ is that cost ratio is a significant factor for explaining the false positive
  error rate.
  Other factors and interactions are not significant for the error rates.
+ Note: The graphs of the error rates for these classifiers above does not
+ form an 'X' shape for both 10 and 25 iterations.
+\end_layout
+
+\begin_layout Itemize
+For the classifiers we have constructed for Assignment 2, if the graphs
+ of error rates form an 'X' shape, cost ratio is a statistically significant
+ factor in error rates.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -1884,6 +1902,14 @@ We have developed a Weka automation framework of Java programs and shell
  We would also like to obtain more biometric data and apply the programs
  in our automation framework to the new data.
  
+\end_layout
+
+\begin_layout Standard
+Another avenue of research to pursue would be to enlarge the number of classifie
+rs available to test the hypothesis that whenever we see a clear 'X' shape
+ in error rate plots that cost ratio is always statistically significant.
+ This would give researches an easy-to-use visual test to apply when determining
+ what classifier attributes will impact classifier error rates.
 \end_layout
 
 \begin_layout Bibliography
