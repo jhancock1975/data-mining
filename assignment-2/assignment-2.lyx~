@@ -55,6 +55,11 @@
 
 \begin_body
 
+\begin_layout Title
+Assignment 2: Modeling Assignment: Using Meta Learning Schemes with a Strong
+ and a Weak Learner for Classification.
+\end_layout
+
 \begin_layout Standard
 John Hancock
 \end_layout
@@ -77,12 +82,6 @@ September 30
 \end_inset
 
 , 2014
-\end_layout
-
-\begin_layout Part*
-\align left
-Assignment 2: Modeling Assignment: Using Meta Learning Schemes with a Strong
- and a Weak Learner for Classification.
 \end_layout
 
 \begin_layout Section*
@@ -171,8 +170,18 @@ Type I (False Positive): a nonACL module is classified as ACL.
 We used the Weka Java API to automate the running of classifiers on the
  dataset, gathering evaluation data on the results of classification, and
  generate the graphics below.
- The source code for Weka automation is available at https://github.com/jhancock1
-975/data-mining-assignment-2.
+ The source code for Weka automation is available at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/jhancock1975/data-mining-assignment-2/tree/master/cap-6778
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section*
@@ -240,460 +249,19 @@ Results below are grouped according to classifiers modulo the value we used
 \end_layout
 
 \begin_layout Standard
-The data for results is available at https://github.com/jhancock1975/data-mining/
-blob/master/assignment-2/cap6778-app/java-output/.
-\end_layout
+The data for results is available at 
+\begin_inset Flex URL
+status collapsed
 
-\begin_layout Section*
-Part 1: Cost sensitive classifier combined with bagging and J48 - 10 Iterations
-\end_layout
+\begin_layout Plain Layout
 
-\begin_layout Subsection*
-Methodology
+https://github.com/jhancock1975/data-mining/blob/master/assignment-2/cap6778-app/
+java-output/
 \end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with bagging and J48.
- We configure bagging to do 10 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Bagging-J48-10.ps
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 1: Type I and Type II error rates for a cost sensitive classifier
- combined with bagging meta-classifier and J48 base classifier.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-The optimal cost ratio is one where Type I and Type II errors are approximately
- equal with Type II errors as low as possible.
- Figure 1shows that, for this classifier, this is when the ratio attains
- the value 8, corresponding to a false positive rate of 0.260 and a false
- negative rate of 0.217.
-\end_layout
-
-\begin_layout Section*
-Part 2: Cost Sensitive Classifier Combined with Bagging and Decision Stump
- - 10 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with bagging and decision Stump.
- We configure bagging to do 10 iterations.
- We then run the classifier on the input dataset using different 2x2 cost
- matrices.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
- Other classifier settings in Weka are left at default values.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Bagging-Decision-Stump-10.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 2: Type I and Type II error rates for a cost sensitive classifier
- with bagging using 10 iterations.
- Decision stump is the base classifier.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-Figure 2 indicates that the cost ratio where Type I and II errors are approximat
-ely equal with Type II errors as low as possible is 4.
- For this cost ratio, we have a Type I error rate of 0.397 and a Type II
- error rate of 0.348.
-\end_layout
-
-\begin_layout Section*
-Part 3: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48 - 10 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48.
- We configure boosting to do 10 iterations.
- Otherwise, we use the same methodology as in parts 1 and 2.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Boosting-Decision-Stump-10.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 3: Type I and Type II error rates for a cost-sensitive classifier
- combined with boosting and J48 decision tree.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-We do not see the same pattern in Figure 3 that we see in figures 1 and
- 2.
- For the maximum Type II : Type 1 cost ratio in Figure 3 of 128:1 we see
- the false positive rate is 0.16 and the false negative rate is 0.39.
- We ran this classifier an additional time with a cost ratio of 1024:1.
- The false positive rate for this cost ratio is 0.192 and the false negative
- rate is 0.261.
- The false positive rate is less than the false negative rate, so for the
- 1024:1 cost ratio the false positive rate curve does not cross the false
- negative rate curve.
- Therefore the familiar 'X' shape pattern in figures 1 and 2 does not emerge
- for a cost ratio many times larger than the cost ratios we see for the
- classifiers we build in parts 1 and 2.
- 
-\end_layout
-
-\begin_layout Standard
-The error rate curves in Figure 3 do not cross.
- However if one is compelled to demand an optimal cost ratio, we offer the
- ratio where Type II error rates are lowest, which is at a cost ratio of
- 24.0 where the false positive rate is 0.082 and the false negative rate is
- 0.217.
-\end_layout
-
-\begin_layout Section*
-Part 4: Cost Sensitive Classifier Combined with Boosting (AdaBoostM1) and
- Decision Stump - 10 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump.
- We configure boosting to do 10 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Boosting-Decision-Stump-10.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 4: misclassification rates for a cost-sensitive classifier combined
- with boosting and decision stump.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-Figure 4 is similar to figure 3 in that its error rate curves do not cross.
- We see three cost ratios between 10 and 100 where the the Type II error
- rate reaches a minimum.
- We fell the cost ratio for the second of these minimum Type II error rates,
- where the Type I error rate is at a local minimum is the the optimal cost
- ratio for this classifier.
- At this point, the cost ratio is 20.0, the Type I error rate is 0.164 and
- the Type II error rate is 0.304.
-\end_layout
-
-\begin_layout Section*
-Part 5: Cost Sensitive Classifier Combined with Bagging and J48 - 25 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with bagging and J48.
- We configure bagging to do 25 iterations.We then run the classifier on the
- input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Bagging-J48-25.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 5: cost-sensitive classifier combined with bagging and J-48, where
- we set bagging to perform 25 iterations.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-Figure 5 shows the 'X' shape we see in parts 1 and 2.
- Here the optimal cost ratio is 8, which corresponds to a false negative
- rate of 0.217 and a false positive rate of 0.301.
- We remind the reader that for the purposes of this study, the optimal cost
- ratio is the cost ratio where Type I and Type II errors are approximately
- equal with Type II errors as low as possible.
-\end_layout
-
-\begin_layout Section*
-Part 6: Cost sensitive classifier combined with bagging and Decision Stump
- - 25 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with bagging and decision Stump.
- We configure bagging to do 25 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Bagging-Decision-Stump-25.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 6: Type I and Type II error rates for a cost sensitive classifier
- combined with bagging and decision stump, where bagging is configured to
- do 25 iterations.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-Figure 6 implies that the optimal cost ratio for this classifier is 4.
- At this cost ratio, the false negative error rate is 0.260 and the false
- positive error rate is 0.356.
-\end_layout
-
-\begin_layout Section*
-Part 7: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48 - 25 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with boosting (AdaBoostM1) and
- J48.
- We configure boosting to do 25 iterations.
- We then run the classifier on the input dataset using different cost ratios.
- Our method for varying the cost ratios is: we set the Type I error cost
- of the cost sensitive classifier to 1 and vary the cost of a Type II error.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Boosting-J48-25.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 7 error rates for a cost sensitive classifier combined with boosting
- and J48, where boosting is configured with 25 iterations.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-With figure 7, as in parts 3 and 4, it is difficult to identify an error
- cost ratio where Type I errors and Type II errors are approximately equal
- with Type II errors as low as possible, because we have a consistently
- large gap between Type I and Type II errors.
- If forced to choose we would select the point where the Type II error rate
- is at a minimum where the Type I error rate is lowest.
- In figure 6 this is the point where the cost ratio is 16.0, the Type I error
- rate is 0.027 and the Type II error rate is 0.217.
- 
-\end_layout
-
-\begin_layout Section*
-Part 8: Cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump - 25 Iterations
-\end_layout
-
-\begin_layout Subsection*
-Methodology
-\end_layout
-
-\begin_layout Standard
-For this part of the assignment we use Weka to build a classification model
- using a cost sensitive classifier combined with boosting (AdaBoostM1) and
- Decision Stump.
- We configure boosting to do 25 iterations.
- Otherwise our methodology is the same as previous classifier configurations.
-\end_layout
-
-\begin_layout Subsection*
-Results
-\end_layout
-
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename cap6778-app/Boosting-Decision-Stump-25.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 8: cost sensitive classifier combined with boosting and decision
- stump, boosting configured for 25 iterations.
- FNR stands for false negative rate, and FPR stands for false positive rate.
- False positive rates are based on 73 true positive instances.
- False negative rates are based on 23 true negative instances.
-\end_layout
-
-\begin_layout Standard
-For determining the optimal cost ratio, we are again in the same situation
- as parts 3, 4, and 7.
- We see two cost ratios between 10 and 100 where the false negative rate
- clearly has the lowest values.
- The error rates we calculate from the classifications that Weka performs
- are actually the same for these two cost ratios.
- The cost ratios for these points are 36.0 and 64.0.
- The false negative rate at these cost ratios is 0.137 and the false positive
- rate is 0.217.
+.
 \end_layout
 
 \begin_layout Section*
@@ -703,6 +271,9 @@ Comparison of Classifiers
 \begin_layout Standard
 We tabulate the optimal cost ratios along with the false positive and false
  negative rates that we find in parts 1-8.
+ The following sections give details on how we determined the optimal cost
+ ratios in the table below as well as plots of error rates as the cost ratio
+ changes.
 \end_layout
 
 \begin_layout Standard
@@ -1170,7 +741,7 @@ n/a
 \begin_inset Text
 
 \begin_layout Plain Layout
-21.5
+31.0
 \end_layout
 
 \end_inset
@@ -1179,7 +750,7 @@ n/a
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.288
+0.315
 \end_layout
 
 \end_inset
@@ -1221,9 +792,461 @@ The first thing that jumps out at us regarding table 1 is the number 0.217.
  rate is indeed 0.21739130434782608 for each classifier where we report the
  number 0.217 above.
  This corresponds to 5.
- We feel it is a topic for further research that we have 5 false positive
+ We feel it is a topic for further research that we have 5 false negative
  cases for so many different configurations of classifiers.
  
+\end_layout
+
+\begin_layout Section*
+Part 1: Cost Sensitive Classifier Combined with Bagging and J48 - 10 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and J48.
+ We configure bagging to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Bagging-J48-10.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 1: Type I and Type II error rates for a cost sensitive classifier
+ combined with bagging meta-classifier and J48 base classifier.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+The optimal cost ratio is one where Type I and Type II errors are approximately
+ equal with Type II errors as low as possible.
+ Figure 1shows that, for this classifier, this is when the ratio attains
+ the value 8, corresponding to a false positive rate of 0.260 and a false
+ negative rate of 0.217.
+\end_layout
+
+\begin_layout Section*
+Part 2: Cost Sensitive Classifier Combined with Bagging and Decision Stump
+ - 10 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and decision Stump.
+ We configure bagging to do 10 iterations.
+ We then run the classifier on the input dataset using different 2x2 cost
+ matrices.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+ Other classifier settings in Weka are left at default values.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Bagging-Decision-Stump-10.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 2: Type I and Type II error rates for a cost sensitive classifier
+ with bagging using 10 iterations.
+ Decision stump is the base classifier.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+Figure 2 indicates that the cost ratio where Type I and II errors are approximat
+ely equal with Type II errors as low as possible is 4.
+ For this cost ratio, we have a Type I error rate of 0.397 and a Type II
+ error rate of 0.348.
+\end_layout
+
+\begin_layout Section*
+Part 3: Cost Sensitive Classifier Combined with Boosting (AdaBoostM1) and
+ J48 - 10 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ J48.
+ We configure boosting to do 10 iterations.
+ Otherwise, we use the same methodology as in parts 1 and 2.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Boosting-J48-10.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 3: Type I and Type II error rates for a cost-sensitive classifier
+ combined with boosting and J48 decision tree.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+We do not see the same pattern in Figure 3 that we see in figures 1 and
+ 2.
+ For the maximum Type II : Type 1 cost ratio in Figure 3 of 128:1 we see
+ the false positive rate is 0.16 and the false negative rate is 0.39.
+ We ran this classifier an additional time with a cost ratio of 1024:1.
+ The false positive rate for this cost ratio is 0.192 and the false negative
+ rate is 0.261.
+ The false positive rate is less than the false negative rate, so for the
+ 1024:1 cost ratio the false positive rate curve does not cross the false
+ negative rate curve.
+ Therefore the familiar 'X' shape pattern in figures 1 and 2 does not emerge
+ for a cost ratio many times larger than the cost ratios we see for the
+ classifiers we build in parts 1 and 2.
+ 
+\end_layout
+
+\begin_layout Standard
+The error rate curves in Figure 3 do not cross.
+ However if one is compelled to demand an optimal cost ratio, we offer the
+ ratio where Type II error rates are lowest, which is at a cost ratio of
+ 24.0 where the false positive rate is 0.082 and the false negative rate is
+ 0.217.
+\end_layout
+
+\begin_layout Section*
+Part 4: Cost Sensitive Classifier Combined with Boosting (AdaBoostM1) and
+ Decision Stump - 10 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ Decision Stump.
+ We configure boosting to do 10 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Boosting-Decision-Stump-10.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 4: misclassification rates for a cost-sensitive classifier combined
+ with boosting and decision stump.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+Figure 4 is similar to figure 3 in that its error rate curves do not cross.
+ We see three cost ratios between 10 and 100 where the the Type II error
+ rate reaches a minimum.
+ We fell the cost ratio for the second of these minimum Type II error rates,
+ where the Type I error rate is at a local minimum is the the optimal cost
+ ratio for this classifier.
+ At this point, the cost ratio is 20.0, the Type I error rate is 0.164 and
+ the Type II error rate is 0.304.
+\end_layout
+
+\begin_layout Section*
+Part 5: Cost Sensitive Classifier Combined with Bagging and J48 - 25 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and J48.
+ We configure bagging to do 25 iterations.We then run the classifier on the
+ input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Bagging-J48-25.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 5: cost-sensitive classifier combined with bagging and J-48, where
+ we set bagging to perform 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+Figure 5 shows the 'X' shape we see in parts 1 and 2.
+ Here the optimal cost ratio is 8, which corresponds to a false negative
+ rate of 0.217 and a false positive rate of 0.301.
+ We remind the reader that for the purposes of this study, the optimal cost
+ ratio is the cost ratio where Type I and Type II errors are approximately
+ equal with Type II errors as low as possible.
+\end_layout
+
+\begin_layout Section*
+Part 6: Cost sensitive Classifier Combined with Bagging and Decision Stump
+ - 25 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with bagging and decision Stump.
+ We configure bagging to do 25 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Bagging-Decision-Stump-25.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 6: Type I and Type II error rates for a cost sensitive classifier
+ combined with bagging and decision stump, where bagging is configured to
+ do 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+Figure 6 implies that the optimal cost ratio for this classifier is 4.
+ At this cost ratio, the false negative error rate is 0.260 and the false
+ positive error rate is 0.356.
+\end_layout
+
+\begin_layout Section*
+Part 7: Cost Sensitive Classifier Combined with Boosting (AdaBoostM1) and
+ J48 - 25 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ J48.
+ We configure boosting to do 25 iterations.
+ We then run the classifier on the input dataset using different cost ratios.
+ Our method for varying the cost ratios is: we set the Type I error cost
+ of the cost sensitive classifier to 1 and vary the cost of a Type II error.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Boosting-J48-25.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 7 error rates for a cost sensitive classifier combined with boosting
+ and J48, where boosting is configured with 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+With figure 7, as in parts 3 and 4, it is difficult to identify an error
+ cost ratio where Type I errors and Type II errors are approximately equal
+ with Type II errors as low as possible, because we have a consistently
+ large gap between Type I and Type II errors.
+ If forced to choose we would select the point where the Type II error rate
+ is at a minimum where the Type I error rate is lowest.
+ In figure 6 this is the point where the cost ratio is 16.0, the Type I error
+ rate is 0.027 and the Type II error rate is 0.217.
+ 
+\end_layout
+
+\begin_layout Section*
+Part 8: Cost sensitive Classifier Combined with Boosting (AdaBoostM1) and
+ Decision Stump - 25 Iterations
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+For this part of the assignment we use Weka to build a classification model
+ using a cost sensitive classifier combined with boosting (AdaBoostM1) and
+ Decision Stump.
+ We configure boosting to do 25 iterations.
+ Otherwise our methodology is the same as previous classifier configurations.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename cap6778-app/Boosting-Decision-Stump-25.ps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Figure 8: cost sensitive classifier combined with boosting and decision
+ stump, boosting configured for 25 iterations.
+ FNR stands for false negative rate, and FPR stands for false positive rate.
+ False positive rates are based on 73 true positive instances.
+ False negative rates are based on 23 true negative instances.
+\end_layout
+
+\begin_layout Standard
+For determining the optimal cost ratio, we are again in the same situation
+ as parts 3, 4, and 7.
+ We see two cost ratios between 10 and 100 where the false negative rate
+ clearly has the lowest values.
+ The error rates we calculate from the classifications that Weka performs
+ are actually the same for these two cost ratios.
+ The cost ratios for these points are 36.0 and 64.0.
+ The false negative rate at these cost ratios is 0.137 and the false positive
+ rate is 0.217.
 \end_layout
 
 \begin_layout Section*
@@ -1237,8 +1260,8 @@ How do the results of each classifier compare to the cost-sensitive tree
 
 \begin_layout Standard
 Note: it is informative to see Table 1 when considering this question.
- In part 4 of Assignment I, we found an optimal cost ratio of 21.5, with
- a Type II error rate of 0.304, and a Type I error rate of 0.288.
+ In part 4 of Assignment I, we found an optimal cost ratio of 31.0, with
+ a Type II error rate of 0.304, and a Type I error rate of 0.315.
  In Table I we see similar error rates for bagging with decision stump where
  we configure bagging with either 10 or 25 iterations.
  These error rates are higher than our best performer, cost-sensitive classifier
@@ -1446,7 +1469,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.000963
+0.00069
 \end_layout
 
 \end_inset
@@ -1455,7 +1478,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.881230
+0.84247
 \end_layout
 
 \end_inset
@@ -1464,7 +1487,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.999974
+0.99402
 \end_layout
 
 \end_inset
@@ -1493,7 +1516,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.09
+2.19
 \begin_inset Formula $\times10^{-10}$
 \end_inset
 
@@ -1506,7 +1529,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.927
+0.928
 \end_layout
 
 \end_inset
@@ -1544,7 +1567,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0007
+0.000504
 \end_layout
 
 \end_inset
@@ -1553,7 +1576,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8838
+0.884559
 \end_layout
 
 \end_inset
@@ -1562,7 +1585,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9793
+0.977964
 \end_layout
 
 \end_inset
@@ -1591,8 +1614,8 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.35
-\begin_inset Formula $\times10^{-12}$
+8.45
+\begin_inset Formula $\times10^{-13}$
 \end_inset
 
 
@@ -1604,7 +1627,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.590
+0.585
 \end_layout
 
 \end_inset
@@ -1613,7 +1636,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.822
+0.819
 \end_layout
 
 \end_inset
@@ -1642,7 +1665,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.309
+0.291
 \end_layout
 
 \end_inset
@@ -1651,7 +1674,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.409
+0.408
 \end_layout
 
 \end_inset
@@ -1660,7 +1683,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.629
+0.626
 \end_layout
 
 \end_inset
@@ -1689,7 +1712,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.36
+5.38
 \begin_inset Formula $\times10^{-7}$
 \end_inset
 
@@ -1702,8 +1725,8 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.16
-\begin_inset Formula $\times10^{-10}$
+1.55
+\begin_inset Formula $\times10^{-11}$
 \end_inset
 
 
@@ -1715,7 +1738,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.00707
+0.00584
 \end_layout
 
 \end_inset
@@ -1744,7 +1767,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.675
+0.720
 \end_layout
 
 \end_inset
@@ -1753,7 +1776,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.569
+0.580
 \end_layout
 
 \end_inset
@@ -1762,7 +1785,7 @@ False Negative
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.746
+0.744
 \end_layout
 
 \end_inset
@@ -1791,7 +1814,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.31
+3.40
 \begin_inset Formula $\times10^{-5}$
 \end_inset
 
@@ -1804,7 +1827,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0197
+0.0128
 \end_layout
 
 \end_inset
@@ -1813,7 +1836,7 @@ False Positive
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8798
+0.8840
 \end_layout
 
 \end_inset
@@ -1846,7 +1869,7 @@ For the cost sensitive classifier combined with bagging and decision stump,
  error rates.
  The number of iterations we set for bagging and its interaction with the
  cost ratio is not significant.
- Note: The graphs of the error rates for these classifiers above forms an
+ Note: The graphs of the error rates for these classifiers above form an
  'X' shape for both 10 and 25 iterations.
 \end_layout
 
@@ -1856,7 +1879,7 @@ For the cost sensitive classifier combined with bagging and J48 decision
  rates.
  The number of iterations we set for bagging and its interaction with the
  cost ratio is not significant.
- Note: The graphs of the error rates for these classifiers above forms an
+ Note: The graphs of the error rates for these classifiers above form an
  'X' shape for both 10 and 25 iterations.
 \end_layout
 
@@ -1867,17 +1890,17 @@ For the cost sensitive classifier combined with boosting and decision stump,
  false positive error rate.
  None of the factors or interactions are significant for the false negative
  error rate.
- Note: The graphs of the error rates for these classifiers above does not
+ Note: The graphs of the error rates for these classifiers above do not
  form an 'X' shape for both 10 and 25 iterations.
 \end_layout
 
 \begin_layout Itemize
 For the cost sensitive classifier combined with boosting and J48 decision
- tree, the only significant relationship we can glean from the ANOVA results
- is that cost ratio is a significant factor for explaining the false positive
- error rate.
+ tree, the two relationships we can glean from the ANOVA results is that
+ cost ratio and the number of iterations are significant factors for explaining
+ the false positive error rate.
  Other factors and interactions are not significant for the error rates.
- Note: The graphs of the error rates for these classifiers above does not
+ Note: The graphs of the error rates for these classifiers above do not
  form an 'X' shape for both 10 and 25 iterations.
 \end_layout
 
@@ -1909,7 +1932,7 @@ Another avenue of research to pursue would be to enlarge the number of classifie
 rs available to test the hypothesis that whenever we see a clear 'X' shape
  in error rate plots that cost ratio is always statistically significant.
  This would give researches an easy-to-use visual test to apply when determining
- what classifier attributes will impact classifier error rates.
+ that varying cost ratio will impacts classifier error rates.
 \end_layout
 
 \begin_layout Bibliography
