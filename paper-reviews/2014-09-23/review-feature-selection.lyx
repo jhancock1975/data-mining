@@ -1,0 +1,340 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+John Hancock
+\end_layout
+
+\begin_layout Standard
+Advanced Data Mining and Machine Learning CAP 6778
+\end_layout
+
+\begin_layout Standard
+September 
+\begin_inset Formula $26^{th}$
+\end_inset
+
+, 2014
+\end_layout
+
+\begin_layout Part*
+Review of Random Forest: A Reliable Tool For Patient Response Prediction
+\end_layout
+
+\begin_layout Standard
+The two main ideas in, 
+\begin_inset Quotes eld
+\end_inset
+
+Random Forest: A Reliable Tool For Patient Response Prediction
+\begin_inset Quotes erd
+\end_inset
+
+ are:
+\end_layout
+
+\begin_layout Itemize
+show how Random Forest works well regardless of the feature selection technique
+ we use
+\end_layout
+
+\begin_layout Itemize
+As an ensemble learner it can outperform single learners 
+\end_layout
+
+\begin_layout Standard
+Random forest is a classifier, it is an ensemble of decision trees.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+ we are using random forest for patient response prediction.
+ The data in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+ is bioinformatic data for cancer patients’ response to a drug to treat
+ their cancer.
+ The response is patient’s response to a treatment.
+ In this case the treatment is the drug bortezomib.
+ Bortezomib is a cancer treatment.
+ Sometimes the treatment can kill the patient, so it would be good to be
+ able to predict the patients response to the treatment before administering
+ it.
+\end_layout
+
+\begin_layout Standard
+Responses can be:
+\end_layout
+
+\begin_layout Itemize
+positive: complete response, partial response, and minimal response; the
+ patient has a full recovery or shows some signs of getting better
+\end_layout
+
+\begin_layout Itemize
+negative: no change or progressive disease; the patient stays the same or
+ continues to get worse.
+\end_layout
+
+\begin_layout Standard
+The dataset is bioinformatic information, so we have a large number of attribute
+s - over 22,000.
+\end_layout
+
+\begin_layout Standard
+The results will show that with random forest we do not have to worry about
+ feature selection.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+ explains random forest builds 
+\shape italic
+numTrees
+\shape default
+ decision trees with 
+\shape italic
+numFeatures
+\shape default
+ attributes.
+ The attributes a tree will use are randomly chosen.
+ We use the class chosen by the largest number of trees as classifier selection.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+says the optimum number of trees is 100, but we think we would have to use
+ an odd number of trees for binary classification in order to avoid a tie
+ vote.
+\end_layout
+
+\begin_layout Standard
+The authors of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+used the dataset because it is focused - it covers patients with the same
+ disease and the same treatment applied to the disease, and it has an interestin
+g scale, 169 patients and over 22,000 attributes for each instance (patient).
+\end_layout
+
+\begin_layout Standard
+Experiment details: 7 classifiers: random forest (RFT), 5 Nearest Neighbors
+ (5NN), naive bayes (NB), Support Vector Machines (SVM), Logistic Regression
+ (LR), and Multi-Layer Perceptron MPP).
+ 19 feature rankers are used: 7 common, 11 threshold-based feature selection
+ techniques (TBFS), one unusual signal to noise (SNR), and 14 different
+ feature subset sizes from 5 to 1000.
+\end_layout
+
+\begin_layout Standard
+The results show random forest can work well with no matter what feature
+ selection technique we use.
+\end_layout
+
+\begin_layout Standard
+Classification is performed using 5 fold cross validation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+ does analysis on two classification schemes: response vs.
+ no response (R vs NR), and response vs.
+ progressive disease (R vs PD).
+\end_layout
+
+\begin_layout Standard
+The authors of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+tested 63,840 models.
+ 
+\end_layout
+
+\begin_layout Standard
+The paper has tables of top results:
+\end_layout
+
+\begin_layout Itemize
+R vs PD with TBFS filters: 18 rankers, 6 learners classifiers random forest
+ does better than average of 5 other learners for all the different kinds
+ of filters, RFT always does better than other 5 classifiers
+\end_layout
+
+\begin_layout Itemize
+R vs NR with TBFS filters: same result, RFT always does better
+\end_layout
+
+\begin_layout Itemize
+R vs.
+ PD with top 1000 features: same result, RFT always does better
+\end_layout
+
+\begin_layout Itemize
+R vs.
+ NR with top 1000 features: same result, RFT always does better.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-63"
+
+\end_inset
+
+ then does statistical tests on results to find significance of experimental
+ factors for results: z-test, anova, Tukey HSD.
+ 
+\end_layout
+
+\begin_layout Standard
+The tests show: 
+\end_layout
+
+\begin_layout Itemize
+1000 features not significantly different from using top number of features
+\end_layout
+
+\begin_layout Itemize
+choice of ranker marginal not important for random forest results
+\end_layout
+
+\begin_layout Itemize
+RFT significantly better in hsd r vs pd for best number of features, hsd
+ for 1000 features 
+\end_layout
+
+\begin_layout Itemize
+I see what looks like some overlap for RFT, MLP, NB for HSD with R vs.
+ NR for best number of features or top 1000 features.
+\end_layout
+
+\begin_layout Standard
+The conclusions we can draw are: random forest is best classifier for patient
+ response prediction for the Mulligan et.
+ al data set, ranker is not important, no difference for using top 1000
+ features vs.
+ best number of features.
+\end_layout
+
+\begin_layout Standard
+Future work: random forest requires more data, but patient response data
+ is not public domain 
+\end_layout
+
+\begin_layout Standard
+Note: paper has a typo - mb should be nb for naive bayes in feature rankers.
+\end_layout
+
+\begin_layout Standard
+Finally, remember random forest is an ensemble learner, this is why it does
+ better than single classifiers.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-63"
+
+\end_inset
+
+T.
+ M.
+ Khoshgoftaar, D.
+ Dittman, R.
+ Wald, A.Napolitano, 
+\begin_inset Quotes eld
+\end_inset
+
+Random Forest: A Reliable Tool For Patient Response Prediction.
+\begin_inset Quotes erd
+\end_inset
+
+ Florida Atlantic University, Bocat Raton FL 33431.
+\end_layout
+
+\end_body
+\end_document

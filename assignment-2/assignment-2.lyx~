@@ -69,19 +69,11 @@ Florida Atlantic University
 \end_layout
 
 \begin_layout Standard
-Advanced Data Mining and Machine Learning
+Advanced Data Mining and Machine Learning CAP-6778
 \end_layout
 
 \begin_layout Standard
-CAP-6778
-\end_layout
-
-\begin_layout Standard
-September 30
-\begin_inset Formula $^{th}$
-\end_inset
-
-, 2014
+jhancoc4@fau.edu
 \end_layout
 
 \begin_layout Section*
@@ -1295,8 +1287,19 @@ key "key-37"
  and the cost ratio as factors to predict the error rates of the classifiers.
  This results in 8 ANOVA results.
  The R functions we use to calculate P-values are available in a script
- at https://github.com/jhancock1975/data-mining/blob/master/assignment-2/cap6778-
-app/java-output/do-anova.sh.
+ at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/jhancock1975/data-mining/blob/master/assignment-2/cap6778-app/
+java-output/do-anova.sh
+\end_layout
+
+\end_inset
+
+.
  The table below summarizes the results:
 \end_layout
 
