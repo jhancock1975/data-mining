@@ -72,32 +72,66 @@ September
 \end_layout
 
 \begin_layout Part*
-Review of Random Forest: A Reliable Tool For Patient Response Prediction
+Review of: Feature Selection with High-Dimensional Imbalanced Data
 \end_layout
 
 \begin_layout Standard
-The two main ideas in, 
-\begin_inset Quotes eld
-\end_inset
-
-Random Forest: A Reliable Tool For Patient Response Prediction
-\begin_inset Quotes erd
-\end_inset
-
- are:
-\end_layout
-
-\begin_layout Itemize
-show how Random Forest works well regardless of the feature selection technique
- we use
-\end_layout
-
-\begin_layout Itemize
-As an ensemble learner it can outperform single learners 
+The paper starts with precise definition of feature selection, one that
+ I have not seen before:
 \end_layout
 
 \begin_layout Standard
-Random forest is a classifier, it is an ensemble of decision trees.
+Given a dataset with features 
+\begin_inset Formula \[
+\mathcal{F}=\left(X^{1},\ldots,X^{m}\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+select subset 
+\begin_inset Formula \[
+\mathcal{F^{\textrm{0}}}=\left(X^{j_{1}},\ldots X^{j_{p}}\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+such that 
+\begin_inset Formula $p<<m$
+\end_inset
+
+ and we get something like maximum classifier accuracy using 
+\begin_inset Formula $\mathcal{F}^{\textrm{0}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The introduction also points out that we have to use feature selection for
+ high dimensional data sets, can speed up model training time, reduces over-fitt
+ing, use fewer computing resources.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-68"
+
+\end_inset
+
+ for feature selection uses 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+, information gain (IG), gain ratio GR, Relief F, Relief F weigted, symmetric
+ uncertainty (SU), and three (in 2009) new threshold based filters: are
+ under ROC cuve (AUC), maximum f-measure (FM) maximum geometric mean (GM).
  
 \end_layout
 
@@ -105,235 +139,221 @@ Random forest is a classifier, it is an ensemble of decision trees.
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-63"
+key "key-68"
 
 \end_inset
 
- we are using random forest for patient response prediction.
- The data in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-63"
-
-\end_inset
-
- is bioinformatic data for cancer patients’ response to a drug to treat
- their cancer.
- The response is patient’s response to a treatment.
- In this case the treatment is the drug bortezomib.
- Bortezomib is a cancer treatment.
- Sometimes the treatment can kill the patient, so it would be good to be
- able to predict the patients response to the treatment before administering
- it.
+ the data sampling techniques used are: random under-sampling (RUS), random
+ oversampling (ROS), synthetic minority oversampling (SM), Wilson editing
+ (WE).
+ Recall that in WE we remove noisy instances from majority class.
 \end_layout
 
 \begin_layout Standard
-Responses can be:
+Two objectives of the paper: 
 \end_layout
 
 \begin_layout Itemize
-positive: complete response, partial response, and minimal response; the
- patient has a full recovery or shows some signs of getting better
+understand correlation relationships between the 9 filtering techniques
+ (which rankers or TBFS techniques give similar lists of attributes)
 \end_layout
 
 \begin_layout Itemize
-negative: no change or progressive disease; the patient stays the same or
- continues to get worse.
-\end_layout
-
-\begin_layout Standard
-The dataset is bioinformatic information, so we have a large number of attribute
-s - over 22,000.
-\end_layout
-
-\begin_layout Standard
-The results will show that with random forest we do not have to worry about
- feature selection.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-63"
-
-\end_inset
-
- explains random forest builds 
-\shape italic
-numTrees
-\shape default
- decision trees with 
-\shape italic
-numFeatures
-\shape default
- attributes.
- The attributes a tree will use are randomly chosen.
- We use the class chosen by the largest number of trees as classifier selection.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-63"
-
-\end_inset
-
-says the optimum number of trees is 100, but we think we would have to use
- an odd number of trees for binary classification in order to avoid a tie
- vote.
-\end_layout
-
-\begin_layout Standard
-The authors of 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-63"
-
-\end_inset
-
-used the dataset because it is focused - it covers patients with the same
- disease and the same treatment applied to the disease, and it has an interestin
-g scale, 169 patients and over 22,000 attributes for each instance (patient).
-\end_layout
-
-\begin_layout Standard
-Experiment details: 7 classifiers: random forest (RFT), 5 Nearest Neighbors
- (5NN), naive bayes (NB), Support Vector Machines (SVM), Logistic Regression
- (LR), and Multi-Layer Perceptron MPP).
- 19 feature rankers are used: 7 common, 11 threshold-based feature selection
- techniques (TBFS), one unusual signal to noise (SNR), and 14 different
- feature subset sizes from 5 to 1000.
-\end_layout
-
-\begin_layout Standard
-The results show random forest can work well with no matter what feature
- selection technique we use.
-\end_layout
-
-\begin_layout Standard
-Classification is performed using 5 fold cross validation.
+understand whether or not the relationships change when we sample the data
+ (do the lists of attributes change before/after sampling).
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-63"
+key "key-68"
 
 \end_inset
 
- does analysis on two classification schemes: response vs.
- no response (R vs NR), and response vs.
- progressive disease (R vs PD).
+uses 6 bioinformatic datasets: all have at least slight imbalanced class
+ ratios.
 \end_layout
 
 \begin_layout Standard
-The authors of 
+Section 3 of 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-63"
+key "key-68"
 
 \end_inset
 
-tested 63,840 models.
+, reviews feature rankers: 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+, IG, GR, Relief, Relief F (mentions ReliefF is implemented in Weka), Symmetric
+ Uncertainty (SU), 
+\end_layout
+
+\begin_layout Standard
+Section 4 reviews threshold based filters.
+ Explains how to map a feature to (0,1), treat as posterior probability,
+ and vary threshold look at performance of classifier for the one attribute,
+ and rank attributes accordingly.
+ Sections 4.1-4.3 show how to calculate metrics AUC, GM, F-Measure.
+\end_layout
+
+\begin_layout Standard
+Section 5 of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-68"
+
+\end_inset
+
+ reviews sampling techniques used.
  
 \end_layout
 
 \begin_layout Standard
-The paper has tables of top results:
+A key contribution of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-68"
+
+\end_inset
+
+ (Section 6) is to use Kendall’s Tau rank correlation to compare feature
+ ranking.
+ This technique compares two lists, measures correlation between the two
+ lists.
+ 
+\begin_inset Formula $\tau=1$
+\end_inset
+
+ for two rankings means they are in complete agreement, 
+\begin_inset Formula $\tau=-1$
+\end_inset
+
+ for two rankings means the rankings are exactly opposite.
+ 
+\begin_inset Formula $\tau$
+\end_inset
+
+ close to 0 means correlation between rankings is weak.
 \end_layout
 
-\begin_layout Itemize
-R vs PD with TBFS filters: 18 rankers, 6 learners classifiers random forest
- does better than average of 5 other learners for all the different kinds
- of filters, RFT always does better than other 5 classifiers
+\begin_layout Standard
+Results: first table (Figure 1) compares all 9 feature selection techniques,
+ table shows which ranking techniques are similar and not similar.
+ The top half of the table is average 
+\begin_inset Formula $\tau$
+\end_inset
+
+ over all 5 data sets for a pair of feature selection techniques.
+ The bottom half of Figure 1 is standard deviation of 
+\begin_inset Formula $\tau$
+\end_inset
+
+ for pars of feature selection techniques.
 \end_layout
 
-\begin_layout Itemize
-R vs NR with TBFS filters: same result, RFT always does better
+\begin_layout Standard
+The results in Figure 1 show the 3 new techniques F, GM, AUC are not correlated
+ with rankers.
 \end_layout
 
-\begin_layout Itemize
-R vs.
- PD with top 1000 features: same result, RFT always does better
+\begin_layout Standard
+Figure 2: top half of the matrix is correlations between pairs of feature
+ selection techniques when we do sampling.
+ If correlation is low sampling had an impact on the feature selection technique
+ and we cannot assume that, if we are going to sample the data, that techniques
+ that are correlated before sampling will still be close or the same after
+ sampling.
+ Note: Figure 2 is testing the Wilson Editing (WE) sampling technique only.
+ Generally in Figure 2, it seems that if techniques are correlated before
+ WE , they will be correlated after WE.
+ 
 \end_layout
 
-\begin_layout Itemize
-R vs.
- NR with top 1000 features: same result, RFT always does better.
+\begin_layout Standard
+Figure 3 is obtained in the same way as Figure 2, but here the sampling
+ technique is random oversampling (ROS).
+ Generally it shows that correlation does not hold after ROS.
+\end_layout
+
+\begin_layout Standard
+Table 2 gives us a third section of results.
+ The motivation is that data in tables in section two is overwhelming, so
+ we use Frobenius norm to calculate distance between correlation matrices
+ to get a single number.
+ The results in table 2 back up observations about correlations and sampling
+ techniques in Figure 1 and Figure 2.
+ Table 2 shows no sampling/WE produce similar features - mean of Frobenius
+ norm is 0.252.
+ For RUS ROS highest, mean of Frobenius norm is 1.509.
+ Which means that for any pair of rankers, the lists of attributes we get
+ after applying RUS will most likely be very different the list we obtain
+ after using ROS.
+\end_layout
+
+\begin_layout Standard
+Remember - lower Frobenius norm means more similar.
+ The numbers in table 2 are Frobenius norm distances, 
+\series bold
+not 
+\series default
+
+\begin_inset Formula $\tau$
+\end_inset
+
+ values.
+\end_layout
+
+\begin_layout Standard
+Conclusions: 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+, IG, GR, SU are highly correlated techniques - they will produce similar
+ lists of attributes.
+ RF, RFW are moderately correlated.
+ AUC, GM, FM (F-measure) - new techniques - are moderately correlated with
+ one and other, but not correlated with 6 other feature selection techniques.
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-63"
+key "key-68"
 
 \end_inset
 
- then does statistical tests on results to find significance of experimental
- factors for results: z-test, anova, Tukey HSD.
- 
-\end_layout
-
-\begin_layout Standard
-The tests show: 
-\end_layout
-
-\begin_layout Itemize
-1000 features not significantly different from using top number of features
-\end_layout
-
-\begin_layout Itemize
-choice of ranker marginal not important for random forest results
-\end_layout
-
-\begin_layout Itemize
-RFT significantly better in hsd r vs pd for best number of features, hsd
- for 1000 features 
-\end_layout
-
-\begin_layout Itemize
-I see what looks like some overlap for RFT, MLP, NB for HSD with R vs.
- NR for best number of features or top 1000 features.
-\end_layout
-
-\begin_layout Standard
-The conclusions we can draw are: random forest is best classifier for patient
- response prediction for the Mulligan et.
- al data set, ranker is not important, no difference for using top 1000
- features vs.
- best number of features.
-\end_layout
-
-\begin_layout Standard
-Future work: random forest requires more data, but patient response data
- is not public domain 
-\end_layout
-
-\begin_layout Standard
-Note: paper has a typo - mb should be nb for naive bayes in feature rankers.
-\end_layout
-
-\begin_layout Standard
-Finally, remember random forest is an ensemble learner, this is why it does
- better than single classifiers.
+shows a relationship between data sampling and feature selection.
+ Future work needs to investigate the relationships hold for other bioinformatic
+ data sets.
+ Another future task is to evaluate performance of models that the new feature
+ selection techniques produce.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-63"
+key "key-68"
 
 \end_inset
 
 T.
  M.
- Khoshgoftaar, D.
- Dittman, R.
- Wald, A.Napolitano, 
+ Khoshgoftaar, J.
+ Van Hulse, A.
+ Napolitano, R.
+ Wald.
+ 
 \begin_inset Quotes eld
 \end_inset
 
-Random Forest: A Reliable Tool For Patient Response Prediction.
+Feature Selection with High-Dimensional Imbalanced Data,
 \begin_inset Quotes erd
 \end_inset
 
- Florida Atlantic University, Bocat Raton FL 33431.
+ in IEEE International Conference on Data Mining Workshops, © 2009 IEEE,
+ doi: 10.1109/ICDMW.2009.35
 \end_layout
 
 \end_body

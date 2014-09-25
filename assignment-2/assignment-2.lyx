@@ -140,8 +140,8 @@ For each classifier we determine the optimal ratio of the cost of a Type
 We determine the optimal ratio for two configurations of boosting and bagging.
  In the first configuration, we configure boosting or bagging to do 10 iteration
 s.
- In the second configuration we configure the boosting or the bagging to
- do 25 iterations.
+ In the second configuration we configure boosting or bagging to do 25 iteration
+s.
 \end_layout
 
 \begin_layout Standard
@@ -195,14 +195,13 @@ For each classifier we set the Type I error cost to 1.0, and allow the Type
 \begin_inset Quotes erd
 \end_inset
 
-.
  However, we received feedback from Assignment 1 stating that the optimal
  cost ratio for a cost-sensitive classifier combined with J48 is 31, so
  we decided to add this cost ratio as well.
 \end_layout
 
 \begin_layout Standard
-Because Type I error cost is held fixed at I, the previous list of Type
+Because Type I error cost is held fixed at 1, the previous list of Type
  II error costs is also a list of Type II to Type I cost ratios.
 \end_layout
 
@@ -213,7 +212,8 @@ We used the Lymphoma96x4026.arff dataset as input for various Weka classifiers
  ACL instances (the positive class).
  Error rates below are obtained from dividing the number of misclassified
  instances by the number of instances of the positive or negative class
- in a particular class in Lymphoma96x4026.arff, 73 or 23, respectively.
+ in a particular class in Lymphoma96x4026.arff.
+ The numbers of positive and negative instances are 73 or 23, respectively.
 \end_layout
 
 \begin_layout Standard
@@ -225,7 +225,7 @@ We report results for 8 different classifiers.
  In Weka, we place each of the 8 classifiers in a cost-sensitive classifier,
  where we vary the Type II error costs in the cost-sensitive classifiers
  cost matrix according to the values in the list above.
- There are 21 values in the list, therefore we construct 168 classifiers
+ There are 22 values in the list, therefore we construct 176 classifiers
  for this work.
  
 \end_layout
@@ -1241,27 +1241,6 @@ For determining the optimal cost ratio, we are again in the same situation
  rate is 0.217.
 \end_layout
 
-\begin_layout Section*
-Conclusions 
-\end_layout
-
-\begin_layout Subsection*
-How do the results of each classifier compare to the cost-sensitive tree
- obtained in Part 4 of Assignment I?
-\end_layout
-
-\begin_layout Standard
-Note: it is informative to see Table 1 when considering this question.
- In part 4 of Assignment I, we found an optimal cost ratio of 31.0, with
- a Type II error rate of 0.304, and a Type I error rate of 0.315.
- In Table I we see similar error rates for bagging with decision stump where
- we configure bagging with either 10 or 25 iterations.
- These error rates are higher than our best performer, cost-sensitive classifier
- combined with boosting meta-classifier at 25 iterations and J48 decision
- tree base classifier where we have a false positive error rate of 0.027
- and a false negative error rate of 0.217.
-\end_layout
-
 \begin_layout Subsection*
 Analysis of Results: ANOVA for Cost Ratios and Number of Iterations Per
  Classifier
@@ -1861,6 +1840,50 @@ Table 3: P-values for cost ratios, the number of iterations set for boosting
  J48 or Decision Stump as base classifiers
 \end_layout
 
+\begin_layout Section*
+Conclusions 
+\end_layout
+
+\begin_layout Subsection*
+How do the results of each classifier compare to the cost-sensitive tree
+ obtained in Part 4 of Assignment I?
+\end_layout
+
+\begin_layout Standard
+Note: it is informative to see Table 1 when considering this question.
+ In part 4 of Assignment I, we found an optimal cost ratio of 31.0, with
+ a Type II error rate of 0.304, and a Type I error rate of 0.315.
+ In Table 1 we see similar error rates for bagging with decision stump where
+ we configure bagging with either 10 or 25 iterations.
+ These error rates are higher than our best performer, cost-sensitive classifier
+ combined with boosting meta-classifier at 25 iterations and J48 decision
+ tree base classifier where we have a false positive error rate of 0.027
+ and a false negative error rate of 0.217.
+\end_layout
+
+\begin_layout Standard
+From Table 1 we see 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+that the cost sensitive classifier with a cost ratio of 16.0 combined with
+ boosting and J48 decision tree with 25 iterations for boosting 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+gives the overall best classification.
+\end_layout
+
 \begin_layout Standard
 From Table 3 we can draw the following conclusions from P-values that result
  from ANOVA at a 0.05 significance level:
@@ -1931,11 +1954,10 @@ We have developed a Weka automation framework of Java programs and shell
 \end_layout
 
 \begin_layout Standard
-Another avenue of research to pursue would be to enlarge the number of classifie
-rs available to test the hypothesis that whenever we see a clear 'X' shape
- in error rate plots that cost ratio is always statistically significant.
- This would give researches an easy-to-use visual test to apply when determining
- that varying cost ratio will impacts classifier error rates.
+As we mention earlier, there the false negative rate 0.217 occurs frequently
+ in Table 1.
+ We would like to do some research into our results and the dataset to see
+ why this rate occurs so frequently.
 \end_layout
 
 \begin_layout Bibliography
