@@ -1,0 +1,502 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment 3: Feature Selection I.
+\end_layout
+
+\begin_layout Standard
+John Hancock
+\end_layout
+
+\begin_layout Standard
+Florida Atlantic University
+\end_layout
+
+\begin_layout Standard
+Advanced Data Mining and Machine Learning CAP-6778
+\end_layout
+
+\begin_layout Standard
+jhancoc4@fau.edu
+\end_layout
+
+\begin_layout Section*
+Summary 
+\end_layout
+
+\begin_layout Standard
+For this assignment we are required to compare the performance of Weka classifie
+rs where we employ different attribute selection techniques to classifier
+ input.
+\end_layout
+
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Standard
+For this work we use the Lymphoma96x4026.arff dataset.
+ 
+\end_layout
+
+\begin_layout Standard
+We employ two classifiers in Weka
+\end_layout
+
+\begin_layout Itemize
+IBK: K-nearest neighbor classifier using 5 nearest neighbors
+\end_layout
+
+\begin_layout Itemize
+Naive Bayes classifier 
+\end_layout
+
+\begin_layout Standard
+We also employ two different feature selection techniques in weka to the
+ data in Lymphoma96x4026.arff to create two new input datasets for the classifier
+s.
+ The feature selection techniques are:
+\end_layout
+
+\begin_layout Itemize
+Information Gain (IG)
+\end_layout
+
+\begin_layout Itemize
+Chi Squared (
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+We use all three datasets - the original Lymphoma96x4026.arff, plus the two
+ that result from doing the feature selection - as inputs to the two classifiers.
+\end_layout
+
+\begin_layout Standard
+We compare the classifier error rates and do analysis on the factors of
+ the experiment to determine which factors have an impact on classifier
+ performance.
+\end_layout
+
+\begin_layout Section*
+Results
+\end_layout
+
+\begin_layout Section*
+Part 1: Naive Bayes Classifier, No Attribute Selection
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Select Naive Bayes classifier in the Weka Explorer Classify tab, click start
+ to run the classifier.
+ Use the confusion matrix printed in the Classifier output text area to
+ calculate false positive and false negative error rates.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 2: 5 Nearest Neighbors Classifier, No Attribute Selection
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Select IBK classifier in the Weka Explorer Classify tab, update the KNN
+ value to 5, click start to run the classifier.
+ Use the confusion matrix printed in the Classifier output text area to
+ calculate false positive and false negative error rates.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 3: Naive Bayes Classifier, IG Attribute Selection
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Click the, 
+\begin_inset Quotes eld
+\end_inset
+
+Select attributes,
+\begin_inset Quotes erd
+\end_inset
+
+ tab in Weka Explorer, click, 
+\begin_inset Quotes eld
+\end_inset
+
+Choose,
+\begin_inset Quotes erd
+\end_inset
+
+ under attribute evaluator, select, 
+\begin_inset Quotes eld
+\end_inset
+
+InfoGainAttributeEval.
+\begin_inset Quotes erd
+\end_inset
+
+ Click, 
+\begin_inset Quotes eld
+\end_inset
+
+Choose,
+\begin_inset Quotes erd
+\end_inset
+
+ under Search Method.
+ Choose, 
+\begin_inset Quotes eld
+\end_inset
+
+Ranker.
+\begin_inset Quotes erd
+\end_inset
+
+ Change the, 
+\begin_inset Quotes eld
+\end_inset
+
+numToSelect,
+\begin_inset Quotes erd
+\end_inset
+
+ value to 20.
+ Click start.
+ When Weka completes the attribute selection, right click on the last entry
+ in the, 
+\begin_inset Quotes eld
+\end_inset
+
+Result list,
+\begin_inset Quotes erd
+\end_inset
+
+ text area.
+ Select, 
+\begin_inset Quotes eld
+\end_inset
+
+save reduced data,
+\begin_inset Quotes erd
+\end_inset
+
+ and save the reduced data set to a file.
+ 
+\end_layout
+
+\begin_layout Standard
+Click the preprocess tab.
+ Click open file.
+ Select the file we created above.
+ 
+\end_layout
+
+\begin_layout Standard
+Click the classify tab.
+ 
+\end_layout
+
+\begin_layout Standard
+Follow the methodology listed in Part 1.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 4 : 5 Nearest Neighbors Classifier, IG Attribute Selection
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Weka is already configured to use the dataset we created using Information
+ Gain attribute selection in Part 3.
+ Follow the methodology in Part 2.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 5: Naive Bayes Classifier, 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ Attribute Selection
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Use the same methodology as in Part 3, but select, 
+\begin_inset Quotes eld
+\end_inset
+
+ChiSquaredAttributeEval,
+\begin_inset Quotes erd
+\end_inset
+
+ after clicking, 
+\begin_inset Quotes eld
+\end_inset
+
+Choose,
+\begin_inset Quotes erd
+\end_inset
+
+ in the, 
+\begin_inset Quotes eld
+\end_inset
+
+Attribute Evaluator,
+\begin_inset Quotes erd
+\end_inset
+
+ area in the, 
+\begin_inset Quotes eld
+\end_inset
+
+Select attributes,
+\begin_inset Quotes erd
+\end_inset
+
+ tab.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Section*
+Part 6: Naive Bayes Classifier, 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ Attribute Selection
+\end_layout
+
+\begin_layout Subsection*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Use the same methodology as in Part 4, but select, 
+\begin_inset Quotes eld
+\end_inset
+
+ChiSquaredAttributeEval,
+\begin_inset Quotes erd
+\end_inset
+
+ after clicking, 
+\begin_inset Quotes eld
+\end_inset
+
+Choose,
+\begin_inset Quotes erd
+\end_inset
+
+ in the, 
+\begin_inset Quotes eld
+\end_inset
+
+Attribute Evaluator,
+\begin_inset Quotes erd
+\end_inset
+
+ area in the, 
+\begin_inset Quotes eld
+\end_inset
+
+Select attributes,
+\begin_inset Quotes erd
+\end_inset
+
+ tab.
+\end_layout
+
+\begin_layout Subsection*
+Results
+\end_layout
+
+\begin_layout Subsubsection*
+Misclassification Rates
+\end_layout
+
+\begin_layout Subsection*
+Analysis of Results:
+\end_layout
+
+\begin_layout Section*
+Conclusions 
+\end_layout
+
+\begin_layout Section*
+Future Research
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 5 p.169 fig.
+ 5.2.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 10 p.379 fig.
+ 10.6(a).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+
+\shape italic
+The Area Under an ROC Curve
+\shape default
+ [Online].
+ Available: http://gim.unmc.edu/dxtests/roc3.htm
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-37"
+
+\end_inset
+
+ 
+\shape italic
+Analysis of Variance in R
+\shape default
+ [Online] Available: http://www.instructables.com/id/Analysis-of-Variance-ANOVA-in
+-R/?ALLSTEPS
+\end_layout
+
+\end_body
+\end_document
