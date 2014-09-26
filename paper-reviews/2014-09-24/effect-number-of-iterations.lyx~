@@ -1,0 +1,335 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+John Hancock
+\end_layout
+
+\begin_layout Standard
+Advanced Data Mining and Machine Learning CAP 6778
+\end_layout
+
+\begin_layout Standard
+September 
+\begin_inset Formula $29{}^{th}$
+\end_inset
+
+, 2014
+\end_layout
+
+\begin_layout Part*
+A Review of: The Effect of Number of Iterations on Ensemble Gene Selection
+\end_layout
+
+\begin_layout Standard
+The goal of the paper is to determine how many iterations for feature selection
+ we need in order for the feature selection to be stable.
+ 
+\end_layout
+
+\begin_layout Standard
+Ensemble gene selection in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+refers to using an ensemble technique, either data diversity or hybrid of
+ data diversity and functional diversity.
+ 
+\end_layout
+
+\begin_layout Standard
+Iterations in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ refers to the number of times we apply a feature selection technique.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ mentions that feature selection is important when dealing with bioinformatic
+ data because we are dealing with data that has high dimensionality.
+ We also have a problem feature selection instability.
+ 
+\end_layout
+
+\begin_layout Standard
+Related work mentioned in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+: we know ensemble techniques are powerful for classifiers, we want to try
+ this on feature selection, using data diversity and hybrid diversity.
+\end_layout
+
+\begin_layout Standard
+The aggregation technique used in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ is mean aggregation.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ explains how to do mean aggretation: compute the mean rank of an attribute
+ for all feature selection techniques used in an ensemble feature selection
+ technique, and use this mean value as the rank of the attribute.
+\end_layout
+
+\begin_layout Standard
+Figure 1 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ explains data diversity ensemble feature selection technique: sample data
+ with replacement to generate 
+\begin_inset Formula $n$
+\end_inset
+
+ data sets, apply 
+\shape italic
+same 
+\shape default
+ranker, obtain
+\begin_inset Formula $n$
+\end_inset
+
+ feature lists, finally aggregate the lists.
+\end_layout
+
+\begin_layout Standard
+Figure 2 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ exlains hybrid ensemble feature selection technique.
+ It is similar to the data diversity approach.
+ The key difference is to use 
+\shape italic
+different
+\shape default
+ rankers for each data set.
+ After applying the rankers to the data sets, we obtain 
+\begin_inset Formula $n$
+\end_inset
+
+ lists of attributes, and we aggregate the results.
+\end_layout
+
+\begin_layout Standard
+Ranking techniques used in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+: The threshold based feature selection techniques used are: Mutual Information,
+ Kolmogorov-Smirnov, Deviance, Geometric Mean, Area Under ROC, and Area
+ Under PRC.
+ The non-threshold based feature selection techniques are: Chi Squared,
+ Information Gain, ReliefF, and Signal to noise.
+\end_layout
+
+\begin_layout Standard
+For both kinds of ensemble feature selection - data diversity or hybrid
+ the authors of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ use 26 bioinformatic datasets and 80 total different feature selection
+ techniques depending on the number of iterations.
+ Note: 80 = 50 + 20 +10 is the different numbers of iterations used to generate
+ bags.
+ If we have more than 10 iterations, we use one of the 10 rankers repeatedly.
+ 
+\end_layout
+
+\begin_layout Standard
+Note: paper uses 26 datasets.
+ To get an idea of the degree of dimensionality: the numbers of attributes
+ are all in the thousands.
+ The lowest number of attributes is 2001, we see at least three datasets
+ with over 50,000 attributes.
+\end_layout
+
+\begin_layout Standard
+The stability measure used in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+is the consistency index.
+\end_layout
+
+\begin_layout Standard
+The stability of feature subsets is measured for different subsets ranging
+ in size from 5 to 1000.
+\end_layout
+
+\begin_layout Standard
+The results in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ are obtained columns are taking top 5, 10, and so on features that results
+ from feature selection using 10 vs 20 iterations, and then using the formula
+ for stability index to compare how the sets of features are changing.
+\end_layout
+
+\begin_layout Standard
+The results show that 20 iterations vs 50 produces stable results.
+\end_layout
+
+\begin_layout Standard
+Tables II and III in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ show that 10 iterations is not acceptable because there is a low consistancy
+ index score between feature subsets obtained with 10 iterations vs.
+ 20 iterations or 10 vs.50.
+\end_layout
+
+\begin_layout Standard
+Tables II and III also show that data diversity is more stable than hybrid
+ diversity as an ensemble feature selection technique.
+\end_layout
+
+\begin_layout Standard
+The conclusions in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ explain that we find number of iterations to get stable feature set is
+ 20 or 50.
+ Therefore 20 or 50 iterations is the point where we can make a good trade-off
+ between stability of features selected and more efficient use of computational
+ resources.
+\end_layout
+
+\begin_layout Standard
+Future work propsed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+: study how the number of iterations impacts classification results, as
+ well as increasing the number of rankers to more than the 10 used in the
+ current work.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+W.
+ Awada, T.
+ M.
+ Khoshgoftaar, D.
+ Dittman, and R.
+ Wald Florida Atlantic University, Boca Raton, FL 33431
+\end_layout
+
+\end_body
+\end_document

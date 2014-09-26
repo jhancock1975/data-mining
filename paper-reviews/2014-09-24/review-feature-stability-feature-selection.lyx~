@@ -1,0 +1,244 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+John Hancock
+\end_layout
+
+\begin_layout Standard
+Advanced Data Mining and Machine Learning CAP 6778
+\end_layout
+
+\begin_layout Standard
+September 
+\begin_inset Formula $296^{th}$
+\end_inset
+
+, 2014
+\end_layout
+
+\begin_layout Part*
+Summary of: A Review of the Stability of Feature Selection Techniques for
+ Bioinformatics Data
+\end_layout
+
+\begin_layout Standard
+A Review of the Stability of Feature Selection Techniques for Bioinformatics
+ Data is a survey paper reviewing attribute selection techniques what researcher
+s have done do to find stable feature sets with bioinformatic data.
+\end_layout
+
+\begin_layout Standard
+Imagine a researcher is trying to discover which genes are responsible some
+ condition, but as he gets more data, he keeps getting different lists of
+ genes that cause the condition.
+ Then he is getting nowhere.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+mentions bioinformatic data, usually in the form of microarrays, has high
+ dimensionality, and we typically have a low number of observations or instances.
+\end_layout
+
+\begin_layout Standard
+Motivations for feature selection: eliminate irrelevant data, speed up processin
+g time of classifiers.
+\end_layout
+
+\begin_layout Standard
+We have two main classes of feature selection techniques: supervised and
+ unsupervised.
+ For supervised feature selection, in our data one attribute is the class
+ attribute.
+ We find features useful to predict the class.
+ We have three types of feature selection techniques: filter, wrapper, and
+ embedded.
+ With wrapper based feature selection techniques we use a learner as part
+ of feature selection.
+ Filter based feature selection techniques apply statistical techniques
+ using either one attribute, or groups of attributes at a time and gauge
+ their efficacy for prediction.
+ Embedded feature selection is part of the algorithm, such as decision tree.
+\end_layout
+
+\begin_layout Standard
+For unsupervised feature selection techniques we consider relationships
+ between features.
+\end_layout
+
+\begin_layout Standard
+The next section of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+reviews methods for perturbing data.
+ It mentions how Alelyani et.
+ all threw the stability of some feature selection techniques into doubt
+ because these techniques were evaluated using a high degree of overlap
+ in subsets of data.
+ There is also the technique of cross validation which we employ frequently
+ in Weka.
+ New ideas for breaking data into sets for evaluation stability include
+ fixed overlap , and no overlap.
+\end_layout
+
+\begin_layout Standard
+Next we have details on 8 stability metrics.
+ The one we are familiar with is the consistency index, which 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+points out is due to Kuncheva.
+\end_layout
+
+\begin_layout Standard
+Next in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+we have methods for improving stability.
+ We found two ideas to be key: 
+\end_layout
+
+\begin_layout Standard
+data diversity and functional diversity.
+ We also have hybrid data diversity, which is a combination of the two.
+\end_layout
+
+\begin_layout Standard
+The basic idea behind data diversity is: have original dataset, derive 
+\begin_inset Formula $n$
+\end_inset
+
+ datasets.
+ The method we use to create the datasets is we sample instances from original
+ data, with replacement.
+ For each resulting data set, we, apply one feature selection technique.
+ We obtain 
+\begin_inset Formula $n$
+\end_inset
+
+ lists of features, and we then apply an algorithm to aggregate the lists.
+\end_layout
+
+\begin_layout Standard
+We have functional diversity method of improving stability.
+ Here we do not fragment the dataset.
+ We apply 
+\begin_inset Formula $n$
+\end_inset
+
+ rankers to obtain 
+\begin_inset Formula $n$
+\end_inset
+
+ lists of attributes.
+ We then aggregate the lists to come up with a final list of features.
+\end_layout
+
+\begin_layout Standard
+There is also a hybrid method mentioned in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+: mix data diversity and functional diversity.
+ We do data diversity first, then use functional diversity on each generated
+ dataset, aggregating the resulting lists of features for a final list.
+\end_layout
+
+\begin_layout Standard
+This is a survey paper, so the conclusions are a summary of previous sections;
+ there are no results to analyze.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+W.
+ Awada, T.
+ M.
+ Khoshgoftaar, D.
+ Dittman, R.
+ Wald, and A.
+ Napolitano, Florida Atlantic University, 777 Glades Road, Boca Raton, FL
+ 33431
+\end_layout
+
+\end_body
+\end_document
