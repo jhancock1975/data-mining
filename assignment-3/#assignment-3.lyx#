@@ -103,7 +103,28 @@ IBK: K-nearest neighbor classifier using 5 nearest neighbors
 \end_layout
 
 \begin_layout Itemize
-Naive Bayes classifier 
+Naive Bayes classifier .
+\end_layout
+
+\begin_layout Standard
+We make a note to the reader that one may find details on the functioning
+ of a Naive Bayes classifier in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+.
+ One may also find an in-depth discussion of concepts behind implementation
+ techniques for classifiers that use K-nearest neighbor methods in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-24"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -126,18 +147,100 @@ Chi Squared (
 \end_layout
 
 \begin_layout Standard
-We use all three datasets - the original Lymphoma96x4026.arff, plus the two
- that result from doing the feature selection - as inputs to the two classifiers.
+Section 3.1 of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-20"
+
+\end_inset
+
+ gives details on how the 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ statistic of an attribute is calculated, and section 3.2 of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-20"
+
+\end_inset
+
+ explains how we calculate the Information Gain of an attribute.
+ 
 \end_layout
 
 \begin_layout Standard
-We compare the classifier error rates ?????and do analysis on the factors
- of the experiment to determine which factors have an impact on classifier
- performance.????
+In order to do feature selection for a dataset, we start with calculating
+ a value for each feature.
+ For this study, we will be calculating either IG or 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ for dataset features.
+ We then order the features from best to worst values, and choose the top
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ features of our ordered list.
+ For this work, we will be selecting the top 20 features.
+ When we finish selecting features, we have a new dataset.
 \end_layout
 
-\begin_layout Section*
-Results
+\begin_layout Standard
+For this work, we use all three datasets - the original Lymphoma96x4026.arff,
+ plus the two that result from doing the feature selection - as inputs to
+ the two classifiers.
+ The dataset we obtained from applying 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ attribute selection is available at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/jhancock1975/data-mining/blob/master/assignment-3/chi-squared-
+attribute-eval.arff
+\end_layout
+
+\end_inset
+
+ .
+ The dataset we obtained from applying information gain attribute selection
+ is available at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/jhancock1975/data-mining/blob/master/assignment-3/info-gain-at
+rribute-eval.arff
+\end_layout
+
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+We compare the classifier error rates and AUC values.
+\end_layout
+
+\begin_layout Standard
+Note: The Assignment 1 requirements document states, 
+\begin_inset Quotes eld
+\end_inset
+
+Type I (False Positive): a nonACL module is classified as ACL.
+\begin_inset Quotes erd
+\end_inset
+
+ Hence, ACL must be the positive class, because this statement says that
+ something is classified as positive and it is classified in the ACL class.
+ Since ACL must be the positive class, nonACL must be the negative class.
 \end_layout
 
 \begin_layout Section*
@@ -177,6 +280,15 @@ Classifier output,
  text area to calculate false positive and false negative error rates.
  Record the AUC (area under the ROC curve) values for the positive class
  (ACL), the negative class (nonACL), and the weighted average.
+ We find these AUC values in the, 
+\begin_inset Quotes eld
+\end_inset
+
+Detailed accuracy by class,
+\begin_inset Quotes erd
+\end_inset
+
+ section of Weka classifier output.
 \end_layout
 
 \begin_layout Subsection*
@@ -729,58 +841,8 @@ Follow the methodology listed in Part 1.
 Results
 \end_layout
 
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Paragraph*
-False Positive Rate:
-\end_layout
-
 \begin_layout Standard
-\begin_inset Formula $\frac{7}{73}\approx0.096$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph*
-False Negative Rate:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{1}{23}\approx0.043$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-AUC values
-\end_layout
-
-\begin_layout Paragraph*
-ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.966
-\end_layout
-
-\begin_layout Paragraph*
-NON ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.966
-\end_layout
-
-\begin_layout Paragraph*
-Weighted Average ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.966
+Please see Tables 2 through 5 below for classification results.
 \end_layout
 
 \begin_layout Section*
@@ -801,58 +863,8 @@ Weka is already configured to use the dataset we created using Information
 Results
 \end_layout
 
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Paragraph*
-False Positive Rate:
-\end_layout
-
 \begin_layout Standard
-\begin_inset Formula $\frac{7}{73}\approx0.096$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph*
-False Negative Rate:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{8}{23}\approx0.348$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-AUC values
-\end_layout
-
-\begin_layout Paragraph*
-ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.928
-\end_layout
-
-\begin_layout Paragraph*
-NON ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.928
-\end_layout
-
-\begin_layout Paragraph*
-Weighted Average ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.928
+Please see Tables 2 through 5 below for classification results.
 \end_layout
 
 \begin_layout Section*
@@ -907,62 +919,12 @@ Select attributes,
 Results
 \end_layout
 
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Paragraph*
-False Positive Rate:
-\end_layout
-
 \begin_layout Standard
-\begin_inset Formula $\frac{4}{73}\approx0.055$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph*
-False Negative Rate:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{1}{23}\approx0.043$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-AUC values
-\end_layout
-
-\begin_layout Paragraph*
-ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.977
-\end_layout
-
-\begin_layout Paragraph*
-NON ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.977
-\end_layout
-
-\begin_layout Paragraph*
-Weighted Average ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.977
+Please see Tables 2 through 5 below for classification results.
 \end_layout
 
 \begin_layout Section*
-Part 6:5 Nearest Neighbors Classifier, 
+Part 6: 5 Nearest Neighbors Classifier, 
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
@@ -1013,62 +975,12 @@ Select attributes,
 Results
 \end_layout
 
-\begin_layout Subsubsection*
-Misclassification Rates
-\end_layout
-
-\begin_layout Paragraph*
-False Positive Rate:
-\end_layout
-
 \begin_layout Standard
-\begin_inset Formula $\frac{1}{73}\approx0.014$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph*
-False Negative Rate:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{7}{23}\approx0.304$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-AUC values
-\end_layout
-
-\begin_layout Paragraph*
-ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.972
-\end_layout
-
-\begin_layout Paragraph*
-NON ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.972
-\end_layout
-
-\begin_layout Paragraph*
-Weighted Average ACL AUC:
-\end_layout
-
-\begin_layout Standard
-0.972
+Please see Tables 2 through 5 below for classification results.
 \end_layout
 
 \begin_layout Subsection*
-Analysis of Results:
+Comparison Results:
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1084,7 +996,7 @@ Comparison of Error Rates
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1093,7 +1005,7 @@ Classifier
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1132,7 +1044,7 @@ Method
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1234,7 +1146,10 @@ None
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.178
+\begin_inset Formula $\frac{13}{73}\approx0.178$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1243,7 +1158,10 @@ None
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.261
+\begin_inset Formula $\frac{6}{23}\approx0.261$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1272,7 +1190,12 @@ None
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.110
+
+\series bold
+\begin_inset Formula $\frac{8}{73}\approx0.110$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1281,7 +1204,12 @@ None
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.391
+
+\series bold
+\begin_inset Formula $\frac{9}{23}\approx0.391$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1310,7 +1238,10 @@ Information Gain
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.096
+\begin_inset Formula $\frac{7}{73}\approx0.096$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1319,7 +1250,10 @@ Information Gain
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.043
+\begin_inset Formula $\frac{1}{23}\approx0.043$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1348,7 +1282,10 @@ Information Gain
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.096
+\begin_inset Formula $\frac{7}{73}\approx0.096$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1357,7 +1294,10 @@ Information Gain
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.348
+\begin_inset Formula $\frac{8}{23}\approx0.348$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1368,8 +1308,6 @@ Information Gain
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 Naive Bayes
 \end_layout
 
@@ -1379,8 +1317,6 @@ Naive Bayes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
@@ -1393,9 +1329,10 @@ Naive Bayes
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\frac{4}{73}\approx0.055$
+\end_inset
 
-\series bold
-0.055
+
 \end_layout
 
 \end_inset
@@ -1404,9 +1341,10 @@ Naive Bayes
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{23}\approx0.043$
+\end_inset
 
-\series bold
-0.043
+
 \end_layout
 
 \end_inset
@@ -1438,7 +1376,10 @@ Naive Bayes
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.014
+\begin_inset Formula $\frac{1}{73}\approx0.014$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1447,7 +1388,10 @@ Naive Bayes
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.304
+\begin_inset Formula $\frac{7}{23}\approx0.304$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1469,7 +1413,7 @@ Table 2: comparison of error rates for the combinations of classifiers and
 \begin_inset Quotes eld
 \end_inset
 
-5 nearest neighbors.
+5-Nearest Neighbors.
 \begin_inset Quotes erd
 \end_inset
 
@@ -1477,12 +1421,389 @@ Table 2: comparison of error rates for the combinations of classifiers and
 \end_layout
 
 \begin_layout Standard
-Table 1 shows that the Naive Bayes classifier using 
+Table 2 shows that the Naive Bayes classifier using 
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
- attribute selection yields the lowest false positive and false negative
- error rates.
+ or Information Gain attribute selection yields the lowest false negative
+ error rate, and the 5-Nearest Neighbors with 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ attribute selection yeilds the lowest false positive error rate.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classifier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Attribute Selection 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FPR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ratio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FNR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ratio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Naive Bayes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Information Gain
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{13}{7}\approx1.857$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{6}{1}=6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5NN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Information Gain
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{8}{7}\approx1.143$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{9}{8}=1.125$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Naive Bayes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{13}{4}=3.25$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{6}{1}=6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5NN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{8}{1}=8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{9}{7}\approx1.286$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Table 3: ratios of error rates, numerators are instances classified ACL
+ or non-ACL from classifiers using data with no attribute selection as input,
+ denominators are instances classified from classifiers using data with
+ attribute selection as input.
+ This is equivalent to the ratio of error rates because the number of true
+ instances in the error rates cancels when we divide error rates.
+ FPR stands for, 
+\begin_inset Quotes eld
+\end_inset
+
+false positive rate.
+\begin_inset Quotes erd
+\end_inset
+
+ FNR stands for, 
+\begin_inset Quotes eld
+\end_inset
+
+false negative rate.
+\begin_inset Quotes erd
+\end_inset
+
+ 5NN stands for, 
+\begin_inset Quotes eld
+\end_inset
+
+five nearest neighbors.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is no new information about error rates presented in Table 3.
+ However, it serves to highlight the change in size of error rates.
+ We see that the error rates without using attribute selections are often
+ many times higher than when we do not apply attribute selection.
+ We calculate the ratios in table 3 by dividing the error rate of a classifier
+ where the input data is not treated with any feature selection technique
+ by the same error rate of a classifier where the input data is treated
+ with some feature selection technique.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1973,7 +2294,417 @@ Naive Bayes
 \begin_layout Standard
 
 \shape italic
-Table 2: area under receiver operating characteristic curve
+Table 4: area under receiver operating characteristic curve
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+ (AUC) values for combinations of classifiers and attribute selection techniques.
+ 5NN stands for, 
+\begin_inset Quotes eld
+\end_inset
+
+5 nearest neighbors.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Table 4 shows that Naive Bayes with 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+attribute selection technique yields the highest AUC values.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classifier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Attribute Selection 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACL AUC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Difference
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NonACL AUC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Difference
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weighted Average
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ AUC Difference
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Naive Bayes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Information Gain
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.139$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.121
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.126
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5NN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Information Gain
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.046
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.046
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.046
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Naive Bayes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.150
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.132
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.137
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5NN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.090
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.090
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.090
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Table 5: differences in area under receiver operating characteristic curve
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-2"
@@ -1993,11 +2724,16 @@ key "key-2"
 \end_layout
 
 \begin_layout Standard
-Table 2 shows that Naive Bayes with 
+Table 5 gives us a sense of what we gain in terms of area under the ROC
+ curve when we use a feature selection technique on the input to a classifier.
+ We see that the largest difference in AUC, 0.150, for the ACL class when
+ we use 
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
-attribute selection technique yields the highest AUC value.
+ feature selection with the Naive Bayes classifier.
+ We get smallest difference, 0.046, in AUC values is when we use Information
+ Gain feature selection with the 5-Nearest Neighbors classifier.
 \end_layout
 
 \begin_layout Section*
@@ -2005,14 +2741,62 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-Our results show that over all, the combination of classifier and feature
- selection technique that yields the best result is Naive Bayes with 
+The caveat to our conclusions is we have only used one dataset, Lymphoma96x4026.a
+rff, and we used feature selection techniques to derive 2 additional data
+ sets.
+\end_layout
+
+\begin_layout Standard
+Our results show that over all the best combination of classifier and feature
+ selection technique in terms of an improvement in classifier performance
+ for classification error rates depends on which metric we are looking at:
+\end_layout
+
+\begin_layout Itemize
+False Positive Rate: 5-Nearest Neighbors with 
+\begin_inset Formula $x^{2}$
+\end_inset
+
+; we improve from 8 false positives to 1 false positive.
+\end_layout
+
+\begin_layout Itemize
+False Negative Rate: Naive Bayes with 
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
- attribute selection.
- The caveat to this conclusion is we have only used one dataset, Lymphoma96x4026.
-arff.
+ or Information Gain; we improve from 6 false negative to 1 false negative.
+\end_layout
+
+\begin_layout Standard
+However, for improvement in AUC measurements, Naive Bayes classifier with
+ 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ attribute selection shows the biggest improvements:
+\end_layout
+
+\begin_layout Itemize
+ACL (positive class) AUC: we have a 0.150 increase in area under ROC curve.
+\end_layout
+
+\begin_layout Itemize
+NonACL (negative class) AUC we have a 0.132 increase in area under ROC curve.
+\end_layout
+
+\begin_layout Itemize
+Weighted Average: we have a 0.137 increase in area under ROC curve.
+\end_layout
+
+\begin_layout Standard
+Tables 3 and 5 illustrate the improvement in classifier performance we get
+ when we use a feature selection technique to treat our data before we use
+ the data as input to a classifier.
+ Tables 3 and 5 enable us to make a claim that in this study, all measures
+ of classifier performance reflect an improvement when we use a feature
+ selection technique.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -2046,6 +2830,22 @@ For future research, our goal would be to automate the methodology and result
  We would work within the framework we created for Assignment 2.
 \end_layout
 
+\begin_layout Standard
+Also, we feel it is not clear whether or not the kind of feature selection
+ we choose to use is significant in terms of the improvements we see in
+ error rates or AUC values.
+ We feel as though we do not have enough degrees of freedom with our current
+ results to say with confidence that the choice of feature selection technique,
+ or classifier is significant.
+ We feel that if we had more datasets to use as classifier input, we would
+ have more degrees of freedom be able to do analysis of variance to determine
+ if the choice of classifier or feature selection technique is significant
+ with respect to the improvement in performance, or if we get similar improvemen
+ts regardless of the classifier and feature selection technique that we
+ use.
+ 
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -2059,6 +2859,52 @@ I.
  San Francisco: Elsevier, 2005, ch.
  5 p.169 fig.
  5.2.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-22"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 4 pp.89-91
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-24"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 4 pp.128-136
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-20"
+
+\end_inset
+
+J.
+ Van Hulse, T.
+ M.
+ Khoshgoftaar, A.
+ Napolitano, and R.
+ Wald, “Feature selection with high dimentional imbalanced data,” in Proceedings
+ of the 9th IEEE International Conference on Data Mining - Workshops (ICDM’09).
+ Miami, FL: IEEE Computer Society, December 2009, pp.
+ 507–514.
 \end_layout
 
 \end_body
