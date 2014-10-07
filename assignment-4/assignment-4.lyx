@@ -1,0 +1,277 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment 4: Feature Selection II.
+\end_layout
+
+\begin_layout Standard
+John Hancock
+\end_layout
+
+\begin_layout Standard
+Florida Atlantic University
+\end_layout
+
+\begin_layout Standard
+Advanced Data Mining and Machine Learning CAP-6778
+\end_layout
+
+\begin_layout Standard
+jhancoc4@fau.edu
+\end_layout
+
+\begin_layout Section*
+Summary 
+\end_layout
+
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Section*
+Methodology
+\end_layout
+
+\begin_layout Standard
+Discuss how framework generates datasets, runs classifiers on input, saves
+ data for gnuplot, gnuplot generates charts in results
+\end_layout
+
+\begin_layout Section*
+Results
+\end_layout
+
+\begin_layout Subsection*
+Patterns
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+discover patterns in terms of FPR, FNR, and AUC as the number of features
+ retained changes.
+ Report on these patterns
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+present charts of fpr/fnr auc values patterns will be apparent, 
+\end_layout
+
+\begin_layout Subsection*
+Optimal Number of Features in Terms of AUC
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+including the optimal number of features in terms of AUC, the evidence that
+ led you to conclude this, and the resulting performance (in terms of FPR,
+ FNR, and AUC) when this number is used.
+ Besure to include the performance of the classifiers on the full set of
+ attributes forcomparison.
+ In addition, discuss how these changes are influenced by the choice of
+ classifier and ranker.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This requirement implies we will discuss the optimal number of features
+ retained for each classifier and ranker
+\end_layout
+
+\begin_layout Standard
+Create a table that lists classifier/ranker/#attributes/AUC values/FPR/FNR,
+ use 3 sub-rows for auc 
+\end_layout
+
+\begin_layout Standard
+might have to do three tables since we get 3 auc values 
+\end_layout
+
+\begin_layout Subsection*
+Comparisons with J48
+\end_layout
+
+\begin_layout Standard
+for each classifier, pick ranker with best auc value (again may be 3 altertnativ
+es) for 6 features retained, compare with j48 6 features, calculate consistency
+ index
+\end_layout
+
+\begin_layout Standard
+look at over-all results maybe some classifier+ranker combinations do worse
+ than j48, some do better
+\end_layout
+
+\begin_layout Section*
+Conclusions 
+\end_layout
+
+\begin_layout Section*
+Future Research
+\end_layout
+
+\begin_layout Section*
+references notes - delete
+\end_layout
+
+\begin_layout Standard
+key-2 is auc,
+\end_layout
+
+\begin_layout Standard
+key-22 is naive bayes,
+\end_layout
+
+\begin_layout Standard
+key-24 is nearest neighbors, 
+\end_layout
+
+\begin_layout Standard
+key-20 is information gain and chi squared,
+\end_layout
+
+\begin_layout Standard
+key-26 will be for consistency index
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 5 p.169 fig.
+ 5.2.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-22"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 4 pp.89-91
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-24"
+
+\end_inset
+
+I.
+ Witten and E.
+ Frank, Data Mining (second edition).
+ San Francisco: Elsevier, 2005, ch.
+ 4 pp.128-136
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-20"
+
+\end_inset
+
+J.
+ Van Hulse, T.
+ M.
+ Khoshgoftaar, A.
+ Napolitano, and R.
+ Wald, “Feature selection with high dimentional imbalanced data,” in Proceedings
+ of the 9th IEEE International Conference on Data Mining - Workshops (ICDM’09).
+ Miami, FL: IEEE Computer Society, December 2009, pp.
+ 507–514.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-26"
+
+\end_inset
+
+T.
+ M.
+ Khoshgoftaar, Overcoming Big Data Challenges.Presented in lecture, Florida
+ Atlantic University 2014 October 2.
+\end_layout
+
+\end_body
+\end_document
