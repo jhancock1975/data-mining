@@ -1,0 +1,9 @@
+set term postscript eps 22
+set key outside
+set key center top
+set xlabel 'Number of Features'
+set ylabel 'AUC'
+set linestyle 1 lt 2 lw 3
+set key box linestyle 1 
+set output '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-IG/gnuplot.gplt.ps'
+ plot  '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-IG/pAUC.dat' title 'AUC 5NN with IG pAUC'  with linespoints lw 3  pt 5,  '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-IG/nAUC.dat' title 'AUC 5NN with IG nAUC'  with linespoints lw 3  pt 6,  '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-IG/wAUC.dat' title 'AUC 5NN with IG wAUC'  with linespoints lw 3  pt 7

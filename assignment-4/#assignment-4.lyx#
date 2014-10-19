@@ -1066,7 +1066,7 @@ hline
 
 \begin_layout Plain Layout
 
-J48 & Embedded feature selection & 6 & 0.776951 & 0.0958904 & 0.391304  & (N/A)
+J48 & No feature selection & 4026 & 0.776951 & 0.0958904 & 0.391304  & (N/A)
  
 \backslash
 
@@ -1354,7 +1354,7 @@ hline
 
 \begin_layout Plain Layout
 
-J48 & Embedded feature selection & 6 & 0.780524 & 0.0958904 & 0.391304 & (N/A)
+J48 & No feature selection & 4026 & 0.780524 & 0.0958904 & 0.391304 & (N/A)
  
 \backslash
 
@@ -1406,14 +1406,15 @@ We notice the following for Table 2:
 \end_layout
 
 \begin_layout Itemize
-For the NB classifiers and GR, IG, and SU feature selection techniques,
- the number of features increases from 20 to 100.
+For the nAUC metric the ranking of classifier and feature selection technique
+ combinations is the same as for the pAUC metric, except that 5NN with RFW
+ and NB with SU change places.
+ 
 \end_layout
 
 \begin_layout Itemize
-The positions of NB classifiers and their feature selection techniques in
- Table 2 differ from their postions in Table 1 since pAUC values can be
- different from nAUC values.
+For the NB classifiers and GR, IG, and SU feature selection techniques,
+ the number of features increases from 20 to 100.
 \end_layout
 
 \begin_layout Standard
@@ -1538,7 +1539,7 @@ hline
 
 \begin_layout Plain Layout
 
-5NN & IG & 7 & 0.957117 & 0.0410959 & 0.304348 & 6 
+5NN & IG & 70.957117 & 0.0410959 & 0.304348 & 6 
 \backslash
 
 \backslash
@@ -1582,7 +1583,7 @@ hline
 
 \begin_layout Plain Layout
 
-NB & RF & 200 & 0.926733 & 0.219178 & 0.0869565 & 20 
+NB & RF & 200 & 0.926733 & 0.219178 & 0.0869565 
 \backslash
 
 \backslash
@@ -1593,8 +1594,7 @@ hline
 
 \begin_layout Plain Layout
 
-5NN & No feature selection & 4026 & 0.882073 & 0.109589 & 0.391304 & (N/A)
- 
+5NN & No feature selection & 4026 & 0.882073 & 0.109589 & 0.391304 
 \backslash
 
 \backslash
@@ -1605,7 +1605,7 @@ hline
 
 \begin_layout Plain Layout
 
-NB & No feature selection & 4026 & 0.840341 & 0.178082 & 0.26087 & (N/A) 
+NB & No feature selection & 4026 & 0.8403410.178082 & 0.26087 
 \backslash
 
 \backslash
@@ -1616,8 +1616,7 @@ hline
 
 \begin_layout Plain Layout
 
-J48 & Embedded feature selection & 6 & 0.777807 & 0.0958904 & 0.391304 & (N/A)
- 
+J48 & No feature selection & 4026 & 0.777807 & 0.0958904 & 0.391304 
 \backslash
 
 \backslash
@@ -1643,31 +1642,6 @@ end{center}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 3: weighted average AUC values associated by classifier and feature
- selection (FS) technique.
- The figure column indicates which figure in this document the reader may
- to refer to see the data in the associated row in graphical form.
- N/A stands for, 
-\begin_inset Quotes eld
-\end_inset
-
-not available.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We notice that the number of features for optimum wAUC value for NB classifier
- with IG, SU, or GR feature selection techniques is again different from
- the optimum number of features for nAUC value in Table 2, changing to 50,
- 20, and 20, respectively.
 \end_layout
 
 \begin_layout Subsection*

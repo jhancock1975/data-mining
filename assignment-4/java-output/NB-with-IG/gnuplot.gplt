@@ -1,0 +1,9 @@
+set term postscript eps 22
+set key outside
+set key center top
+set xlabel 'Number of Features'
+set ylabel 'Type I/II Error Rate'
+set linestyle 1 lt 2 lw 3
+set key box linestyle 1 
+set output '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-IG/gnuplot.gplt.ps'
+ plot  '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-IG/FPR.dat' title 'NB with IG FPR'  with linespoints lw 3  pt 5,  '/home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-IG/FNR.dat' title 'NB with IG FNR'  with linespoints lw 3  pt 6

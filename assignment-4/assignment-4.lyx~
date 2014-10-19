@@ -1066,8 +1066,8 @@ hline
 
 \begin_layout Plain Layout
 
-J48 & Embedded feature selection & 6 & 0.776951 & 0.0958904 & 0.391304  & (N/A)
- 
+J48 & Embedded feature selection & 4026 & 0.776951 & 0.0958904 & 0.391304 
+ & (N/A) 
 \backslash
 
 \backslash
@@ -1354,8 +1354,8 @@ hline
 
 \begin_layout Plain Layout
 
-J48 & Embedded feature selection & 6 & 0.780524 & 0.0958904 & 0.391304 & (N/A)
- 
+J48 & Embedded feature selection & 4026 & 0.780524 & 0.0958904 & 0.391304 &
+ (N/A) 
 \backslash
 
 \backslash
@@ -1616,8 +1616,8 @@ hline
 
 \begin_layout Plain Layout
 
-J48 & Embedded feature selection & 6 & 0.777807 & 0.0958904 & 0.391304 & (N/A)
- 
+J48 & Embedded feature selection & 4026 & 0.777807 & 0.0958904 & 0.391304 &
+ (N/A) 
 \backslash
 
 \backslash
