@@ -1,0 +1,117 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Term Paper
+\end_layout
+
+\begin_layout Standard
+John Hancock
+\end_layout
+
+\begin_layout Standard
+Florida Atlantic University
+\end_layout
+
+\begin_layout Standard
+Advanced Data Mining and Machine Learning CAP-6778
+\end_layout
+
+\begin_layout Standard
+jhancoc4@fau.edu
+\end_layout
+
+\begin_layout Section*
+Abstract
+\end_layout
+
+\begin_layout Part*
+Introduction
+\end_layout
+
+\begin_layout Section*
+Methodology
+\end_layout
+
+\begin_layout Section*
+Results
+\end_layout
+
+\begin_layout Section*
+Conclusions 
+\end_layout
+
+\begin_layout Section*
+Future Research
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+
+\end_layout
+
+\end_body
+\end_document
