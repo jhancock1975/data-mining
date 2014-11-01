@@ -83,6 +83,45 @@ Abstract
 Introduction
 \end_layout
 
+\begin_layout Standard
+What about looking at the samples/results as points in a space and computing
+ cosine of angles between them? Might take less computation.
+\end_layout
+
+\begin_layout Standard
+We were not able to find work for evaluating stability of feature selection
+ techniques using cosine similarity.
+ We find one work using cosine similartiy as a feature selection technique,
+ and other works for using the cosine function to extract features of retina
+ for biometric identification.
+\end_layout
+
+\begin_layout Standard
+Why stability?
+\end_layout
+
+\begin_layout Standard
+small n large p problem [boulestix and slawski]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+The second motivation for assessing the stability of ranking procedures
+ is that stability provides an objective critereon for computing the minimal
+ sample size required in an experiment.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Duenne et al.
+ write that wrapper techniques outperform, but are unstable [
+\end_layout
+
 \begin_layout Section*
 Methodology
 \end_layout
@@ -106,11 +145,355 @@ key "key-4"
 
 \end_inset
 
+K.
+ Dunne 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Solutions to Instability Problems with Sequential Wrapper-Based Approaches
+ To Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in
+\shape italic
+ Journal of Machine Learning Research
+\shape default
+, MIT Press, Cambridge, MA, 2002, pp.
+ 1-22
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-22"
+
+\end_inset
+
+.A.
+ Kalousis et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Stability of Feature Selection Algorithms,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Fifth IEEE International Conference on Data Mining (ICDM’05)
+\shape default
+, Houston, TX, 2005, pp 218-225
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+L.
+ Kuncheva, 
+\begin_inset Quotes eld
+\end_inset
+
+A Stability Index for Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Proceedings of the 25th IASTED International Multi-Conference
+\shape default
+, Insbruck, Austria, 2007, 390-395.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+A.
+ Boulesteix and M.
+ Slawski, 
+\begin_inset Quotes eld
+\end_inset
+
+Stability and Aggregation of Ranked Gene Lists,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Briefings in Bioinformatics
+\shape default
+, vol.
+ 10, Oxford University Press, 2009, pp 556-568.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-10"
+
+\end_inset
+
+Gulgezen 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Stable and Accurate Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in
+\shape italic
+ ECML PKDD 2009, Part I, LNAI 5781, 
+\shape default
+Eds.
+ JW.
+ Buntine
+\shape italic
+ et al.,
+\shape default
+ Springer Verlag, Berlin, 2009, pp 455-468.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+S.
+ Alelyani 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+A Dilemma in Assessing Stability of Feature Selection Algorithms,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+IEEE International Conf.
+ High Performance Computing and Communications
+\shape default
+, 2011, pp.
+ 701-707.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+K.
+ Gao 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Impact of Data Sampling on Stability of Feature Selection for Software Measureme
+nt Data,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+23rd IEEE International Conference on Tools with Artificial Intelligence
+\shape default
+, 2011, pp.
+ 1004-1011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+H.
+ Wang 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Measuring Robustness of Feature Selection Techniques on Software Engineering
+ Datasets,
+\begin_inset Quotes erd
+\end_inset
+
+ in IEEE International Conf.
+ Information Reuse Integration (IRI), Las Vegas, NV., 2011, pp.
+ 309-314.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-11"
+
+\end_inset
+
+R.
+ Wald et al., 
+\begin_inset Quotes eld
+\end_inset
+
+The Effect of Measurement Approach and Noise Level on Gene Selection Stability,
+\begin_inset Quotes erd
+\end_inset
+
+ in IEEE International Conference on Bioinformatics and Biomedicine (BIBM),
+ 2012, pp 420-424.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-12"
+
+\end_inset
+
+W.
+ Awada et al., 
+\begin_inset Quotes eld
+\end_inset
+
+The Effect of Number of Iterations on Ensemble Gene Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in 11th International Conference on Machine Learning and Applications (ICMLA),
+ vol.
+ 2, 2012, pp 198-203.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+R.
+ Wald 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Comparison of Stability for Different Families of Filter-Based and Wrapper-Based
+ Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+12th International Conference on Machine Learning and Applications
+\shape default
+, Miami, FL, 2013.
+ pp 457-464.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+W.
+ Awada 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+A Review of the Stability of Feature Selection Techniques for Bioinformatics
+ Data,
+\begin_inset Quotes erd
+\end_inset
+
+ 2014.
+ Available [online] 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://digitool.fcla.edu/view/action/singleViewer.do?dvs=1414870625593~543&locale=e
+n_US&VIEWER_URL=/view/action/singleViewer.do?&DELIVERY_RULE_ID=7&adjacency=N&appl
+ication=DIGITOOL-3&frameId=1&usePid1=true&usePid2=true
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
-\begin_layout Part*
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-14"
 
+\end_inset
+
+.D.
+ Dernoncourt 
+\shape italic
+et al.
+\shape default
+,
+\shape italic
+ 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+Analysis of feature selection stability on high dimension and small sample
+ data,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Computational Statistics and Data Analysis
+\shape default
+, vol.
+ 71, Elsevier, 2014, pp.
+ 681-693.
 \end_layout
 
 \end_body
