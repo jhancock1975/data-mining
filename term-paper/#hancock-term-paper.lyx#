@@ -472,6 +472,47 @@ Methodology
 \end_layout
 
 \begin_layout Section*
+Questions for Authors
+\end_layout
+
+\begin_layout Standard
+How big is the size of a sample when they write, 
+\begin_inset Quotes eld
+\end_inset
+
+In order to do this, we randomly sample X1 from the original dataset X.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It seems like identical folds will have a non-0 similarity because we sum
+ distance between all possible pairs of vectors in folds.
+ Since we are comparing all pairs, we will compare non equal vectors, and
+ the distances between these vectors will be non-0, and contribute to the
+ sum.
+\end_layout
+
+\begin_layout Standard
+Did you sample with replacement, or without replacement?
+\end_layout
+
+\begin_layout Standard
+Khoshgoftaar in his lecture , 
+\begin_inset Quotes eld
+\end_inset
+
+Overcoming big data challenges,
+\begin_inset Quotes erd
+\end_inset
+
+ write about using sampling without replacement when injecting noise into
+ micro array data
+\end_layout
+
+\begin_layout Section*
 Results
 \end_layout
 
@@ -481,6 +522,10 @@ Conclusions
 
 \begin_layout Section*
 Future Research
+\end_layout
+
+\begin_layout Standard
+Look at distance between centroids of feature sets.
 \end_layout
 
 \begin_layout Bibliography
@@ -827,7 +872,8 @@ A Study of Software Metric Selection Techniques: Stability Analysis and
 \end_inset
 
  in International Journal on Artificial Intelligence Tools, World Scientific
- Publishing Company, 2012, pp-1-23.
+ Publishing Company, 2012, pp.
+ 1-23.
 \end_layout
 
 \begin_layout Bibliography
@@ -954,6 +1000,25 @@ Computational Statistics and Data Analysis
 , vol.
  71, Elsevier, 2014, pp.
  681-693.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+T.
+ Khoshgoftaar, 
+\begin_inset Quotes eld
+\end_inset
+
+Overcoming Big Data Challenges,
+\begin_inset Quotes erd
+\end_inset
+
+ in  
 \end_layout
 
 \end_body
