@@ -83,6 +83,390 @@ Abstract
 Introduction
 \end_layout
 
+\begin_layout Standard
+We found it useful to read over 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-29"
+
+\end_inset
+
+, to get an idea about why the stability of feature selection techniques
+ is important.
+ In this work, Ein-Dor 
+\shape italic
+et al
+\shape default
+.
+ discuss how 70 genes serve as good predictors for patients that would survive
+ breast cancer.
+ The trouble is that depending on which subset of micro-array data the researche
+rs use, they obtain a different set of (correlated) genes that serves as
+ the predictor.
+ This is troubling in the sense that we cannot be confident that the set
+ of genes a study finds is a predictor for cancer survivability is one that
+ will predict a randomly chosen individual's chances.
+ Perhaps that individual has a set of genes that is correlated to those
+ found in a study, but none of the particular genes that the study finds.
+ Under this scenario, we are likely to classify the individual as a false
+ negative.
+ It is scenarios such as these that motivate researchers to look for stable
+ feature selection techniques.
+\end_layout
+
+\begin_layout Standard
+The earliest notion of stability we find is from Turney, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-27"
+
+\end_inset
+
+ given in 1995.
+ In this work, Turney is interested in decision trees, and the stability
+ of features that decision tree algorithms retain as they build classifiers.
+ Turney is more interested in the stability of learners than feature selection
+ techniques.
+ In the case of decision trees, the stability of the learner is related
+ to the stability of the feature selection technique because feature selection
+ is embedded into decision tree algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+.
+ However, Turney's method of calulating stability involves giving the same
+ input to different learners and comparing the output classification that
+ the learners produce for the input.
+ Turney's approach is not necessarily appropriate for feature selection,
+ where we have a discrete set of features to select from for inclusion as
+ input values to a classifier.
+ 
+\end_layout
+
+\begin_layout Standard
+We believe Turney's work on classifier stability inspires later work on
+ feature selection stability.
+ For example, it is possible to use a classifier for feature selection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+.
+ However, we can use formulas that take into account more aspects of feature
+ subsets than what Turney provides for calculating the stability of a learner.
+ This work is a survey of the evolution of methods for calculating the stability
+ of feature selection techniques.
+\end_layout
+
+\begin_layout Standard
+The first example we find of researchers evaluating the stability of feature
+ selection techniques is from Dunne 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+, from 2002.
+ Dunne 
+\shape italic
+et al.
+
+\shape default
+ propose a method of evaluating the stability of features selection techniques
+ based on applying the same feature selection technique to different resampled
+ subsets of input data, and evaluating the differences in features selected.
+ At this point, we would like to stress the fact that the method Dunne 
+\shape italic
+et al.
+
+\shape default
+ use compares variation between different instances of the output of a feature
+ selection algorithm.
+ The difference between the approach of Dunne 
+\shape italic
+et al.
+
+\shape default
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+and the approach of Alelyani 
+\shape italic
+et al.
+
+\shape default
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ is that Aleyani 
+\shape italic
+et al.
+
+\shape default
+ are taking variation in the input data of the feature selection technique
+ into consideration.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+ stability metric prposed in 
+\shape italic
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+
+\shape default
+ :
+\begin_inset Formula \begin{equation}
+\hat{H}=\frac{2}{N\cdot W\cdot\left(W-1\right)}\sum_{i=1}^{W}\sum_{j=i+1}^{W}\sum_{k=1}^{N}\left|m_{ik}-m_{jk}\right|\label{eq:1}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dunne 
+\shape italic
+et al.
+
+\shape default
+ are interested in improving the stability of wrapper feature selection
+ techniques because they believe wrapper based feature selection techniques
+ have better performance than filter based feature selection techniques.
+ Their goal is to get the better accuracy we have with wrapper based feature
+ selection techniques while improving their stability.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+Dunne 
+\shape italic
+et al
+\shape default
+.
+ are working with relatively small feature sets - sets with between 13 and
+ 126 attributes.
+ A later review of feature selection techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+, points out that wrapper based methods are computationally expensive.
+ Wrapper based techniques build classifiers to evaluate feature subsets.
+ Bioinformatic datasets can have 
+\begin_inset Formula $O\left(10^{4}\right)$
+\end_inset
+
+features, so in order to apply a wrapper based technique for say, subsets
+ of size two, we would need to apply a classifier to 
+\begin_inset Formula $O\left(10\right)^{8}$
+\end_inset
+
+possible subsets of size two.
+ This would cost a significant amount of time, for classifier running times
+ on the order of seconds (there are 
+\begin_inset Formula $2.6\times10^{6}$
+\end_inset
+
+ seconds in a month).
+ Later work we find on feature selection statbility metrics involves datasets
+ with larger numbers of features; feature sets that are on the order of
+ 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ features.
+ Therefore Dunne 
+\shape italic
+et al.
+\shape default
+'s work is important for providing a methodological framework for evaluation
+ the stability of feature selection techniques.
+ However, given the size of bioinformatic dataset feature sets, wrapper
+ based approaches may be too computationally intensive.
+\end_layout
+
+\begin_layout Standard
+The feature selection techniques Dunne 
+\shape italic
+et al
+\shape default
+.
+ use are forward sequential selection (FSS), backward sequential selection
+ (BSS) and random hill climbing search (RHC).
+\end_layout
+
+\begin_layout Standard
+Chronologocially, the next work on the stability of feature selection techniques
+ that we find is a work by A.
+ Kalousis et al.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+.
+ This work investigates the application of three different measures of stability
+ using well known feature selection techniques in the Weka tool.
+ The authors are interested in the stability of feature selection techniques
+ for reasons discuss above; namely that practicioners are not confident
+ to assign resources to investigate possible models that are sensitive to
+ their input feature sets.
+ The stability metrics the authors use are Pearson's correlation coefficient:
+\begin_inset Formula \[
+S_{w}\left(w,w^{\prime}\right)=\frac{\sum_{i}\left(w_{i}-\mu_{w}\right)\left(w_{i}^{\prime}-\mu_{w^{\prime}}\right)}{\sqrt{\sum_{i}\left(w_{i}-\mu_{w}\right)^{2}\sum_{i}\left(w_{i}^{\prime}-\mu_{w^{\prime}}\right)^{2}}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spearman's rank coefficient:
+\begin_inset Formula \[
+S_{R}\left(r,r^{\prime}\right)=1-6\sum_{i}\frac{\left(r_{i}-r_{i}^{\prime}\right)^{2}}{m\left(m^{2}-1\right)}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And the Tanimoto distance between two sets:
+\begin_inset Formula \[
+S_{s}\left(s,s^{\prime}\right)=1-\frac{\left|s\right|+\left|s^{\prime}\right|-2\left|s\cap s^{\prime}\right|}{\left|s\right|+\left|s^{\prime}\right|-\left|s\cap s^{\prime}\right|}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ Kalousis et al.
+ report that stability results for 
+\begin_inset Formula $S_{w}$
+\end_inset
+
+ are confusing because they include information about all elements in the
+ feature set.
+ For 
+\begin_inset Formula $S_{w}$
+\end_inset
+
+ the 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{i}^{\prime}$
+\end_inset
+
+ are weightings that a feature selection algorithm gives to each feature
+ in a feature set, and the 
+\begin_inset Formula $\mu_{w}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{w^{\prime}}$
+\end_inset
+
+ are mean weights for all features.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ Kalousis et al.
+ also report that trouble with 
+\begin_inset Formula $S_{R}$
+\end_inset
+
+ because some of the feature selection techniques they use assign equal
+ ranks, that is, 
+\begin_inset Quotes eld
+\end_inset
+
+tie,
+\begin_inset Quotes erd
+\end_inset
+
+ ranks to many low ranking features.
+ So, calculatins for 
+\begin_inset Formula $S_{R}$
+\end_inset
+
+can also end up including information about more features that a feature
+ selection technique actually chooses.
+\end_layout
+
+\begin_layout Standard
+For these reasons, Kalousis et al.
+ prefer the feature selection technique that deals with selected featuer
+ subsets exclusively, which is the Tanimoto distance between sets, 
+\begin_inset Formula $S_{s}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ is also the first paper we reviewed that involves datasets similar to 
+\end_layout
+
 \begin_layout Section*
 Methodology
 \end_layout
@@ -91,1680 +475,94 @@ Methodology
 Results
 \end_layout
 
-\begin_layout Subsection*
-Patterns
-\end_layout
-
-\begin_layout Standard
-Assignment 4 has the following requirement, 
-\begin_inset Quotes eld
-\end_inset
-
-
-\series bold
-discover patterns in terms of FPR, FNR, and AUC as the number of features
- retained changes.
- Report on these patterns...
-\series default
-
-\begin_inset Quotes erd
-\end_inset
-
- The way we find patterns is to plot FPR, FNR, and AUC versus the number
- of features changes.
- 
-\end_layout
-
-\begin_layout Standard
-We review the plots (please see Appendix 1 for a full listing of all plots)
- and find the following patterns:
-\end_layout
-
-\begin_layout Itemize
-For the 5NN classifier, the false negative rate tends to drop steeply when
- the number of features reaches is about 20, and decrease more slowly for
- larger numbers of features.
-\end_layout
-
-\begin_layout Itemize
-For the 5NN classifier, the false positive rate rate tends to reach a minimum
- with around 20 features, and then stay flat or increase slow for larger
- numbers of features.
-\end_layout
-
-\begin_layout Itemize
-For the 5NN classifier, all three AUC values that Weka collects always overlap.
- Furthermore, the pattern we see is that AUC values attain a maximum at
- 20 to 100 features and vary slightly for larger number of features.
-\end_layout
-
-\begin_layout Itemize
-For the NB classifier, we generally see the false negative error rate drop
- to a minimum at 20 features, and remain at this minimum for higher numbers
- of features.
-\end_layout
-
-\begin_layout Itemize
-For the NB classifier, the false positive rates dip to minimum around the
- 20 feature level, and rise steadily after that.
-\end_layout
-
-\begin_layout Itemize
-For the NB classifier, AUC values do not always overlap.
- However, we see that generally, AUC values attain a local maximum around
- 20 features.
- For higher numbers of features, sometimes the AUC values increase slowly
- after attaining the local maximum, and sometimes they decrease slowly.
-\end_layout
-
-\begin_layout Standard
-Appendix 1 below contains 24 graphs for all combinations of classifier and
- feature selection technique.
- We decided to display these graphs in the Appendix because they are not
- strictly required in Assignment 4.
- We show two charts here to give the reader an idea of what is in Appendix
- 1, in case it is not interesting to examine all of the graphs.
-\end_layout
-
-\begin_layout Subsubsection*
-5NN with CS Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename java-output/5NN-with-CS/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 1
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename java-output/AUC-5NN-with-CS/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 2
-\end_layout
-
-\begin_layout Subsection*
-Optimal Number of Features in Terms of AUC
-\end_layout
-
-\begin_layout Standard
-Assignment 4 requires us to report on AUC data in the following manner:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Quotes eld
-\end_inset
-
-...including the optimal number of features in terms of AUC, the evidence that
- led you to conclude this, and the resulting performance (in terms of FPR,
- FNR, and AUC) when this number is used.
- Be sure to include the performance of the classifiers on the full set of
- attributes for comparison.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We must make a note about AUC values Weka collects when it runs a classification.
- Weka collects 3 AUC values in classification results.
- One AUC value is associated with the positive class (ACL for the Lymphoma96x402
-6.arff dataset, we refer to as pAUC), one with the negative class (nonACL,
- we refer to as nAUC), and a weighted average (we refer to as wAUC).
- For any of our results involving the 5NN classifier, all 3 AUC values are
- equal.
- However, for the NB classifier, results are not always equal.
- Therefore we may obtain a different optimal number of features depending
- on which AUC value we are interested in.
- We present results for all 3 AUC values.
-\end_layout
-
-\begin_layout Standard
-We query our database of results to meet this requirement.
- For the results in this section, and sections below where we mention that
- we wrote queries to obtain results, we invite the reader to peruse queries
- in our source code repository under 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://github.com/jhancock1975/data-mining-assignment-2/tree/master/cap-6778/src
-/main/resources/sql
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We would also like to emphasize that the table below reports FPR and FNR
- as required for Assignment 4.
-\end_layout
-
-\begin_layout Standard
-Our first query results give the maximum pAUC value per combination of classifie
-r and ranker.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{|l|l|l|l|l|l|l|}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier & FS Technique & Num.
- Features & pAUC & FPR & FNR & Figure 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & RFW & 20 & 0.977963 & 0.0136986 & 0.26087 & 10 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & SU & 20 & 0.977367 & 0.109589 & 0.0434783 & 24 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & CS & 20 & 0.976772 & 0.0547945 & 0.0434783 & 14 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & GR & 20 & 0.972603 & 0.0547945 & 0.0869565 &  16 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & CS & 20 & 0.972007 & 0.0136986 & 0.304348 & 2 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & IG & 20 & 0.966051 & 0.0958904 & 0.0434783 & 18 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & SU & 100 & 0.961584 & 0.0684932 & 0.130435 & 12 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & IG & 7 & 0.957117 & 0.0410959 & 0.304348 & 6 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & RF & 20 & 0.94461 & 0 & 0.521739 & 8 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & GR & 200 & 0.936569 & 0.0547945 & 0.173913 & 4 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & RFW & 200 & 0.931805 & 0.123288 & 0.0869565 & 22 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & RF & 200 & 0.928231 & 0.219178 & 0.0869565 & 20 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & No feature selection & 4026 & 0.882073 & 0.109589 & 0.391304 & (N/A)
- 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & No feature selection & 4026 & 0.84455 & 0.178082 & 0.26087 & (N/A) 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-J48 & Embedded feature selection & 6 & 0.776951 & 0.0958904 & 0.391304  & (N/A)
- 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 1: AUC values associated with positive (ACL) class by classifier and
- feature selection (FS) technique.
- The figure column indicates which figure in Appendix 1 of this document
- the reader may to refer to see the data in the associated row in graphical
- form.
- N/A stands for, 
-\begin_inset Quotes eld
-\end_inset
-
-not available.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The results are sorted by pAUC in descending order, so the overall highest
- pAUC value is in the first row, and so on.
- 
-\end_layout
-
-\begin_layout Standard
-We make some points about results in about results in Table 1:
-\end_layout
-
-\begin_layout Itemize
-For the 5NN classifier and IG feature selection, figure 6 shows the maximum
- AUC value is attained twice, once for 7 features, and once for 40.
- We report 7 as the optimal number of features as it is our understanding
- that the data mining community prefers models with smaller feature sets
- over models with larger feature sets.
- We decide optimal feature numbers for other tie values similarly.
-\end_layout
-
-\begin_layout Itemize
-For the 5NN classifier with GR feature selection, the maximum pAUC value
- is associated with 200 features selected, which is the maximum number of
- features selected in our experiments.
- However, we also see that using no feature selection technique, the pAUC
- value is lower.
- Therefore there must be a point at which adding features to the 5NN classifier
- GR feature selection technique combination begins to negatively impact
- classifier results as we see for other classifier and feature selection
- technique combinations.
- Also, we would like to point out that the slope of the pAUC curve for 5NN
- with GR in figure 4 diminishes for number of features equal to 50 and above.
-\end_layout
-
-\begin_layout Itemize
-NB classifier with RF feature selection and NB classifier with RFW feature
- selection we see that the number of features associated with the highest
- pAUC value is 200.
- However the respective plots in Figures 20 and 22 and the pAUC value for
- NB classifier with no feature selection technique are similar to what we
- stated in the point above regarding 5NN classifier with GR feature selection.
-\end_layout
-
-\begin_layout Standard
-The table below is similar to Table 1, but we alter our query to search
- for maximum nAUC values in order to generate it.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{|l|l|l|l|l|l|l|}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier & FS Technique & Num.
- Features & nAUC & FPR & FNR & Figure 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & SU & 100 & 0.978559 & 0.123288 & 0.0434783 & 24 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & RFW & 20 & 0.977963 & 0.0136986 & 0.26087 & 10 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & CS & 20 & 0.976772 & 0.0547945 & 0.0434783 & 14 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & GR & 100 & 0.976176 & 0.109589 & 0.0434783 & 16 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & IG & 100 & 0.973794 & 0.109589 & 0.0434783 & 18 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & CS & 20 & 0.972007 & 0.0136986 & 0.304348 & 2 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & SU & 100 & 0.961584 & 0.0684932 & 0.130435 & 12 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & IG & 7 & 0.957117 & 0.0410959 & 0.304348 & 6 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & RF & 20 & 0.94461 & 0 & 0.521739 & 8 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & GR & 200 & 0.936569 & 0.0547945 & 0.173913 & 4 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & RFW & 200 & 0.926147 & 0.123288 & 0.0869565 & 22 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & RF & 200 & 0.921977 & 0.219178 & 0.0869565 & 20 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & No feature selection & 4026 & 0.882073 & 0.109589 & 0.391304 & (N/A)
- 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & No feature selection & 4026 & 0.82698 & 0.178082 & 0.26087 & (N/A) 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-J48 & Embedded feature selection & 6 & 0.780524 & 0.0958904 & 0.391304 & (N/A)
- 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 2: AUC values associated with negative (nonACL) class by classifier
- and feature selection (FS) technique.
- The figure column indicates which figure in this document the reader may
- to refer to see the data in the associated row in graphical form.
- N/A stands for, 
-\begin_inset Quotes eld
-\end_inset
-
-not available.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We notice the following for Table 2:
-\end_layout
-
-\begin_layout Itemize
-For the NB classifiers and GR, IG, and SU feature selection techniques,
- the number of features increases from 20 to 100.
-\end_layout
-
-\begin_layout Itemize
-The positions of NB classifiers and their feature selection techniques in
- Table 2 differ from their positions in Table 1 since pAUC values can be
- different from nAUC values.
-\end_layout
-
-\begin_layout Standard
-The next table presents results for the weighted AUC value we recorded for
- our experiments.
- It is generated in a manner similar to Tables 1 and 2.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{|l|l|l|l|l|l|l|}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier & FS Technique & Num.
- Features & wAUC & FPR & FNR & Figure 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & RFW & 20 & 0.977963 & 0.0136986 & 0.26087 & 10 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & SU & 20 & 0.977367 & 0.109589 & 0.0434783 & 24 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & CS & 20 & 0.976772 & 0.0547945 & 0.0434783 & 14 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & GR & 20 & 0.972603 & 0.0547945 & 0.0869565 & 16 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & CS & 20 & 0.972007 & 0.0136986 & 0.304348 & 2 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & IG & 50 & 0.966107 & 0.136986 & 0.0434783 & 18 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & SU & 100 & 0.961584 & 0.0684932 & 0.130435 & 12 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & IG & 7 & 0.957117 & 0.0410959 & 0.304348 & 6 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & RF & 20 & 0.94461 & 0 & 0.521739 & 8 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & GR & 200 & 0.936569 & 0.0547945 & 0.173913 & 4 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & RFW & 200 & 0.930449 & 0.123288 & 0.0869565 & 22 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & RF & 200 & 0.926733 & 0.219178 & 0.0869565 & 20 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-5NN & No feature selection & 4026 & 0.882073 & 0.109589 & 0.391304 & (N/A)
- 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-NB & No feature selection & 4026 & 0.840341 & 0.178082 & 0.26087 & (N/A) 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-J48 & Embedded feature selection & 6 & 0.777807 & 0.0958904 & 0.391304 & (N/A)
- 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 3: weighted average AUC values associated by classifier and feature
- selection (FS) technique.
- The figure column indicates which figure in this document the reader may
- to refer to see the data in the associated row in graphical form.
- N/A stands for, 
-\begin_inset Quotes eld
-\end_inset
-
-not available.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We notice that the number of features for optimum wAUC value for NB classifier
- with IG, SU, or GR feature selection techniques is again different from
- the optimum number of features for nAUC value in Table 2, changing to 50,
- 20, and 20, respectively.
-\end_layout
-
-\begin_layout Subsection*
-Influence of Classifier and Ranker
-\end_layout
-
-\begin_layout Standard
-Assignment 4 gives the requirement, 
-\begin_inset Quotes eld
-\end_inset
-
-In addition, discuss how these changes [in number of features for optimum
- AUC metric] are influenced by the choice of classifier and ranker.
-\begin_inset Quotes erd
-\end_inset
-
- We see from the tables above, that for both NB classifier and the 5NN classifie
-r, we get a higher AUC metric when we apply a feature selection technique
- to our data before feeding the data as input to the classifier.
- Specifically, one can compare the AUC value in Tables 1, 2, or 3, for rows
- with, 
-\begin_inset Quotes eld
-\end_inset
-
-No feature selection,
-\begin_inset Quotes erd
-\end_inset
-
- to rows that list a feature selection technique and see that the AUC value
- is always higher.
- 
-\end_layout
-
-\begin_layout Standard
-The best performing classifier and ranker combination depends on which AUC
- metric we are interested in.
- We see in Tables 1 and 3 that the overall best performing ranker is 5NN
- with RFW feature selection.
- However in Table 2 it is NB with SU that has highest nAUC value.
- However, the relative positions of the classifiers and rankers do not change
- when we fix the classifier.
- That is to say, in Tables 1, 2, and 3, the relative order of the NB classifiers
- and rankers is the same, and the relative order of the 5NN classifiers
- and rankers is the same.
- This makes the case that we have a clear best choice for feature selection
- technique if we are decided on which classifier to use.
- For the NB classifier, we see the SU feature selection technique as the
- best choice, and for the 5NN classifier, we see the RFW feature selection
- technique as the best choice.
- It is also interesting to note that the best feature selection technique
- for one classifier is close to the worst feature selection technique for
- another.
- For example, RFW is the second to worst feature selection technique for
- the NB classifier.
-\end_layout
-
-\begin_layout Standard
-In order to formally analyze the influence of classifier and ranker, we
- used R to do ANOVA on three different linear models where we used one of
- the three AUC metrics as the response value and classifier, feature selection
- technique, and number of features retained as factors, as well as all possible
- interactions.
- For all three factors and interactions the ANOVA results, in terms of significa
-nce, are the same.
- The table below characterizes the results we find.
- Source code for queries to generate data for the linear models as well
- as the R commands to generate the ANOVA results are available in the source
- code repository for our project.
- The ANOVA results all indicate that classifier, number of features selected,
- and feature selection technique are all significant in terms of AUC.
- ANOVA results also indicate that the interaction between feature selection
- technique and number of features selected is significant.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{|l|l|l|l|l|l|}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Factor / Interaction & Df & Sum Sq &  Mean Sq & F value & Pr(>F)   
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier & 2 & 0.031912  & 0.0159561 & 15.9586  & 1.039e-06 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-FS Technique & 6  & 0.127432  & 0.0212387  & 21.2420 & 1.005e-15 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Num.
- Features & 1 & 0.027247 & 0.0272469 & 27.2511 & 1.033e-06  
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier:FS Technique & 6 & 0.005772  & 0.0009620 &  0.9621 & 0.455128 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier:Num.
- Features & 1 & 0.002552 & 0.0025519 & 2.5523 &  0.113424 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-FS Technique:Num.
- Features & 5 & 0.019048  & 0.0038096 & 3.8101 & 0.003427 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Classifier:FS Technique:Num.
- Features & 5 & 0.002818 & 0.0005637 & 0.5638 &  0.727509     
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-Residuals   & 96 & 0.095985 & 0.0009998 & & 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 4: Anova results for pAUC metric; results for nAUC, wAUC metrics are
- similar in that the same set of features and interactions are significant
- at the P=0.5 level.
- Interactions betwen factors are indicated using a ':' to separate factors.
-\end_layout
-
-\begin_layout Standard
-As one's intuition might suggest, ANOVA results imply that the choice of
- ranker, feature selection technique, the number of features to retain are
- all significant.
- Also, the interaction between feature set size and feature selection technique
- is also significant in terms of AUC.
-\end_layout
-
-\begin_layout Subsection*
-Best Feature Ranker for 6 Features, and Which Features
-\end_layout
-
-\begin_layout Standard
-For part 2 of Assignment 4, our first requirement is, 
-\begin_inset Quotes eld
-\end_inset
-
-For each classifier used in Part 1 of this assignment, and when choosing
- 6 features, what is the best feature ranker in terms of AUC?
-\begin_inset Quotes erd
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-In order to answer this question we can query the results we have stored
- in our database.
- The query to obtain the name of the ranker is included in the sql area
- of source code we wrote for this report 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://github.com/jhancock1975/data-mining-assignment-2/tree/master/cap-6778/src
-/main/resources/sql
-\end_layout
-
-\end_inset
-
-.
- For 5NN classifiers and 6 features, the best feature ranker in terms of
- AUC is IG.
- The AUC values we record for pAUC, nAUC, and wAUC are all 0.946.
- 
-\end_layout
-
-\begin_layout Standard
-For NB classifiers and 6 features the the best feature ranker in terms of
- AUC is also IG.
- For the combination of NB and IG we get a value of 0.968 for all the variations
- of AUC metric.
-\end_layout
-
-\begin_layout Standard
-Assignment 4 also requires that we report on which features are selected.
- 
-\end_layout
-
-\begin_layout Standard
-For IG feature selection technique, the features selected are: GENE1610X,
- GENE3943X, GENE493X, GENE390X, GENE2760X, GENE1537X.
-\end_layout
-
-\begin_layout Subsection*
-Feature sets with 6 Elements & Compared with J48
-\end_layout
-
-\begin_layout Standard
-Assignment 4 requires a comparison of the features that the attribute selection
- techniques return when we fix the number of features at 6, and the features
- that the J48 classifier returns.
-\end_layout
-
-\begin_layout Standard
-Since we store the lists of features each feature selection technique generates
- in a database when we run the classifiers, it is convenient to write a
- query to answer this quest.
- The query is included with source code at the URL in the previous section.
- The table below gives the result of the query
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{|l|l|}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-FS Technique & J48 overlap 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-RFW & GENE1567X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-GR & GENE3941X, GENE1125X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-RF & GENE1567X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-SU & GENE3941X, GENE1567X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-IG & No overlap 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-CS & No overlap 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-J48 & GENE1125X, GENE1391X, GENE1567X, GENE2996X, GENE3732X, GENE3941X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 5, overlap of features selected by various feature selection.
- The genes J48 selects are listed as well in order to partially justify
- the overlap we claim, as required in Assignment 4.
-\end_layout
-
-\begin_layout Standard
-We notice that gene GENE1567X occurs most frequently in the table above.
- This is a strong indication that GENE1567X is an important factor in predicting
- the class of an instance.
-\end_layout
-
-\begin_layout Standard
-We have a requirement to show our results and justify our conclusion.
- We have included a listing of all length-6 feature lists that the feature
- selection techniques generate.
- The justification for our conclusion is that we checked query results against
- genes listed below to ensure genes in the table above are indeed in lists
- in the appendix.
- We also checked query results against genes in attribute lists in arff
- files we generate using Weka to do feature selection using the Weka Explorer,
- and genes listed in classifier output when we run the J48 classifier using
- the Weka Explorer.
- In performing these checks we are able to verify that the genes listed
- in table 4 above are indeed the genes that overlap with what the J48 classifier
- finds, and that the data in table 4 is exhaustive.
- This lends confidence in the query results so that we feel comfortable
- to expand our results to feature subsets of larger size in future work.
-\end_layout
-
-\begin_layout Standard
-To verify that we have no overlapping features between the list J48 generates
- and the lists IG and CS generates we set these lists down below for the
- reader's inspection:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{|l|l|l|}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-FS Technique & FS List 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-RFW & GENE1567X,GENE1610X,GENE1622X,GENE1637X,GENE1658X,GENE2462X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-CS & GENE1537X,GENE1609X,GENE1610X,GENE384X,GENE385X,GENE493X  
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-GR & GENE1125X,GENE3753X,GENE3754X,GENE3755X,GENE3941X,GENE3944X  
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-IG & GENE1537X,GENE1610X,GENE2760X,GENE390X,GENE3943X,GENE493X  
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-RF & GENE1567X,GENE1609X,GENE1610X,GENE1622X,GENE1658X,GENE2462X  
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-SU & GENE1537X,GENE1567X,GENE1609X,GENE385X,GENE3941X,GENE493X  
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-J48 & GENE1125X,GENE1391X,GENE1567X,GENE2996X,GENE3732X,GENE3941X 
-\backslash
-
-\backslash
- 
-\backslash
-hline
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Table 6 listing of genes to justify overlap for for 6 element feature lists
- generated with the 6 feature selection techniques versus the embedded feature
- list generated from J48.
-
-\shape default
- 
-\end_layout
-
 \begin_layout Section*
 Conclusions 
-\end_layout
-
-\begin_layout Standard
-The results of the experiments that we are required to conduct for Assignment
- 4 lead us to conclude the following:
-\end_layout
-
-\begin_layout Itemize
-Not surprisingly, ANOVA shows that choice of classifier, feature selection
- technique and the number of features to select are all significant in the
- resulting AUC value for a classification run.
-\end_layout
-
-\begin_layout Itemize
-ANOVA also shows that the interaction between feature selection technique
- and the number of features to select has an impact on AUC.
-\end_layout
-
-\begin_layout Itemize
-The overlap study we are required to conduct with the genes that the 6 filter
- based feature selection techniques we use and the genes that the J48 classifier
- retain shows GENE1567X is most frequently retained for feature subset size
- 6 for the feature selection techniques we use in this study.
-\end_layout
-
-\begin_layout Itemize
-The choice of classifier and feature selection technique together are important
- to optimize AUC values as we see in Table 3.
- The best feature selection technique to use with the NB classifier is SU,
- whereas the best feature selection technique to use with the 5NN classifier
- is RFW.
 \end_layout
 
 \begin_layout Section*
 Future Research
 \end_layout
 
-\begin_layout Standard
-The Java programs we wrote for this research are flexible in that the lists
- of feature selection techniques and classifiers to use are specified independen
-tly of the program that runs classifications.
- Therefore we can easily expand this work to encompass more filter based
- feature selection techniques, and classifiers.
- In addition the number of features to use is also easily configurable,
- so we could collect more data points for the plots we have in Appendix
- 1.
- 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-29"
+
+\end_inset
+
+Ein-Dor 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Outcome Signature Genes in Breast Cancer: is There a Unique Set?
+\begin_inset Quotes eld
+\end_inset
+
+ in 
+\shape italic
+Bioinformatics
+\shape default
+, vol.
+ 21, no.
+ 2, Oxford University Press, 2004, pp 171-178.
 \end_layout
 
-\begin_layout Standard
-At present, our program only stores a subset of the data in a Weka API Evaluatio
-n object.
- We would like to use Hibernate tools to generate a schema for, and serialize
- all data members of an Evaluation object to database.
- This would more flexibility in enabling researchers to search for more
- results after running experiments where the questions researchers ask after
- running the experiments are not necessarily ones they had in mind before
- conducting their experiments.
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-27"
+
+\end_inset
+
+P.
+ Turney, 
+\begin_inset Quotes eld
+\end_inset
+
+Technical note: Bias and the Quantification of Stability,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Machine Learning
+\shape default
+, vol.
+ 20, pp.
+ 23–33, Boston, 1995.
 \end_layout
 
-\begin_layout Standard
-The results of these experiments show that using NB and 5NN classifiers
- with a feature selection technique enhances performance.
- We are curious to know if we can combine NB and 5NN in a meta-classifier
- with feature selection techniques to get even better performance.
- 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1-1"
+
+\end_inset
+
+K.
+ Dunne 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Solutions to Instability Problems with Sequential Wrapper-Based Approaches
+ To Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in
+\shape italic
+ Journal of Machine Learning Research
+\shape default
+, MIT Press, Cambridge, MA, 2002, pp.
+ 1-22
 \end_layout
 
 \begin_layout Bibliography
@@ -1774,50 +572,72 @@ key "key-22"
 
 \end_inset
 
-I.
- Witten and E.
- Frank, Data Mining (second edition).
- San Francisco: Elsevier, 2005, ch.
- 4 pp.89-91
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-24"
-
-\end_inset
-
-I.
- Witten and E.
- Frank, Data Mining (second edition).
- San Francisco: Elsevier, 2005, ch.
- 4 pp.128-136
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-20"
-
-\end_inset
-
-J.
- R.
- Wald, T.
- M.
- Khoshgoftaar, A.
- Abu Shanab, 
+A.
+ Kalousis 
+\shape italic
+et al
+\shape default
+., 
 \begin_inset Quotes eld
 \end_inset
 
-The Effect of Measurement Approach and Noise Level on Gene Selection Stability,
+Stability of Feature Selection Algorithms,
 \begin_inset Quotes erd
 \end_inset
 
- in IEEE International Conference on Bioinformatics and Biomedicine (BIBM),
- Philadelphia, PA, 2012.
- doi: 10.1109/BIBM.2012.6392713
+ in 
+\shape italic
+Fifth IEEE International Conference on Data Mining (ICDM’05)
+\shape default
+, Houston, TX, 2005, pp 218-225.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+L.
+ Kuncheva, 
+\begin_inset Quotes eld
+\end_inset
+
+A Stability Index for Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Proceedings of the 25th IASTED International Multi-Conference
+\shape default
+, Insbruck, Austria, 2007, 390-395.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Y.
+ Saeys 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Robust Feature Selection Using Ensemble Feature Selection Techniques,
+\begin_inset Quotes erd
+\end_inset
+
+ in ECML PKDD Part II, LNAI 5212, Springer-Verlag, Berlin, 2008, pp.
+ 313–325.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -1827,517 +647,313 @@ key "key-2"
 
 \end_inset
 
-I.
- Witten and E.
- Frank, Data Mining (second edition).
- San Francisco: Elsevier, 2005, ch.
- 5 p.169 fig.
- 5.2.
+A.
+ Boulesteix and M.
+ Slawski, 
+\begin_inset Quotes eld
+\end_inset
+
+Stability and Aggregation of Ranked Gene Lists,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Briefings in Bioinformatics
+\shape default
+, vol.
+ 10, Oxford University Press, 2009, pp 556-568.
 \end_layout
 
-\begin_layout Part*
-Appendix 1: Complete Listing of All Graphs
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3-1"
+
+\end_inset
+
+Gulgezen 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Stable and Accurate Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in
+\shape italic
+ ECML PKDD 2009, Part I, LNAI 5781, 
+\shape default
+Eds.
+ JW.
+ Buntine
+\shape italic
+ et al.,
+\shape default
+ Springer Verlag, Berlin, 2009, pp 455-468.
 \end_layout
 
-\begin_layout Subsubsection*
-5NN with CS Attribute Selection
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+S.
+ Alelyani 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+A Dilemma in Assessing Stability of Feature Selection Algorithms,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+IEEE International Conf.
+ High Performance Computing and Communications
+\shape default
+, 2011, pp.
+ 701-707.
 \end_layout
 
-\begin_layout Paragraph*
-Error Rates
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+K.
+ Gao 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Impact of Data Sampling on Stability of Feature Selection for Software Measureme
+nt Data,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+23rd IEEE International Conference on Tools with Artificial Intelligence
+\shape default
+, 2011, pp.
+ 1004-1011.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/5NN-with-CS/gnuplot.gplt.ps
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+H.
+ Wang 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Measuring Robustness of Feature Selection Techniques on Software Engineering
+ Datasets,
+\begin_inset Quotes erd
+\end_inset
+
+ in IEEE International Conf.
+ Information Reuse Integration (IRI), Las Vegas, NV., 2011, pp.
+ 309-314.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+R.
+ Wald 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+The Effect of Measurement Approach and Noise Level on Gene Selection Stability,
+\begin_inset Quotes erd
+\end_inset
+
+ in IEEE International Conference on Bioinformatics and Biomedicine (BIBM),
+ 2012, pp 420-424.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+H.
+ Wang 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+A Study of Software Metric Selection Techniques: Stability Analysis and
+ Defect Prediction Model Performance,
+\begin_inset Quotes erd
+\end_inset
+
+ in International Journal on Artificial Intelligence Tools, World Scientific
+ Publishing Company, 2012, pp-1-23.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7-1"
+
+\end_inset
+
+W.
+ Awada 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+The Effect of Number of Iterations on Ensemble Gene Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in 11th International Conference on Machine Learning and Applications (ICMLA),
+ vol.
+ 2, 2012, pp 198-203.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+R.
+ Wald 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Comparison of Stability for Different Families of Filter-Based and Wrapper-Based
+ Feature Selection,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+12th International Conference on Machine Learning and Applications
+\shape default
+, Miami, FL, 2013.
+ pp 457-464.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+W.
+ Awada 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+A Review of the Stability of Feature Selection Techniques for Bioinformatics
+ Data,
+\begin_inset Quotes erd
+\end_inset
+
+ 2014.
+ Available [online] 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://digitool.fcla.edu/view/action/singleViewer.do?dvs=1414870625593~543&locale=e
+n_US&VIEWER_URL=/view/action/singleViewer.do?&DELIVERY_RULE_ID=7&adjacency=N&appl
+ication=DIGITOOL-3&frameId=1&usePid1=true&usePid2=true
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-
-\shape italic
-Figure 1
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-CS/gnuplot.gplt.ps
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-14"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
+D.
+ Dernoncourt 
 \shape italic
-Figure 2
-\end_layout
+et al.
+\shape default
+,
+\shape italic
+ 
+\shape default
 
-\begin_layout Subsubsection*
-5NN with GR Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/5NN-with-GR/gnuplot.gplt.ps
-
+\begin_inset Quotes eld
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 3
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-GR/gnuplot.gplt.ps
-
+Analysis of feature selection stability on high dimension and small sample
+ data,
+\begin_inset Quotes erd
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
+ in 
 \shape italic
-Figure 4
-\end_layout
-
-\begin_layout Subsubsection*
-5NN with IG Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/5NN-with-IG/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 5
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-IG/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 6
-\end_layout
-
-\begin_layout Subsubsection*
-5NN with RF Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/5NN-with-RF/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 7
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-RF/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 8
-\end_layout
-
-\begin_layout Subsubsection*
-5NN with RFW Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/5NN-with-RFW/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 9
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-RFW/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 10
-\end_layout
-
-\begin_layout Subsubsection*
-5NN with SU Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/5NN-with-SU/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 11
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-5NN-with-SU/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 12
-\end_layout
-
-\begin_layout Subsubsection*
-NB with CS Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-CS/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 13
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-NB-with-CS/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 14
-\end_layout
-
-\begin_layout Subsubsection*
-NB with GR Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-GR/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 15
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-NB-with-GR/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 16
-\end_layout
-
-\begin_layout Subsubsection*
-NB with IG Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-IG/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 17
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-NB-with-IG/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 18
-\end_layout
-
-\begin_layout Subsubsection*
-NB with RF Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-RF/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 19
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-NB-with-RF/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 20
-\end_layout
-
-\begin_layout Subsubsection*
-NB with RFW Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-RFW/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 21
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-NB-with-RFW/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 22
-\end_layout
-
-\begin_layout Subsubsection*
-NB with SU Attribute Selection
-\end_layout
-
-\begin_layout Paragraph*
-Error Rates
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/NB-with-SU/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 23
-\end_layout
-
-\begin_layout Paragraph*
-AUC
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/data-mining/assignments/assignment-4/java-output/AUC-NB-with-SU/gnuplot.gplt.ps
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Figure 24
+Computational Statistics and Data Analysis
+\shape default
+, vol.
+ 71, Elsevier, 2014, pp.
+ 681-693.
 \end_layout
 
 \end_body

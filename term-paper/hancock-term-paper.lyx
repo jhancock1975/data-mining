@@ -84,42 +84,387 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-What about looking at the samples/results as points in a space and computing
- cosine of angles between them? Might take less computation.
+We found it useful to read over 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-29"
+
+\end_inset
+
+, to get an idea about why the stability of feature selection techniques
+ is important.
+ In this work, Ein-Dor 
+\shape italic
+et al
+\shape default
+.
+ discuss how 70 genes serve as good predictors for patients that would survive
+ breast cancer.
+ The trouble is that depending on which subset of micro-array data the researche
+rs use, they obtain a different set of (correlated) genes that serves as
+ the predictor.
+ This is troubling in the sense that we cannot be confident that the set
+ of genes a study finds is a predictor for cancer survivability is one that
+ will predict a randomly chosen individual's chances.
+ Perhaps that individual has a set of genes that is correlated to those
+ found in a study, but none of the particular genes that the study finds.
+ Under this scenario, we are likely to classify the individual as a false
+ negative.
+ It is scenarios such as these that motivate researchers to look for stable
+ feature selection techniques.
 \end_layout
 
 \begin_layout Standard
-We were not able to find work for evaluating stability of feature selection
- techniques using cosine similarity.
- We find one work using cosine similartiy as a feature selection technique,
- and other works for using the cosine function to extract features of retina
- for biometric identification.
+The earliest notion of stability we find is from Turney, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-27"
+
+\end_inset
+
+ given in 1995.
+ In this work, Turney is interested in decision trees, and the stability
+ of features that decision tree algorithms retain as they build classifiers.
+ Turney is more interested in the stability of learners than feature selection
+ techniques.
+ In the case of decision trees, the stability of the learner is related
+ to the stability of the feature selection technique because feature selection
+ is embedded into decision tree algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+.
+ However, Turney's method of calulating stability involves giving the same
+ input to different learners and comparing the output classification that
+ the learners produce for the input.
+ Turney's approach is not necessarily appropriate for feature selection,
+ where we have a discrete set of features to select from for inclusion as
+ input values to a classifier.
+ 
 \end_layout
 
 \begin_layout Standard
-Why stability?
+We believe Turney's work on classifier stability inspires later work on
+ feature selection stability.
+ For example, it is possible to use a classifier for feature selection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+.
+ However, we can use formulas that take into account more aspects of feature
+ subsets than what Turney provides for calculating the stability of a learner.
+ This work is a survey of the evolution of methods for calculating the stability
+ of feature selection techniques.
 \end_layout
 
 \begin_layout Standard
-small n large p problem [boulestix and slawski]
+The first example we find of researchers evaluating the stability of feature
+ selection techniques is from Dunne 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+, from 2002.
+ Dunne 
+\shape italic
+et al.
+
+\shape default
+ propose a method of evaluating the stability of features selection techniques
+ based on applying the same feature selection technique to different resampled
+ subsets of input data, and evaluating the differences in features selected.
+ At this point, we would like to stress the fact that the method Dunne 
+\shape italic
+et al.
+
+\shape default
+ use compares variation between different instances of the output of a feature
+ selection algorithm.
+ The difference between the approach of Dunne 
+\shape italic
+et al.
+
+\shape default
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+and the approach of Alelyani 
+\shape italic
+et al.
+
+\shape default
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ is that Aleyani 
+\shape italic
+et al.
+
+\shape default
+ are taking variation in the input data of the feature selection technique
+ into consideration.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+ stability metric prposed in 
+\shape italic
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+
+\shape default
+ :
+\begin_inset Formula \begin{equation}
+\hat{H}=\frac{2}{N\cdot W\cdot\left(W-1\right)}\sum_{i=1}^{W}\sum_{j=i+1}^{W}\sum_{k=1}^{N}\left|m_{ik}-m_{jk}\right|\label{eq:1}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dunne 
+\shape italic
+et al.
+
+\shape default
+ are interested in improving the stability of wrapper feature selection
+ techniques because they believe wrapper based feature selection techniques
+ have better performance than filter based feature selection techniques.
+ Their goal is to get the better accuracy we have with wrapper based feature
+ selection techniques while improving their stability.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+Dunne 
+\shape italic
+et al
+\shape default
+.
+ are working with relatively small feature sets - sets with between 13 and
+ 126 attributes.
+ A later review of feature selection techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+, points out that wrapper based methods are computationally expensive.
+ Wrapper based techniques build classifiers to evaluate feature subsets.
+ Bioinformatic datasets can have 
+\begin_inset Formula $O\left(10^{4}\right)$
+\end_inset
+
+features, so in order to apply a wrapper based technique for say, subsets
+ of size two, we would need to apply a classifier to 
+\begin_inset Formula $O\left(10\right)^{8}$
+\end_inset
+
+possible subsets of size two.
+ This would cost a significant amount of time, for classifier running times
+ on the order of seconds (there are 
+\begin_inset Formula $2.6\times10^{6}$
+\end_inset
+
+ seconds in a month).
+ Later work we find on feature selection statbility metrics involves datasets
+ with larger numbers of features; feature sets that are on the order of
+ 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ features.
+ Therefore Dunne 
+\shape italic
+et al.
+\shape default
+'s work is important for providing a methodological framework for evaluation
+ the stability of feature selection techniques.
+ However, given the size of bioinformatic dataset feature sets, wrapper
+ based approaches may be too computationally intensive.
+\end_layout
+
+\begin_layout Standard
+The feature selection techniques Dunne 
+\shape italic
+et al
+\shape default
+.
+ use are forward sequential selection (FSS), backward sequential selection
+ (BSS) and random hill climbing search (RHC).
+\end_layout
+
+\begin_layout Standard
+Chronologocially, the next work on the stability of feature selection techniques
+ that we find is a work by A.
+ Kalousis et al.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+.
+ This work investigates the application of three different measures of stability
+ using well known feature selection techniques in the Weka tool.
+ The authors are interested in the stability of feature selection techniques
+ for reasons discuss above; namely that practicioners are not confident
+ to assign resources to investigate possible models that are sensitive to
+ their input feature sets.
+ The stability metrics the authors use are Pearson's correlation coefficient:
+\begin_inset Formula \[
+S_{w}\left(w,w^{\prime}\right)=\frac{\sum_{i}\left(w_{i}-\mu_{w}\right)\left(w_{i}^{\prime}-\mu_{w^{\prime}}\right)}{\sqrt{\sum_{i}\left(w_{i}-\mu_{w}\right)^{2}\sum_{i}\left(w_{i}^{\prime}-\mu_{w^{\prime}}\right)^{2}}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spearman's rank coefficient:
+\begin_inset Formula \[
+S_{R}\left(r,r^{\prime}\right)=1-6\sum_{i}\frac{\left(r_{i}-r_{i}^{\prime}\right)^{2}}{m\left(m^{2}-1\right)}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And the Tanimoto distance between two sets:
+\begin_inset Formula \[
+S_{s}\left(s,s^{\prime}\right)=1-\frac{\left|s\right|+\left|s^{\prime}\right|-2\left|s\cap s^{\prime}\right|}{\left|s\right|+\left|s^{\prime}\right|-\left|s\cap s^{\prime}\right|}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ Kalousis et al.
+ report that stability results for 
+\begin_inset Formula $S_{w}$
+\end_inset
+
+ are confusing because they include information about all elements in the
+ feature set.
+ For 
+\begin_inset Formula $S_{w}$
+\end_inset
+
+ the 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{i}^{\prime}$
+\end_inset
+
+ are weightings that a feature selection algorithm gives to each feature
+ in a feature set, and the 
+\begin_inset Formula $\mu_{w}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{w^{\prime}}$
+\end_inset
+
+ are mean weights for all features.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ Kalousis et al.
+ also report that trouble with 
+\begin_inset Formula $S_{R}$
+\end_inset
+
+ because some of the feature selection techniques they use assign equal
+ ranks, that is, 
 \begin_inset Quotes eld
 \end_inset
 
-The second motivation for assessing the stability of ranking procedures
- is that stability provides an objective critereon for computing the minimal
- sample size required in an experiment.
+tie,
 \begin_inset Quotes erd
 \end_inset
 
+ ranks to many low ranking features.
+ So, calculatins for 
+\begin_inset Formula $S_{R}$
+\end_inset
 
+can also end up including information about more features that a feature
+ selection technique actually chooses.
 \end_layout
 
 \begin_layout Standard
-Duenne et al.
- write that wrapper techniques outperform, but are unstable [
+For these reasons, Kalousis et al.
+ prefer the feature selection technique that deals with selected featuer
+ subsets exclusively, which is the Tanimoto distance between sets, 
+\begin_inset Formula $S_{s}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ is also the first paper we reviewed that involves datasets similar to 
 \end_layout
 
 \begin_layout Section*
@@ -141,7 +486,60 @@ Future Research
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-4"
+key "key-29"
+
+\end_inset
+
+Ein-Dor 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Outcome Signature Genes in Breast Cancer: is There a Unique Set?
+\begin_inset Quotes eld
+\end_inset
+
+ in 
+\shape italic
+Bioinformatics
+\shape default
+, vol.
+ 21, no.
+ 2, Oxford University Press, 2004, pp 171-178.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-27"
+
+\end_inset
+
+P.
+ Turney, 
+\begin_inset Quotes eld
+\end_inset
+
+Technical note: Bias and the Quantification of Stability,
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\shape italic
+Machine Learning
+\shape default
+, vol.
+ 20, pp.
+ 23–33, Boston, 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1-1"
 
 \end_inset
 
@@ -174,8 +572,12 @@ key "key-22"
 
 \end_inset
 
-.A.
- Kalousis et al., 
+A.
+ Kalousis 
+\shape italic
+et al
+\shape default
+., 
 \begin_inset Quotes eld
 \end_inset
 
@@ -187,7 +589,7 @@ Stability of Feature Selection Algorithms,
 \shape italic
 Fifth IEEE International Conference on Data Mining (ICDM’05)
 \shape default
-, Houston, TX, 2005, pp 218-225
+, Houston, TX, 2005, pp 218-225.
 \end_layout
 
 \begin_layout Bibliography
@@ -211,6 +613,31 @@ A Stability Index for Feature Selection,
 Proceedings of the 25th IASTED International Multi-Conference
 \shape default
 , Insbruck, Austria, 2007, 390-395.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Y.
+ Saeys 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+Robust Feature Selection Using Ensemble Feature Selection Techniques,
+\begin_inset Quotes erd
+\end_inset
+
+ in ECML PKDD Part II, LNAI 5212, Springer-Verlag, Berlin, 2008, pp.
+ 313–325.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -241,7 +668,7 @@ Briefings in Bioinformatics
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-10"
+key "key-3-1"
 
 \end_inset
 
@@ -357,12 +784,16 @@ Measuring Robustness of Feature Selection Techniques on Software Engineering
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-11"
+key "key-6"
 
 \end_inset
 
 R.
- Wald et al., 
+ Wald 
+\shape italic
+et al
+\shape default
+., 
 \begin_inset Quotes eld
 \end_inset
 
@@ -377,12 +808,41 @@ The Effect of Measurement Approach and Noise Level on Gene Selection Stability,
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-12"
+key "key-2"
+
+\end_inset
+
+H.
+ Wang 
+\shape italic
+et al
+\shape default
+., 
+\begin_inset Quotes eld
+\end_inset
+
+A Study of Software Metric Selection Techniques: Stability Analysis and
+ Defect Prediction Model Performance,
+\begin_inset Quotes erd
+\end_inset
+
+ in International Journal on Artificial Intelligence Tools, World Scientific
+ Publishing Company, 2012, pp-1-23.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7-1"
 
 \end_inset
 
 W.
- Awada et al., 
+ Awada 
+\shape italic
+et al
+\shape default
+., 
 \begin_inset Quotes eld
 \end_inset
 
@@ -469,7 +929,7 @@ key "key-14"
 
 \end_inset
 
-.D.
+D.
  Dernoncourt 
 \shape italic
 et al.
