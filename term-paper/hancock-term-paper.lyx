@@ -56,7 +56,8 @@
 \begin_body
 
 \begin_layout Title
-Term Paper
+Evaluation and Application of Feature Set Stability Metrics on High Dimensionali
+ty Datasets
 \end_layout
 
 \begin_layout Standard
@@ -79,8 +80,50 @@ jhancoc4@fau.edu
 Abstract
 \end_layout
 
+\begin_layout Standard
+This work procedes from the feature selection technique stability metric
+ Alelyani 
+\shape italic
+et.
+ al
+\shape default
+ propose in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+ We discuss the evolution of methods for calculating the stability of feature
+ selection techniques, attempt to reproduce results, and compare Alelyani
+ 
+\shape italic
+et al.'
+\shape default
+s method for calculating stability to Kuncheva's 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5555"
+
+\end_inset
+
+.
+ We provide links to publicly available, Java source code we wrote for calcluati
+ng Kuncheva's stability index for a set of sequences of features, as well
+ as the source code we wrote for calculating Alelyani 
+\shape italic
+et al.'
+\shape default
+s average pairwise similarity.
+\end_layout
+
 \begin_layout Part*
 Introduction
+\end_layout
+
+\begin_layout Section*
+Why the Stability of Feature Selection Techniques Matters
 \end_layout
 
 \begin_layout Standard
@@ -101,21 +144,30 @@ et al
  discuss how 70 genes serve as good predictors for patients that would survive
  breast cancer.
  The trouble is that depending on which subset of micro-array data the researche
-rs use, they obtain a different set of (correlated) genes that serves as
- the predictor.
+rs use, they obtain a different set of correlated genes that serves as the
+ predictor.
  This is troubling in the sense that we cannot be confident that the set
- of genes a study finds is a predictor for cancer survivability is one that
- will predict a randomly chosen individual's chances.
+ of genes a study finds is one that will predict a randomly chosen individual's
+ chances for surviving cancer.
  Perhaps that individual has a set of genes that is correlated to those
  found in a study, but none of the particular genes that the study finds.
  Under this scenario, we are likely to classify the individual as a false
  negative.
  It is scenarios such as these that motivate researchers to look for stable
- feature selection techniques.
+ feature selection techniques for classifier input data.
+\end_layout
+
+\begin_layout Section*
+Modeling and Stability 
+\end_layout
+
+\begin_layout Subsection*
+Turney
 \end_layout
 
 \begin_layout Standard
-The earliest notion of stability we find is from Turney, 
+The earliest notion of stability as it relates to classifiers that we find
+ is from Turney, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-27"
@@ -125,8 +177,8 @@ key "key-27"
  given in 1995.
  In this work, Turney is interested in decision trees, and the stability
  of features that decision tree algorithms retain as they build classifiers.
- Turney is more interested in the stability of learners than feature selection
- techniques.
+ Turney is interested in the stability of learners, and not the stability
+ of feature selection techniques.
  In the case of decision trees, the stability of the learner is related
  to the stability of the feature selection technique because feature selection
  is embedded into decision tree algorithms 
@@ -161,6 +213,12 @@ key "key-8"
  subsets than what Turney provides for calculating the stability of a learner.
  This work is a survey of the evolution of methods for calculating the stability
  of feature selection techniques.
+\end_layout
+
+\begin_layout Subsection*
+Dunne 
+\shape italic
+et al.
 \end_layout
 
 \begin_layout Standard
@@ -297,8 +355,12 @@ features, so in order to apply a wrapper based technique for say, subsets
 \end_inset
 
 possible subsets of size two.
- This would cost a significant amount of time, for classifier running times
- on the order of seconds (there are 
+ This would cost a significant amount of time, even for classifier running
+ times on the order of 
+\begin_inset Formula $10^{-2}$
+\end_inset
+
+seconds (there are 
 \begin_inset Formula $2.6\times10^{6}$
 \end_inset
 
@@ -330,10 +392,23 @@ et al
  (BSS) and random hill climbing search (RHC).
 \end_layout
 
+\begin_layout Subsection*
+A.
+ Kalousis 
+\shape italic
+et al
+\shape default
+.
+\end_layout
+
 \begin_layout Standard
 Chronologocially, the next work on the stability of feature selection techniques
  that we find is a work by A.
- Kalousis et al.
+ Kalousis 
+\shape italic
+et al
+\shape default
+.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-22"
@@ -344,9 +419,11 @@ key "key-22"
  This work investigates the application of three different measures of stability
  using well known feature selection techniques in the Weka tool.
  The authors are interested in the stability of feature selection techniques
- for reasons discuss above; namely that practicioners are not confident
+ for reasons discussed above; namely that practicioners are not confident
  to assign resources to investigate possible models that are sensitive to
  their input feature sets.
+ In their conclusinos, they also pitch their methodology as the first framework
+ for evaluating the stability of feature selection techniques.
  The stability metrics the authors use are Pearson's correlation coefficient:
 \begin_inset Formula \[
 S_{w}\left(w,w^{\prime}\right)=\frac{\sum_{i}\left(w_{i}-\mu_{w}\right)\left(w_{i}^{\prime}-\mu_{w^{\prime}}\right)}{\sqrt{\sum_{i}\left(w_{i}-\mu_{w}\right)^{2}\sum_{i}\left(w_{i}^{\prime}-\mu_{w^{\prime}}\right)^{2}}}\]
@@ -368,8 +445,8 @@ S_{R}\left(r,r^{\prime}\right)=1-6\sum_{i}\frac{\left(r_{i}-r_{i}^{\prime}\right
 
 \begin_layout Standard
 And the Tanimoto distance between two sets:
-\begin_inset Formula \[
-S_{s}\left(s,s^{\prime}\right)=1-\frac{\left|s\right|+\left|s^{\prime}\right|-2\left|s\cap s^{\prime}\right|}{\left|s\right|+\left|s^{\prime}\right|-\left|s\cap s^{\prime}\right|}\]
+\begin_inset Formula \begin{equation}
+S_{s}\left(s,s^{\prime}\right)=1-\frac{\left|s\right|+\left|s^{\prime}\right|-2\left|s\cap s^{\prime}\right|}{\left|s\right|+\left|s^{\prime}\right|-\left|s\cap s^{\prime}\right|}\label{eq:2}\end{equation}
 
 \end_inset
 
@@ -458,17 +535,422 @@ For these reasons, Kalousis et al.
 \end_layout
 
 \begin_layout Standard
+Kalousis 
+\shape italic
+et al.
+
+\shape default
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-22"
 
 \end_inset
 
- is also the first paper we reviewed that involves datasets similar to 
+ is also the first paper we reviewed that involves datasets with dimensionality
+ similar to the datasets in Alelyani 
+\shape italic
+et al
+\shape default
+.
+ Kalousis 
+\shape italic
+et al
+\shape default
+.
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+ report that they use datasets with 824, 2,200, and 4,928 features, respectively.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+we have one dataset that has 5,748 features.
+ However in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ the authors use datasets that are an order of magnitude greater than the
+ largest used in Kalousis 
+\shape italic
+et al
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In the results of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+, Kalousis 
+\shape italic
+et al.
+
+\shape default
+ the authors write they are more interested in 
+\begin_inset Formula $S_{s}$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+ because it involves the output of feature selection techniques, subsets
+ of features, rather than 
+\begin_inset Formula $S_{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{w}$
+\end_inset
+
+ that look at ranks and weights and involve the entire feature set.
+ This is interesting because a few years after Kalousis 
+\shape italic
+et al
+\shape default
+.
+ publish 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+, in 2007 Kuncheva 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5555"
+
+\end_inset
+
+ publishes a highly referenced technique for measuring the stability of
+ feature selection techniques, that also involves only the features a feature
+ selection technique provides.
+\end_layout
+
+\begin_layout Subsection*
+Kuncheva
+\end_layout
+
+\begin_layout Standard
+At the time of this writing, a Google Scholar search for 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5555"
+
+\end_inset
+
+ reports 156 citataions.
+ We are curious as to a reason for the relative popularity of Kuncheva's
+ stability index.
+ A similar Google Scholar search for the basis of this term paper, the work
+ of Alelyani 
+\shape italic
+et al
+\shape default
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+, the main topic of which is also a method for calculating the stability
+ of a feature selection techniques, reports 7 citations.
+ 
+\end_layout
+
+\begin_layout Standard
+In the introduction to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5555"
+
+\end_inset
+
+Kuncheva writes that previous studies by Dunne et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1-1"
+
+\end_inset
+
+, and Kalousis 
+\shape italic
+et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Note: we made sure to check that Kuncheva's references and ours refer to
+ the same works.
+\end_layout
+
+\end_inset
+
+ 
+\shape default
+pay little attention to, 
+\begin_inset Quotes eld
+\end_inset
+
+...the stability of the estimate of the critereon value.
+\begin_inset Quotes erd
+\end_inset
+
+ which we interpret as meaning the stability of the metric for feature selection
+ as we change the input values (feature subsets) that we apply stability
+ metrics to.
+ 
+\end_layout
+
+\begin_layout Standard
+Kuncheva's stability index relies on another metric she introduces in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5555"
+
+\end_inset
+
+, the consistency index.
+ The consistency index is calcualted as
+\begin_inset Formula \begin{equation}
+I_{C}\left(A,B\right)=\frac{rn-k^{2}}{k\left(n-k\right)}\label{eq:3}\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are subsets of some feature set 
+\begin_inset Formula $X$
+\end_inset
+
+ , 
+\begin_inset Formula $\left|A\cap B\right|=r$
+\end_inset
+
+, 
+\begin_inset Formula $\left|X\right|=n$
+\end_inset
+
+, and 
+\begin_inset Formula $\left|A\right|=\left|B\right|=k$
+\end_inset
+
+.
+ Because the value of 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+involves the size of the intersection of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ , and it is in the numerator of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3"
+
+\end_inset
+
+, feature sets with more elements in common will have a higher consistency
+ index value.
+ In our opinion, this is why we think Kuncheva writes about the stability
+ of the estimate of the criteron value; she is proposing a metric that the
+ incorporates a factor for overlap of sets so that the output value will
+ be linearly proportional to the size of the overlap.
+ 
+\end_layout
+
+\begin_layout Standard
+Perhaps Kuncheva's design of a formula for stability that is itself stabie
+ is a reason for the popularity of Kuncheva's stability index.
+\end_layout
+
+\begin_layout Standard
+We found another reason for the popularity of Kuncheva's stability index
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+by Wang, 
+\shape italic
+et al
+\shape default
+.
+ There the authors mention that Kuncheva's consistency index, which is the
+ main component of the stability index, takes into consideration bias due
+ to chance.
+ We think that perhaps the authors are referring to what Kuncheva defines
+ as the stability index:
+\begin_inset Formula \[
+\mathcal{I_{\mathit{S}}\left(\mathcal{A\left(\mathit{k}\right)}\right)}=\frac{2}{K\left(K-1\right)}\sum_{i=1}^{K-1}\sum_{j=i+1}^{K}I_{c}\left(S_{i}\left(k\right),S_{j}\left(k\right)\right)\]
+
+\end_inset
+
+ which is a summation of consistency index values.
+ It makes sense that 
+\begin_inset Formula $\mathcal{I}_{S}$
+\end_inset
+
+can handle bias due to chance because if 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{j}$
+\end_inset
+
+ are randomly selected subsets, quantities that are artifacts of the random
+ chance in terms of the size of the intersection if 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{j}$
+\end_inset
+
+ will have a tendency to cancel one and other over a summation with a sufficentl
+y large number of terms.
 \end_layout
 
 \begin_layout Section*
 Methodology
+\end_layout
+
+\begin_layout Standard
+The authors of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ generate 10 folds of sampled data and each fold has 25% of instances.
+ This seems like we end up with very small sets of input instances because
+ the datasets have between 85 and 185 instances.
+ Our technique of probabilistic noise injection may break down due to such
+ a small number of instances.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ the authors report that they used feature list of size 1% of the total
+ number of features, so we do the same.
+\end_layout
+
+\begin_layout Part*
+Results
+\end_layout
+
+\begin_layout Part*
+Future Research
+\end_layout
+
+\begin_layout Standard
+The way the average pairwise similarity sums over the intersections of classes
+ in sub-datasets lends itself to the MapReduce framework.
+\end_layout
+
+\begin_layout Section*
+Questions for Authors
+\end_layout
+
+\begin_layout Standard
+How big is the size of a sample when they write, 
+\begin_inset Quotes eld
+\end_inset
+
+In order to do this, we randomly sample X1 from the original dataset X.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It seems like identical folds will have a non-0 similarity because we sum
+ distance between all possible pairs of vectors in folds.
+ Since we are comparing all pairs, we will compare non equal vectors, and
+ the distances between these vectors will be non-0, and contribute to the
+ sum.
+\end_layout
+
+\begin_layout Standard
+Did you sample with replacement, or without replacement?
+\end_layout
+
+\begin_layout Standard
+Khoshgoftaar in his lecture on, 
+\begin_inset Quotes eld
+\end_inset
+
+Overcoming big data challenges,
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-111,key-777"
+
+\end_inset
+
+ spoke about using sampling without replacement when injecting noise into
+ micro array data, So we did the same here.
+\end_layout
+
+\begin_layout Standard
+In figure 3(b) it is not clear what the level of peturbation is.
 \end_layout
 
 \begin_layout Section*
@@ -481,6 +963,10 @@ Conclusions
 
 \begin_layout Section*
 Future Research
+\end_layout
+
+\begin_layout Standard
+Look at distance between centroids of feature sets.
 \end_layout
 
 \begin_layout Bibliography
@@ -595,7 +1081,7 @@ Fifth IEEE International Conference on Data Mining (ICDM’05)
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-1"
+key "key-5555"
 
 \end_inset
 
@@ -827,7 +1313,8 @@ A Study of Software Metric Selection Techniques: Stability Analysis and
 \end_inset
 
  in International Journal on Artificial Intelligence Tools, World Scientific
- Publishing Company, 2012, pp-1-23.
+ Publishing Company, 2012, pp.
+ 1-23.
 \end_layout
 
 \begin_layout Bibliography
@@ -954,6 +1441,49 @@ Computational Statistics and Data Analysis
 , vol.
  71, Elsevier, 2014, pp.
  681-693.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-777"
+
+\end_inset
+
+T.
+ Khoshgoftaar, Lecture on 
+\begin_inset Quotes eld
+\end_inset
+
+Overcoming Big Data Challenges 2013 SEKE Keynote,
+\begin_inset Quotes erd
+\end_inset
+
+ Presented 2 October, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-111"
+
+\end_inset
+
+T.
+ Khoshgoftaar, 
+\begin_inset Quotes eld
+\end_inset
+
+Overcoming Big Data Challenges,
+\begin_inset Quotes erd
+\end_inset
+
+ in Keynote speech, 25th International Conference on Software Engineering
+ & Knowledge Engineering
+\begin_inset Quotes erd
+\end_inset
+
+ 2013.
 \end_layout
 
 \end_body
